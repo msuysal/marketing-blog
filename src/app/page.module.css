@@ -78,12 +78,14 @@
 }
 
 .heroImg {
-  width: 100%;
+  width: 110%;
+  /* Slightly oversized for a bleed effect */
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   padding: 0;
-  opacity: 0.9;
-  transition: all 0.6s ease;
+  transition: all 0.8s ease;
+  mix-blend-mode: multiply;
+  /* Helps the white background of the image blend into the site background */
 }
 
 .heroIllustration:hover .heroImg {
