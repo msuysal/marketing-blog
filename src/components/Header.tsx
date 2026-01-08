@@ -11,7 +11,6 @@ const Header = () => {
                 <div className={styles.topContainer}>
                     <span className={styles.date}>{new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                     <div className={styles.topLinks}>
-                        <div className={styles.tagline}>Systemic Growth Architecting by Olgu Uysal</div>
                     </div>
                 </div>
             </div>

@@ -13,8 +13,8 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
-            Architecting <br />
-            Modern <span className="highlight">Marketing</span>
+            Structural <br />
+            Logic for <span className="highlight">Marketing</span>
           </h1>
           <div className={styles.heroContent}>
             <p className={styles.heroBody}>
