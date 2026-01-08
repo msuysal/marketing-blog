@@ -12,15 +12,15 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
-            Marketing System <br />
-            Design <span className={styles.byLine}>by Olgu Uysal</span>
+            Architecting <br />
+            Sustainable <span className="highlight">Inquiry</span>
           </h1>
           <div className={styles.heroContent}>
             <p className={styles.heroBody}>
-              From behavioral systems and AI-driven decision logic to the ethics of influence, we explore how systems architecture is redefining modern growth.
+              Deconstructing marketing into interconnected systems. We explore how emerging architectures and value frameworks can help us think, question, and build with purpose.
             </p>
           </div>
-          <Link href="/manifesto" className={styles.heroCta}>READ THE MANIFESTO &rarr;</Link>
+          <Link href="/manifesto" className={styles.heroCta}>EXPLORE THE PERSPECTIVE &rarr;</Link>
         </div>
 
         <div className={styles.heroIllustration}>

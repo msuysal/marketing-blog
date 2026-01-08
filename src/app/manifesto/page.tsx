@@ -5,8 +5,8 @@ export default function Manifesto() {
     return (
         <main className={styles.container}>
             <div className={styles.content}>
-                <span className={styles.label}>Identity & Purpose</span>
-                <h1 className={styles.title}>The Marketing Architecture Manifesto</h1>
+                <span className={styles.label}>Purpose & Inquiry</span>
+                <h1 className={styles.title}>The Systemic Perspective</h1>
 
                 <div className={styles.lead}>
                     <p>
