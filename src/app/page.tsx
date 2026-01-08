@@ -24,7 +24,7 @@ export default function Home() {
         </div>
 
         <div className={styles.heroIllustration}>
-          <img src="/hero-illustration-new.png" alt="Marketing Systems Architecture" className={styles.heroImg} />
+          <img src="/hero-global-inquiry.png" alt="Global Marketing Systems and Network Inquiry" className={styles.heroImg} />
         </div>
       </section>
 
