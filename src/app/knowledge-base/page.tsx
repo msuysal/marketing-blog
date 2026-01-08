@@ -9,7 +9,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 function KnowledgeBaseContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
-    const currentTags = searchParams.get("tag")?.split(",").filter(Boolean) || [];
+    const currentTags = (searchParams.get("tag")?.split(",").filter(Boolean) || [])
+        .filter(tag => tag !== "Case Study");
 
     // Filter out posts that are Case Studies
     const articlePosts = posts.filter(post => !post.tags.includes("Case Study"));
@@ -41,16 +42,22 @@ function KnowledgeBaseContent() {
             <aside className={styles.sidebar}>
                 <div className={styles.sidebarHeader}>
                     <h3>The Index</h3>
-                    <button onClick={() => router.push("/knowledge-base")} className={styles.clearBtn} disabled={currentTags.length === 0}>
+                    <button
+                        onClick={() => router.push("/knowledge-base")}
+                        className={styles.clearBtn}
+                        disabled={currentTags.length === 0}
+                        aria-label="Clear all active filters"
+                    >
                         Reset
                     </button>
                 </div>
                 <ul className={styles.tagList}>
-                    {allTags.map((tag) => (
+                    {articleTags.map((tag) => (
                         <li key={tag}>
                             <button
                                 onClick={() => handleTagClick(tag)}
                                 className={`${styles.tagBtn} ${currentTags.includes(tag) ? styles.activeTag : ""}`}
+                                aria-pressed={currentTags.includes(tag)}
                             >
                                 {tag}
                             </button>
@@ -58,7 +65,7 @@ function KnowledgeBaseContent() {
                     ))}
                 </ul>
                 <div className={styles.sidebarFooter}>
-                    <p>Foundation Archive / Vol. 1</p>
+                    <p aria-hidden="true">Foundation Archive / Vol. 1</p>
                 </div>
             </aside>
 
@@ -69,7 +76,7 @@ function KnowledgeBaseContent() {
                         {currentTags.length > 0 ? (
                             <span>Selected Filters: {currentTags.map(t => <span key={t} className="highlight" style={{ marginRight: '0.5rem' }}>{t}</span>)} &mdash; {filteredPosts.length} Articles</span>
                         ) : (
-                            <span>All Foundation Articles &mdash; {posts.length} Total</span>
+                            <span>All Foundation Articles &mdash; {articlePosts.length} Total</span>
                         )}
                     </div>
                 </header>

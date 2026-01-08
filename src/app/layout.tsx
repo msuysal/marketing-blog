@@ -31,8 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${newsreader.variable}`}>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <Header />
-        <main style={{ minHeight: "calc(100vh - 400px)" }}>
+        <main id="main-content" style={{ minHeight: "calc(100vh - 400px)" }}>
           {children}
         </main>
         <Footer />

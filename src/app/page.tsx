@@ -4,8 +4,9 @@ import { posts } from "@/lib/posts";
 import GridIllustration from "@/components/GridIllustration";
 
 export default function Home() {
-  const latestPost = posts[0];
-  const otherPosts = posts.slice(1, 4);
+  const articlePosts = posts.filter(post => !post.tags.includes("Case Study"));
+  const latestPost = articlePosts[0];
+  const otherPosts = articlePosts.slice(1, 4);
 
   return (
     <div className={styles.container}>
@@ -13,7 +14,7 @@ export default function Home() {
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
             Architecting <br />
-            Sustainable <span className="highlight">Inquiry</span>
+            Modern <span className="highlight">Marketing</span>
           </h1>
           <div className={styles.heroContent}>
             <p className={styles.heroBody}>
@@ -45,7 +46,7 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.featuredHorizontalLink}>
-            <Link href={`/blog/${latestPost.slug}`} className={styles.readMore}>Read Article &rarr;</Link>
+            <Link href={`/blog/${latestPost.slug}`} className={styles.readMore} aria-label={`Read featured article: ${latestPost.title}`}>Read Article &rarr;</Link>
           </div>
         </article>
       </section>
@@ -53,7 +54,7 @@ export default function Home() {
       <section className={styles.gridSection}>
         <div className={styles.sectionHeader}>
           <h3>Latest Intelligence</h3>
-          <Link href="/knowledge-base">Explore Articles</Link>
+          <Link href="/knowledge-base" aria-label="Explore all articles in the knowledge base">Explore Articles</Link>
         </div>
 
         <div className={styles.grid}>
@@ -88,7 +89,8 @@ export default function Home() {
             <h3>Join the Syndicate</h3>
             <p>Sign-up to newsletter to get alerted whenever there is a new article. We promise, only good stuff here.</p>
             <form className={styles.form} action="https://formspree.io/f/xdakqvgg" method="POST">
-              <input type="email" name="email" placeholder="Enter your email address" required />
+              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+              <input id="newsletter-email" type="email" name="email" placeholder="Enter your email address" required aria-required="true" />
               <button type="submit">Subscribe</button>
             </form>
           </div>

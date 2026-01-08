@@ -38,7 +38,12 @@ function IndustryBestPracticesContent() {
             <aside className={styles.sidebar}>
                 <div className={styles.sidebarHeader}>
                     <h3>Industries</h3>
-                    <button onClick={() => router.push("/industry-best-practices")} className={styles.clearBtn} disabled={currentIndustries.length === 0}>
+                    <button
+                        onClick={() => router.push("/industry-best-practices")}
+                        className={styles.clearBtn}
+                        disabled={currentIndustries.length === 0}
+                        aria-label="Clear all active industry filters"
+                    >
                         Reset
                     </button>
                 </div>
@@ -48,6 +53,7 @@ function IndustryBestPracticesContent() {
                             <button
                                 onClick={() => handleIndustryClick(industry)}
                                 className={`${styles.tagBtn} ${currentIndustries.includes(industry) ? styles.activeTag : ""}`}
+                                aria-pressed={currentIndustries.includes(industry)}
                             >
                                 {industry}
                             </button>
@@ -55,7 +61,7 @@ function IndustryBestPracticesContent() {
                     ))}
                 </ul>
                 <div className={styles.sidebarFooter}>
-                    <p>Foundation Archive / Industry Best Practices</p>
+                    <p aria-hidden="true">Foundation Archive / Industry Best Practices</p>
                 </div>
             </aside>
 

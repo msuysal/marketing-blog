@@ -33,10 +33,10 @@ const Footer = () => {
                 <div className={styles.column}>
                     <h4 className={styles.heading}>Topics</h4>
                     <ul className={styles.list}>
-                        <li><Link href="/knowledge-base?tag=Marketing%20Architecture">Marketing Architecture</Link></li>
-                        <li><Link href="/knowledge-base?tag=Systems%20Architecture">Systems Architecture</Link></li>
-                        <li><Link href="/knowledge-base?tag=Influence,%20Authority%20&%20Intelligence">Influence & Authority</Link></li>
-                        <li><Link href="/knowledge-base?tag=Marketing%20Ethics">Marketing Ethics</Link></li>
+                        <li><Link href="/knowledge-base?tag=Systems%20Infrastructure">Systems Architecture</Link></li>
+                        <li><Link href="/knowledge-base?tag=Influence%20%26%20Authority">Influence & Authority</Link></li>
+                        <li><Link href="/knowledge-base?tag=Behavioral%20Logic">Behavioral Logic</Link></li>
+                        <li><Link href="/knowledge-base?tag=Data%20Signals">Data Signals</Link></li>
                     </ul>
                 </div>
             </div>

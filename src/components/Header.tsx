@@ -1,7 +1,10 @@
+import { useState } from "react";
 import Link from "next/link";
 import styles from "./Header.module.css";
 
 const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <header className={styles.wrapper}>
             <div className={styles.topBar}>
@@ -22,19 +25,30 @@ const Header = () => {
                             </div>
                         </Link>
                     </div>
-                    <nav className={styles.nav}>
+
+                    <button
+                        className={styles.mobileToggle}
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-expanded={isMenuOpen}
+                        aria-controls="main-nav"
+                        aria-label="Toggle navigation menu"
+                    >
+                        <span className={isMenuOpen ? styles.iconClose : styles.iconMenu}></span>
+                    </button>
+
+                    <nav id="main-nav" className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ""}`} aria-label="Main navigation">
                         <ul className={styles.navList}>
                             <li className={styles.navItem}>
-                                <Link href="/knowledge-base">Articles</Link>
+                                <Link href="/knowledge-base" onClick={() => setIsMenuOpen(false)}>Articles</Link>
                             </li>
                             <li className={styles.navItem}>
-                                <Link href="/industry-best-practices">Industry Best Practices</Link>
+                                <Link href="/industry-best-practices" onClick={() => setIsMenuOpen(false)}>Industry Best Practices</Link>
                             </li>
                             <li className={styles.navItem}>
-                                <Link href="/about">About</Link>
+                                <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
                             </li>
                             <li className={styles.navItem}>
-                                <Link href="/contact" className={styles.contactLink}>Contact</Link>
+                                <Link href="/contact" className={styles.contactLink} onClick={() => setIsMenuOpen(false)}>Contact</Link>
                             </li>
                         </ul>
                     </nav>
