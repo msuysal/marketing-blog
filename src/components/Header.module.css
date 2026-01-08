@@ -62,25 +62,24 @@
     padding-left: 1rem;
 }
 
-.logoMasthead span {
+.logoMain {
     font-family: var(--font-serif);
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     letter-spacing: var(--letter-spacing-tight);
     color: var(--background);
     display: block;
-    text-transform: none;
-    /* Serifs look better in natural case */
 }
 
-.logoMasthead span:last-child {
+.logoBy {
     font-family: var(--font-sans);
-    font-weight: 900;
-    font-size: 0.65rem;
-    letter-spacing: 0.4em;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    display: block;
     margin-top: 0.2rem;
     text-transform: uppercase;
-    opacity: 0.9;
 }
 
 .navList {

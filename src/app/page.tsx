@@ -12,8 +12,8 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
-            The Architecture <br />
-            of <span className="highlight">Marketing</span>
+            Marketing System <br />
+            Design <span className={styles.byLine}>by Olgu Uysal</span>
           </h1>
           <div className={styles.heroContent}>
             <p className={styles.heroBody}>
@@ -23,19 +23,31 @@ export default function Home() {
           <Link href="/manifesto" className={styles.heroCta}>READ THE MANIFESTO &rarr;</Link>
         </div>
 
-        <div className={styles.heroFeatured}>
-          <article className={styles.featuredCard}>
-            <span className={styles.label}>FEATURED ARTICLE</span>
-            <h2 className={styles.featuredTitle}>
+        <div className={styles.heroIllustration}>
+          <img src="/hero-illustration.png" alt="Marketing Systems Architecture" className={styles.heroImg} />
+        </div>
+      </section>
+
+      <section className={styles.featuredSection}>
+        <div className={styles.sectionHeaderLine}>
+          <span className={styles.sectionLabel}>FEATURED ARTICLE</span>
+        </div>
+        <article className={styles.featuredHorizontal}>
+          <div className={styles.featuredHorizontalContent}>
+            <h2 className={styles.featuredHorizontalTitle}>
               <Link href={`/blog/${latestPost.slug}`}>{latestPost.title}</Link>
             </h2>
-            <p className={styles.featuredExcerpt}>{latestPost.excerpt}</p>
-            <div className={styles.meta}>
+            <p className={styles.featuredHorizontalExcerpt}>{latestPost.excerpt}</p>
+            <div className={styles.featuredHorizontalMeta}>
               <span>{latestPost.date}</span>
+              <span className={styles.dot}>•</span>
               <span>{latestPost.tags[0]}</span>
             </div>
-          </article>
-        </div>
+          </div>
+          <div className={styles.featuredHorizontalLink}>
+            <Link href={`/blog/${latestPost.slug}`} className={styles.readMore}>Read Article &rarr;</Link>
+          </div>
+        </article>
       </section>
 
       <section className={styles.gridSection}>

@@ -8,7 +8,7 @@ const Header = () => {
                 <div className={styles.topContainer}>
                     <span className={styles.date}>{new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                     <div className={styles.topLinks}>
-                        <div className={styles.tagline}>An editorial space on marketing by Ms. Olgu Uysal</div>
+                        <div className={styles.tagline}>Systemic Growth Architecting by Olgu Uysal</div>
                     </div>
                 </div>
             </div>
@@ -17,8 +17,8 @@ const Header = () => {
                     <div className={styles.logo}>
                         <Link href="/" className={styles.logoLink}>
                             <div className={styles.logoMasthead}>
-                                <span>Marketing Systems</span>
-                                <span>Editorial</span>
+                                <span className={styles.logoMain}>Marketing System Design</span>
+                                <span className={styles.logoBy}>by Olgu Uysal</span>
                             </div>
                         </Link>
                     </div>
