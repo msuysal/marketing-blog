@@ -1,0 +1,226 @@
+.container {
+    width: 100%;
+    height: 180px;
+    /* Equivalent to a 4:3 image roughly */
+    position: relative;
+    background-color: var(--background);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Common Styles */
+.container div {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+/* NUDGES: Split path */
+.nudges {
+    width: 120px;
+    height: 100px;
+    position: relative;
+}
+
+.pathMain {
+    width: 60px;
+    height: 2px;
+    background-color: var(--foreground);
+    bottom: 0;
+    left: 0;
+    transform: rotate(-30deg);
+    transform-origin: 0% 100%;
+}
+
+.pathSplit {
+    width: 60px;
+    height: 2px;
+    background-color: var(--foreground);
+    bottom: 30px;
+    left: 52px;
+    transform: rotate(30deg);
+    transform-origin: 0% 100%;
+}
+
+.highlightDot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    bottom: 58px;
+    left: 100px;
+    z-index: 2;
+}
+
+/* FEEDBACK: Circular Loop */
+.feedback {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--foreground);
+    border-radius: 50%;
+    top: 10px;
+    left: 10px;
+}
+
+.centerNode {
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent);
+    top: 40px;
+    left: 40px;
+    /* geometric square */
+}
+
+.arrowTop {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid var(--foreground);
+    top: 0px;
+    left: 44px;
+    transform: rotate(90deg);
+}
+
+.arrowBottom {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid var(--foreground);
+    bottom: 0px;
+    left: 44px;
+    transform: rotate(90deg);
+}
+
+
+/* LTV: Bar Chart with Trend */
+.ltv {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.axisX {
+    width: 100%;
+    height: 2px;
+    background-color: var(--foreground);
+    bottom: 0;
+    left: 0;
+}
+
+.axisY {
+    width: 2px;
+    height: 100%;
+    background-color: var(--foreground);
+    bottom: 0;
+    left: 0;
+}
+
+.bar1 {
+    width: 15px;
+    height: 30px;
+    background-color: #ddd;
+    /* Light gray */
+    bottom: 2px;
+    left: 10px;
+}
+
+.bar2 {
+    width: 15px;
+    height: 50px;
+    background-color: #999;
+    /* Medium gray */
+    bottom: 2px;
+    left: 35px;
+}
+
+.bar3 {
+    width: 15px;
+    height: 80px;
+    background-color: var(--foreground);
+    /* Dark gray/Black */
+    bottom: 2px;
+    left: 60px;
+}
+
+.trendLine {
+    width: 80px;
+    height: 2px;
+    background-color: var(--accent);
+    bottom: 40px;
+    left: 10px;
+    transform: rotate(-35deg);
+    transform-origin: 0% 100%;
+    z-index: 5;
+}
+
+/* Meaning Illustration */
+.meaning {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+}
+
+.node1,
+.node2,
+.node3 {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--foreground);
+    border-radius: 50%;
+}
+
+.node1 {
+    top: 20%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.node2 {
+    bottom: 20%;
+    left: 20%;
+    translate: -50% 50%;
+}
+
+.node3 {
+    bottom: 20%;
+    right: 20%;
+    translate: 50% 50%;
+}
+
+.connection1,
+.connection2 {
+    position: absolute;
+    background-color: var(--foreground);
+    opacity: 0.2;
+}
+
+.connection1 {
+    width: 1px;
+    height: 60px;
+    top: 20%;
+    left: 50%;
+    transform-origin: top center;
+    rotate: 30deg;
+}
+
+.connection2 {
+    width: 1px;
+    height: 60px;
+    top: 20%;
+    left: 50%;
+    transform-origin: top center;
+    rotate: -30deg;
+}

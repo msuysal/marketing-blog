@@ -1,0 +1,87 @@
+.toc {
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--color-bg);
+    border-left: 2px solid var(--color-border);
+}
+
+.tocHeader {
+    margin-bottom: 1rem;
+}
+
+.tocHeader h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.tocList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tocItem {
+    margin-bottom: 0.5rem;
+}
+
+.tocItemNested {
+    margin-left: 1rem;
+}
+
+.tocLink {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+}
+
+.tocLink:hover {
+    color: var(--color-text);
+    border-left-color: var(--color-text-muted);
+}
+
+.tocItem.active .tocLink {
+    color: var(--color-text);
+    border-left-color: var(--color-accent, #f4d03f);
+    font-weight: 500;
+}
+
+/* Scrollbar styling */
+.toc::-webkit-scrollbar {
+    width: 4px;
+}
+
+.toc::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.toc::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 2px;
+}
+
+.toc::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+}
+
+@media (max-width: 1200px) {
+    .toc {
+        display: none;
+    }
+}

@@ -1,0 +1,112 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    background-color: var(--background);
+}
+
+.content {
+    border-left: 1px solid var(--border-color);
+    padding-left: 3rem;
+}
+
+.label {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-text);
+    background-color: var(--accent);
+    padding: 0.3rem 0.8rem;
+    display: inline-block;
+    margin-bottom: 2.5rem;
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--foreground);
+    margin-bottom: 2.5rem;
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+.lead {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: var(--foreground);
+    font-weight: 700;
+    margin-bottom: 4.5rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.section {
+    margin-bottom: 3rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--foreground);
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 0.4rem;
+}
+
+.section p {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--foreground);
+}
+
+.footer {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    font-family: var(--font-sans);
+    color: var(--gray-dark);
+}
+
+.backLink {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--foreground);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.backLink:hover {
+    border-bottom-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 3rem 1.5rem;
+    }
+
+    .content {
+        padding-left: 1.5rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+    }
+}

@@ -1,0 +1,136 @@
+.wrapper {
+    background-color: var(--foreground);
+    border-bottom: 1px solid var(--accent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.topBar {
+    background-color: var(--foreground);
+    color: var(--gray-medium);
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    padding: 0.4rem 0;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.date {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.topContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainHeader {
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.logoLink:hover {
+    opacity: 0.8;
+}
+
+.logoMasthead {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+}
+
+.logoMasthead span {
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--background);
+    display: block;
+    text-transform: none;
+    /* Serifs look better in natural case */
+}
+
+.logoMasthead span:last-child {
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.navList {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.navItem a {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--background);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.navItem a:hover {
+    border-bottom-color: var(--accent);
+}
+
+.contactLink {
+    background-color: var(--accent);
+    color: var(--accent-text) !important;
+    padding: 0.5rem 1rem !important;
+    border-bottom: none !important;
+}
+
+.contactLink:hover {
+    filter: brightness(0.9);
+    border-bottom: none !important;
+}
+
+@media (max-width: 768px) {
+    .topBar {
+        display: none;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .navList {
+        gap: 1.2rem;
+    }
+
+    .navItem a {
+        font-size: 0.8rem;
+    }
+}
