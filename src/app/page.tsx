@@ -10,10 +10,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <section className={styles.hero}>
-        <div className={styles.heroIllustration}>
-          <img src="/hero-illustration-new.png" alt="Marketing Systems Architecture" className={styles.heroImg} />
-        </div>
-
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
             Marketing System <br />
@@ -25,6 +21,10 @@ export default function Home() {
             </p>
           </div>
           <Link href="/manifesto" className={styles.heroCta}>READ THE MANIFESTO &rarr;</Link>
+        </div>
+
+        <div className={styles.heroIllustration}>
+          <img src="/hero-illustration-new.png" alt="Marketing Systems Architecture" className={styles.heroImg} />
         </div>
       </section>
 

@@ -8,7 +8,7 @@
 
 .hero {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 1.2fr 0.8fr;
   border-bottom: 1px solid var(--border-color);
   min-height: 80vh;
   align-items: stretch;
@@ -75,19 +75,19 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
-  border-right: 1px solid var(--border-color);
 }
 
 .heroImg {
   width: 100%;
   height: auto;
   object-fit: contain;
-  padding: 2rem;
-  transition: transform 0.6s ease;
+  padding: 0;
+  opacity: 0.9;
+  transition: all 0.6s ease;
 }
 
 .heroIllustration:hover .heroImg {
-  transform: scale(1.05);
+  opacity: 1;
 }
 
 .featuredSection {
