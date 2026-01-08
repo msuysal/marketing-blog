@@ -43,7 +43,7 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.formColumn}>
-                    <form className={styles.form}>
+                    <form className={styles.form} action="https://formspree.io/f/mqearoql" method="POST">
                         <div className={styles.formGroup}>
                             <label htmlFor="name">Name</label>
                             <input type="text" id="name" name="name" required />

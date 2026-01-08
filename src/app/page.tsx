@@ -75,8 +75,8 @@ export default function Home() {
           <div className={styles.newsletterContent}>
             <h3>Join the Syndicate</h3>
             <p>Sign-up to newsletter to get alerted whenever there is a new article. We promise, only good stuff here.</p>
-            <form className={styles.form}>
-              <input type="email" placeholder="Enter your email address" />
+            <form className={styles.form} action="https://formspree.io/f/xdakqvgg" method="POST">
+              <input type="email" name="email" placeholder="Enter your email address" required />
               <button type="submit">Subscribe</button>
             </form>
           </div>
