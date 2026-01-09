@@ -14,7 +14,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
-            We optimized attention.<br />
+            We optimized attention.
             <span className={styles.dimmed}>We forgot meaning.</span>
           </h1>
           <div className={styles.heroContent}>

@@ -24,31 +24,34 @@
 }
 
 .dimmed {
-  color: var(--gray-medium);
-  /* Use a specific color for better control than opacity */
+  color: var(--foreground);
   opacity: 1;
   display: block;
-  font-weight: 400;
-  /* Lighter weight for contrast */
+  font-weight: 700;
+  background-color: var(--accent);
+  width: fit-content;
+  padding: 0 0.5rem;
+  margin-top: 0.5rem;
+  /* Highlight style */
 }
 
 .heroTitle {
   font-family: var(--font-serif);
-  font-size: 4rem;
-  /* Slightly smaller for better flow */
+  font-size: 3.5rem;
+  /* Consistent 3.5rem */
   font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   color: var(--foreground);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 .byLine {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-family: var(--font-sans);
   font-weight: 400;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   color: var(--gray-dark);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -56,13 +59,12 @@
 
 .heroBody {
   font-family: var(--font-sans);
-  /* Switch to Sans for modern editorial feel in body */
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  /* Consistently smaller body */
   line-height: 1.6;
   color: var(--gray-dark);
-  margin-bottom: 3rem;
-  max-width: 550px;
-  /* Better reading width */
+  margin-bottom: 2.5rem;
+  max-width: 500px;
   font-weight: 400;
 }
 
@@ -73,7 +75,7 @@
   letter-spacing: 0.1em;
   background-color: var(--foreground);
   color: var(--background);
-  padding: 1.2rem 2.5rem;
+  padding: 1rem 2rem;
   display: inline-block;
   transition: all 0.3s ease;
   font-size: 0.75rem;
@@ -154,11 +156,12 @@
 
 .featuredHorizontalTitle {
   font-family: var(--font-serif);
-  font-size: 3.5rem;
+  font-size: 3rem;
+  /* Slightly smaller than main hero title */
   font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
-  letter-spacing: var(--letter-spacing-tight);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .featuredHorizontalExcerpt {
