@@ -25,9 +25,10 @@
 
 .title {
     font-family: var(--font-serif);
-    font-size: 4rem;
+    font-size: 3.5rem;
+    /* Consistent 3.5rem */
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.1;
     color: var(--foreground);
     margin-bottom: 2.5rem;
     letter-spacing: var(--letter-spacing-tight);
@@ -45,7 +46,7 @@
 }
 
 .section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .sectionTitle {
@@ -66,31 +67,65 @@
     font-size: 1.2rem;
     line-height: 1.7;
     color: var(--foreground);
+    margin-bottom: 1.5rem;
 }
 
 .footer {
     margin-top: 6rem;
-    padding-top: 2rem;
+    padding-top: 3rem;
     border-top: 1px solid var(--border-color);
-    font-family: var(--font-sans);
-    color: var(--gray-dark);
 }
 
-.backLink {
-    display: inline-block;
-    margin-top: 1.5rem;
+.footer p {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--gray-dark);
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.signature {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--foreground);
+    font-style: italic;
+}
+
+.postFlow {
+    margin-top: 6rem;
+    padding: 3rem;
+    background-color: #f9f9f9;
+    background-color: var(--background-dim);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.flowLabel {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gray-medium);
+    margin-bottom: 1rem;
+}
+
+.flowLink {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 800;
     color: var(--foreground);
     text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s;
+    transition: all 0.3s ease;
+    display: inline-block;
+    letter-spacing: -0.02em;
 }
 
-.backLink:hover {
-    border-bottom-color: var(--accent);
+.flowLink:hover {
+    color: var(--accent);
+    transform: translateX(10px);
 }
 
 @media (max-width: 768px) {
@@ -108,5 +143,9 @@
 
     .lead {
         font-size: 1.25rem;
+    }
+
+    .flowLink {
+        font-size: 1.5rem;
     }
 }

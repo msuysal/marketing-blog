@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Link from "next/link";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Manifesto() {
     return (
@@ -103,10 +104,17 @@ export default function Manifesto() {
                         And systems — whether we acknowledge them or not —
                         always produce outcomes.
                     </p>
-                    <p><em>Olgu Uysal</em></p>
-                    <Link href="/" className={styles.backLink}>Return to Home</Link>
+                    <p className={styles.signature}>&mdash; Olgu Uysal</p>
+                </div>
+
+                <div className={styles.postFlow}>
+                    <div className={styles.flowLabel}>Next Step</div>
+                    <Link href="/knowledge-base" className={styles.flowLink}>
+                        Explore the Syllabus &rarr;
+                    </Link>
                 </div>
             </div>
+            <ScrollToTop />
         </main>
     );
 }
