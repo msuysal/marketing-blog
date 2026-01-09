@@ -18,21 +18,29 @@
   padding: 6rem 5rem;
   background-color: var(--background);
   border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dimmed {
-  opacity: 0.4;
+  color: var(--gray-medium);
+  /* Use a specific color for better control than opacity */
+  opacity: 1;
   display: block;
+  font-weight: 400;
+  /* Lighter weight for contrast */
 }
 
 .heroTitle {
   font-family: var(--font-serif);
-  font-size: 5rem;
-  font-weight: 800;
-  line-height: 0.95;
-  margin-bottom: 3.5rem;
+  font-size: 4rem;
+  /* Slightly smaller for better flow */
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
   color: var(--foreground);
-  letter-spacing: var(--letter-spacing-tight);
+  letter-spacing: -0.03em;
 }
 
 .byLine {
@@ -47,31 +55,35 @@
 }
 
 .heroBody {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
+  /* Switch to Sans for modern editorial feel in body */
   font-size: 1.25rem;
   line-height: 1.6;
-  color: var(--foreground);
-  margin-bottom: 2rem;
-  max-width: 85%;
+  color: var(--gray-dark);
+  margin-bottom: 3rem;
+  max-width: 550px;
+  /* Better reading width */
+  font-weight: 400;
 }
 
 .heroCta {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-wide);
+  letter-spacing: 0.1em;
   background-color: var(--foreground);
   color: var(--background);
-  padding: 1.4rem 3rem;
+  padding: 1.2rem 2.5rem;
   display: inline-block;
   transition: all 0.3s ease;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  border: 1px solid var(--foreground);
 }
 
 .heroCta:hover {
-  background-color: var(--accent);
-  color: var(--accent-text);
-  transform: translateY(-2px);
+  background-color: transparent;
+  color: var(--foreground);
+  transform: none;
 }
 
 .heroIllustration {

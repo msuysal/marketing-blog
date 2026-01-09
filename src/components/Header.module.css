@@ -100,7 +100,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--background);
-    text-transform: lowercase;
+    /* text-transform: lowercase; removed */
     letter-spacing: 0.05em;
     padding-bottom: 0.2rem;
     border-bottom: 2px solid transparent;

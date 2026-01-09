@@ -41,13 +41,16 @@ const Header = () => {
                     <nav id="main-nav" className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ""}`} aria-label="Main navigation">
                         <ul className={styles.navList}>
                             <li className={styles.navItem}>
-                                <Link href="/knowledge-base" onClick={() => setIsMenuOpen(false)}>articles</Link>
+                                <Link href="/knowledge-base" onClick={() => setIsMenuOpen(false)}>Articles</Link>
                             </li>
                             <li className={styles.navItem}>
-                                <Link href="/cases" onClick={() => setIsMenuOpen(false)}>cases</Link>
+                                <Link href="/cases" onClick={() => setIsMenuOpen(false)}>Cases</Link>
                             </li>
                             <li className={styles.navItem}>
-                                <Link href="/about" onClick={() => setIsMenuOpen(false)}>about</Link>
+                                <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+                            </li>
+                            <li className={styles.navItem}>
+                                <Link href="/contact" className={styles.contactLink} onClick={() => setIsMenuOpen(false)}>Contact</Link>
                             </li>
                         </ul>
                     </nav>
