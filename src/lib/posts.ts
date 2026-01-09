@@ -786,6 +786,12 @@ export const posts: Post[] = [
 
       <h2>The Outcome</h2>
       <p>By engineering a system that values "Transcendence" as a KPI, Nike has maintained a premium position in every major market. The brand's soul isn't found in a logo, but in the consistent behavioral logic of its global-local matrix.</p>
+
+      <h3>References & Further Reading</h3>
+      <ul>
+        <li><a href="https://about.nike.com/en/newsroom" target="_blank" rel="noopener noreferrer">Nike Newsroom: Strategic Shifts & Global Initiatives</a></li>
+        <li><a href="https://hbr.org/2016/06/branding-in-the-age-of-social-media" target="_blank" rel="noopener noreferrer">Harvard Business Review: Branding in the Age of Social Media</a></li>
+      </ul>
     `
   },
   {
@@ -811,6 +817,12 @@ export const posts: Post[] = [
 
       <h2>The Outcome</h2>
       <p>The Website Grader has processed over 4 million sites. It represents an acquisition system with zero marginal cost and infinite scalability. It proved that in the digital age, a well-engineered tool is the most powerful ad you can build.</p>
+
+      <h3>References & Further Reading</h3>
+      <ul>
+        <li><a href="https://website.grader.com/" target="_blank" rel="noopener noreferrer">HubSpot Website Grader: The Original Tool</a></li>
+        <li><a href="https://www.hubspot.com/company-news" target="_blank" rel="noopener noreferrer">HubSpot Investor Relations: Growth & Acquisition Data</a></li>
+      </ul>
     `
   },
   {
@@ -836,6 +848,12 @@ export const posts: Post[] = [
 
       <h2>The Outcome</h2>
       <p>Samsung has maintained its position as the world's largest smartphone manufacturer by treating "Market Diversity" as a technical requirement. Their success is an outcome of a system that is designed for complexity, not one that tries to simplify it.</p>
+
+      <h3>References & Further Reading</h3>
+      <ul>
+        <li><a href="https://news.samsung.com/global/" target="_blank" rel="noopener noreferrer">Samsung Global Newsroom: R&D Initiatives</a></li>
+        <li><a href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights" target="_blank" rel="noopener noreferrer">McKinsey Insights: Global Market Segmentation Strategies</a></li>
+      </ul>
     `
   },
   {
@@ -863,6 +881,12 @@ export const posts: Post[] = [
 
       <h2>The Outcome</h2>
       <p>McDonald's remains the benchmark for global operations. Its architecture proves that the most successful global systems are those that design for human differences rather than trying to optimize them away.</p>
+
+      <h3>References & Further Reading</h3>
+      <ul>
+        <li><a href="https://corporate.mcdonalds.com/corpmcd/our-stories.html" target="_blank" rel="noopener noreferrer">McDonald's Corp: Global Impact Reports</a></li>
+        <li><a href="https://www.economist.com/topics/mcdonalds-corporation" target="_blank" rel="noopener noreferrer">The Economist: The Big Mac Index & Global Standardization</a></li>
+      </ul>
     `
   },
 ];

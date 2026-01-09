@@ -103,7 +103,8 @@ h2 a:hover,
 h3 a:hover,
 [class*="itemTitle"] a:hover,
 [class*="CardTitle"] a:hover {
-  border-bottom: 2px solid var(--foreground);
+  border-bottom: none;
+  opacity: 0.7;
 }
 
 /* Global utility for the "Monocle Yellow" highlight */

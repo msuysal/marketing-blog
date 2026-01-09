@@ -11,16 +11,16 @@ export default function Contact() {
         <div className={styles.container}>
             <header className={styles.header}>
                 <div className={styles.meta}>Correspondence</div>
-                <h1 className={styles.title}>Inquiries</h1>
+                <h1 className={styles.title}>Connecting</h1>
             </header>
 
             <div className={styles.grid}>
                 <div className={styles.infoColumn}>
                     <div className={styles.infoBlock}>
-                        <h3>Inquiry Hubs</h3>
+                        <h3>Global Hubs</h3>
                         <div className={styles.hubItem}>
                             <strong>Istanbul</strong>
-                            <p>Strategic Operations & Brand Architecture</p>
+                            <p>Strategic Operations & Brand Systems</p>
                         </div>
                         <div className={styles.hubItem}>
                             <strong>Lisbon</strong>
@@ -31,13 +31,13 @@ export default function Contact() {
                     <div className={styles.infoBlock}>
                         <h3>Communication</h3>
                         <p className={styles.directLine}><a href="mailto:olgu@ohmedya.com">olgu@ohmedya.com</a></p>
-                        <p className={styles.responseNote}>Analytical priority is given to clear, structured inquiries. Expect a response within 48 systemic hours.</p>
+                        <p className={styles.responseNote}>Analytical priority is given to clear, structured communication. Expect a response within 48 systemic hours.</p>
                     </div>
 
                     <div className={styles.infoBlock}>
                         <h3>Press & Media</h3>
                         <p className={styles.pressText}>
-                            For interview requests, technical commentary on marketing systems, or speaking engagements, please flag your inquiry as <strong>[URGENT: PRESS]</strong> in the subject line.
+                            For interview requests, technical commentary on marketing systems, or speaking engagements, please flag your message as <strong>[URGENT: PRESS]</strong> in the subject line.
                         </p>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ export default function Contact() {
                         <div className={styles.formGroup}>
                             <label htmlFor="subject">Subject</label>
                             <select id="subject" name="subject">
-                                <option>General Inquiry</option>
+                                <option>General Correspondence</option>
                                 <option>Consulting</option>
                                 <option>Speaking</option>
                                 <option>Press</option>

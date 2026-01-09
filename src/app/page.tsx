@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { posts } from "@/lib/posts";
 import GridIllustration from "@/components/GridIllustration";
+import HeroPlaceholder from "@/components/HeroPlaceholder";
 
 export default function Home() {
   const articlePosts = posts.filter(post => !post.tags.includes("Case Study"));
@@ -13,19 +14,19 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
-            Structural <br />
-            Logic for <span className="highlight">Marketing</span>
+            We optimized attention.<br />
+            <span className={styles.dimmed}>We forgot meaning.</span>
           </h1>
           <div className={styles.heroContent}>
             <p className={styles.heroBody}>
-              Deconstructing marketing into interconnected systems. We explore how emerging architectures and value frameworks can help us think, question, and build with purpose.
+              Essays on influence, authority, and <br />marketing systems in an economy driven by <br />incentives, not intent.
             </p>
           </div>
           <Link href="/manifesto" className={styles.heroCta}>EXPLORE THE PERSPECTIVE &rarr;</Link>
         </div>
 
         <div className={styles.heroIllustration}>
-          <img src="/hero-illustration-new.jpg" alt="Marketing Systems Architecture Illustration" className={styles.heroImg} />
+          <HeroPlaceholder />
         </div>
       </section>
 
@@ -65,7 +66,9 @@ export default function Home() {
 
             return (
               <article key={post.slug} className={styles.card}>
-                <GridIllustration type={type} />
+                <Link href={`/blog/${post.slug}`} className={styles.cardImageLink} aria-hidden="true" tabIndex={-1}>
+                  <GridIllustration type={type} />
+                </Link>
                 <div className={styles.cardTop}>
                   <span className={styles.cardTag}>{post.tags[0]}</span>
                   <span className={styles.cardDate}>{post.date}</span>
@@ -74,6 +77,7 @@ export default function Home() {
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
                 <p className={styles.cardExcerpt}>{post.excerpt}</p>
+                <Link href={`/blog/${post.slug}`} className={styles.cardCta}>Read Article &rarr;</Link>
               </article>
             );
           })}

@@ -17,6 +17,12 @@
 .heroMain {
   padding: 6rem 5rem;
   background-color: var(--background);
+  border-right: 1px solid var(--border-subtle);
+}
+
+.dimmed {
+  opacity: 0.4;
+  display: block;
 }
 
 .heroTitle {
@@ -78,14 +84,14 @@
 }
 
 .heroImg {
-  width: 110%;
-  /* Slightly oversized for a bleed effect */
+  width: 100%;
   height: auto;
-  object-fit: cover;
-  padding: 0;
+  object-fit: contain;
+  padding: 2.5rem;
   transition: all 0.8s ease;
   mix-blend-mode: multiply;
-  /* Helps the white background of the image blend into the site background */
+  filter: contrast(1.1) brightness(1.02);
+  /* Perfect blend into the bone background */
 }
 
 .heroIllustration:hover .heroImg {
@@ -267,6 +273,35 @@
   font-size: 1rem;
   color: var(--gray-dark);
   line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.cardCta {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--foreground);
+  margin-top: auto;
+  display: inline-block;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.1rem;
+  width: fit-content;
+}
+
+.cardCta:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent-text);
+  /* Fallback if accent is dark, though usually used with bg */
+}
+
+/* Ensure the image link doesn't break layout */
+.cardImageLink {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .newsletter {

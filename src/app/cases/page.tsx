@@ -27,9 +27,9 @@ function IndustryBestPracticesContent() {
         }
 
         if (newIndustries.length === 0) {
-            router.push("/industry-best-practices");
+            router.push("/best-practices");
         } else {
-            router.push(`/industry-best-practices?industry=${encodeURIComponent(newIndustries.join(","))}`);
+            router.push(`/best-practices?industry=${encodeURIComponent(newIndustries.join(","))}`);
         }
     };
 
@@ -39,7 +39,7 @@ function IndustryBestPracticesContent() {
                 <div className={styles.sidebarHeader}>
                     <h3>Industries</h3>
                     <button
-                        onClick={() => router.push("/industry-best-practices")}
+                        onClick={() => router.push("/best-practices")}
                         className={styles.clearBtn}
                         disabled={currentIndustries.length === 0}
                         aria-label="Clear all active industry filters"
@@ -61,15 +61,15 @@ function IndustryBestPracticesContent() {
                     ))}
                 </ul>
                 <div className={styles.sidebarFooter}>
-                    <p aria-hidden="true">Foundation Archive / Industry Best Practices</p>
+                    <p aria-hidden="true">Foundation Archive / Best Practices</p>
                 </div>
             </aside>
 
             <main className={styles.main}>
                 <header className={styles.resultsHeader}>
-                    <h1 className={styles.pageTitle}>Industry Best Practices</h1>
+                    <h1 className={styles.pageTitle}>Best Practices</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
-                        Displaying global best practices of how marketing system design and architecture is applied across various industries.
+                        Displaying global best practices of how marketing systems and integrated design are applied across various industries.
                         Note: The global brand examples provided here are for educational analysis and do not reflect our own work.
                     </p>
                     <div className={styles.resultsMeta}>

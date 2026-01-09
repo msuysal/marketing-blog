@@ -24,9 +24,9 @@ const Footer = () => {
                     <h4 className={styles.heading}>Sections</h4>
                     <ul className={styles.list}>
                         <li><Link href="/knowledge-base">Articles</Link></li>
-                        <li><Link href="/industry-best-practices">Industry Best Practices</Link></li>
+                        <li><Link href="/best-practices">Best Practices</Link></li>
                         <li><Link href="/about">About the Author</Link></li>
-                        <li><Link href="/contact">Contact & Inquiries</Link></li>
+                        <li><Link href="/contact">Contact & Engagement</Link></li>
                     </ul>
                 </div>
 

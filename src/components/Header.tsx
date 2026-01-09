@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import styles from "./Header.module.css";
@@ -11,6 +13,7 @@ const Header = () => {
                 <div className={styles.topContainer}>
                     <span className={styles.date}>{new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
                     <div className={styles.topLinks}>
+                        <span className={styles.tagline}>By Ms. Olgu Uysal</span>
                     </div>
                 </div>
             </div>
@@ -20,7 +23,7 @@ const Header = () => {
                         <Link href="/" className={styles.logoLink}>
                             <div className={styles.logoMasthead}>
                                 <span className={styles.logoMain}>Marketing System Design</span>
-                                <span className={styles.logoBy}>by Olgu Uysal</span>
+                                <span className={styles.logoSubtitle}>Essays on influence, behavioral logic, and marketing systems</span>
                             </div>
                         </Link>
                     </div>
@@ -38,16 +41,13 @@ const Header = () => {
                     <nav id="main-nav" className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ""}`} aria-label="Main navigation">
                         <ul className={styles.navList}>
                             <li className={styles.navItem}>
-                                <Link href="/knowledge-base" onClick={() => setIsMenuOpen(false)}>Articles</Link>
+                                <Link href="/knowledge-base" onClick={() => setIsMenuOpen(false)}>articles</Link>
                             </li>
                             <li className={styles.navItem}>
-                                <Link href="/industry-best-practices" onClick={() => setIsMenuOpen(false)}>Industry Best Practices</Link>
+                                <Link href="/cases" onClick={() => setIsMenuOpen(false)}>cases</Link>
                             </li>
                             <li className={styles.navItem}>
-                                <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
-                            </li>
-                            <li className={styles.navItem}>
-                                <Link href="/contact" className={styles.contactLink} onClick={() => setIsMenuOpen(false)}>Contact</Link>
+                                <Link href="/about" onClick={() => setIsMenuOpen(false)}>about</Link>
                             </li>
                         </ul>
                     </nav>

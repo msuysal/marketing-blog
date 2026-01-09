@@ -16,6 +16,14 @@
     border-bottom: 1px solid var(--border-subtle);
 }
 
+.tagline {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+}
+
 .date {
     text-transform: uppercase;
     font-weight: 500;
@@ -71,15 +79,14 @@
     display: block;
 }
 
-.logoBy {
+.logoSubtitle {
     font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
     color: var(--accent);
     display: block;
-    margin-top: 0.2rem;
-    text-transform: uppercase;
+    margin-top: 0.3rem;
 }
 
 .navList {
@@ -93,7 +100,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--background);
-    text-transform: uppercase;
+    text-transform: lowercase;
     letter-spacing: 0.05em;
     padding-bottom: 0.2rem;
     border-bottom: 2px solid transparent;

@@ -18,7 +18,7 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   title: "Marketing System Design | Olgu Uysal",
-  description: "Personal blog on Marketing System Design, Architecture, and Engineering.",
+  description: "At the intersection of Data, Digital Architecture, and Behavioral Economics.",
 };
 
 
