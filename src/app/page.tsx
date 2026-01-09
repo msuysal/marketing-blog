@@ -27,6 +27,7 @@ export default function Home() {
             <p className={styles.heroBody}>
               Essays on influence, authority, and <br />marketing systems in an economy driven by <br />incentives, not intent.
             </p>
+     
           </div>
           <Link href="/manifesto" className={styles.heroCta}>EXPLORE THE PERSPECTIVE &rarr;</Link>
         </div>
