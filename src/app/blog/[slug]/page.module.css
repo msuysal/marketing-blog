@@ -42,18 +42,18 @@
 
 .title {
     font-family: var(--font-serif);
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 800;
-    line-height: 1;
-    margin-bottom: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
     color: var(--foreground);
-    letter-spacing: var(--letter-spacing-tight);
+    letter-spacing: -0.02em;
 }
 
 .lead {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
-    line-height: 1.5;
+    font-size: 1.25rem;
+    line-height: 1.6;
     color: var(--foreground);
     font-style: italic;
     margin-bottom: 2rem;
@@ -142,10 +142,10 @@
 .content {
     font-family: var(--font-serif);
     /* Monocle uses Serif for body text in articles */
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.7;
     color: var(--foreground);
-    max-width: 700px;
+    max-width: 680px;
     /* Optimal reading width */
 }
 

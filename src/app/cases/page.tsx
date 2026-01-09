@@ -67,7 +67,7 @@ function IndustryBestPracticesContent() {
 
             <main className={styles.main}>
                 <header className={styles.resultsHeader}>
-                    <h1 className={styles.pageTitle}>Best Practices</h1>
+                    <h1 className={styles.pageTitle}>Cases</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
                         Displaying global best practices of how marketing systems and integrated design are applied across various industries.
                         Note: The global brand examples provided here are for educational analysis and do not reflect our own work.
