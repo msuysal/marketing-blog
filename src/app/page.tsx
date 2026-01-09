@@ -3,6 +3,12 @@ import styles from "./page.module.css";
 import { posts } from "@/lib/posts";
 import GridIllustration from "@/components/GridIllustration";
 import HeroPlaceholder from "@/components/HeroPlaceholder";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Marketing System Design | Essays on Influence & Architecture",
+  description: "Explore the intersection of behavioral logic and marketing systems. Essays by Olgu Uysal on influence, authority, and incentive design.",
+};
 
 export default function Home() {
   const articlePosts = posts.filter(post => !post.tags.includes("Case Study"));

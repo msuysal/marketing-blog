@@ -17,8 +17,46 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Marketing System Design | Olgu Uysal",
-  description: "At the intersection of Data, Digital Architecture, and Behavioral Economics.",
+  metadataBase: new URL("https://marketing-blog-six.vercel.app"),
+  title: {
+    default: "Marketing System Design | Olgu Uysal",
+    template: "%s | Olgu Uysal"
+  },
+  description: "Essays on influence, behavioral logic, and marketing systems. Designed at the intersection of Data, Digital Architecture, and Behavioral Economics.",
+  keywords: ["Marketing Systems", "Behavioral Economics", "Influence", "Marketing Strategy", "Digital Architecture", "Data Signals", "Olgu Uysal"],
+  authors: [{ name: "Olgu Uysal" }],
+  creator: "Olgu Uysal",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://marketing-blog-six.vercel.app",
+    siteName: "Marketing System Design",
+    title: "Marketing System Design | Olgu Uysal",
+    description: "Essays on influence, behavioral logic, and marketing systems.",
+    images: [{
+      url: "/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Marketing System Design by Olgu Uysal"
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marketing System Design | Olgu Uysal",
+    description: "Essays on influence, behavioral logic, and marketing systems.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 

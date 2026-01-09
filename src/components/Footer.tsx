@@ -15,7 +15,7 @@ const Footer = () => {
                     </p>
                 </div>
 
-                <div className={styles.nav}>
+                <nav className={styles.nav}>
                     <div className={styles.column}>
                         <h4 className={styles.heading}>Articles</h4>
                         <ul className={styles.list}>
@@ -35,7 +35,7 @@ const Footer = () => {
                             <li><Link href="/contact">Contact</Link></li>
                         </ul>
                     </div>
-                </div>
+                </nav>
             </div>
 
             <div className={styles.bottom}>

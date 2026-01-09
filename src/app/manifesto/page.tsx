@@ -1,6 +1,12 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 import ScrollToTop from "@/components/ScrollToTop";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Manifesto | The Systemic Perspective",
+    description: "The core philosophy of Marketing System Design. Moving from simple persuasion to architectural integrity in digital growth.",
+};
 
 export default function Manifesto() {
     return (

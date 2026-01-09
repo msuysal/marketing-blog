@@ -2,8 +2,8 @@ import styles from "./page.module.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About | Olgu Uysal",
-    description: "Marketing System Architect and Behavioral Engineer.",
+    title: "About Olgu Uysal | Marketing System Architect",
+    description: "Learn about Ms. Olgu Uysal, a Brand & Marketing Strategist with over 15 years of experience in behavioral economics and data science for marketing.",
 };
 
 export default function About() {

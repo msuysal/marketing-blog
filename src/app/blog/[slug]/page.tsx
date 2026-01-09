@@ -24,8 +24,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const url = `https://marketing-blog-six.vercel.app/blog/${post.slug}`;
 
     return {
-        title: `${post.title} | Olgu Uysal`,
+        title: post.title,
         description: post.excerpt,
+        keywords: post.tags,
+        alternates: {
+            canonical: url,
+        },
         openGraph: {
             title: post.title,
             description: post.excerpt,
@@ -34,6 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             type: "article",
             publishedTime: post.date,
             authors: ["Olgu Uysal"],
+            tags: post.tags,
         },
         twitter: {
             card: "summary_large_image",

@@ -2,8 +2,8 @@ import styles from "./page.module.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Contact | Olgu Uysal",
-    description: "Get in touch for consulting, speaking, or syndication.",
+    title: "Contact | Connect with Olgu Uysal",
+    description: "Get in touch for strategic consulting, speaking engagements, or media inquiries regarding marketing system design and behavioral architecture.",
 };
 
 export default function Contact() {

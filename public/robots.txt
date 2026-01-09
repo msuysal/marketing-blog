@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://marketing-blog-six.vercel.app/sitemap.xml
