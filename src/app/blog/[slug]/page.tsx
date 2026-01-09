@@ -21,9 +21,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = posts.find((p) => p.slug === slug);
     if (!post) return { title: "Not Found" };
 
+    const url = `https://marketing-blog-six.vercel.app/blog/${post.slug}`;
+
     return {
         title: `${post.title} | Olgu Uysal`,
         description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            url: url,
+            siteName: "Marketing System Design",
+            type: "article",
+            publishedTime: post.date,
+            authors: ["Olgu Uysal"],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.excerpt,
+        },
     };
 }
 
@@ -34,6 +50,9 @@ export default async function BlogPost({ params }: Props) {
     if (!post) {
         notFound();
     }
+
+    const shareUrl = `https://marketing-blog-six.vercel.app/blog/${post.slug}`;
+    const shareText = `"${post.title}" - Essays on influence, behavioral logic, and marketing systems.`;
 
     if (!post.content || post.content.trim() === "") {
         return (
@@ -68,11 +87,11 @@ export default async function BlogPost({ params }: Props) {
                     <TableOfContents />
 
                     <div className={styles.shareSidebar}>
-                        <h4>Share this article</h4>
+                        <h4>Share Perspectives</h4>
                         <ul className={styles.shareLinks}>
                             <li>
                                 <a
-                                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://olguuysal.com/blog/${post.slug}`)}`}
+                                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -80,20 +99,30 @@ export default async function BlogPost({ params }: Props) {
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://olguuysal.com/blog/${post.slug}`)}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <button
+                                    onClick={() => {
+                                        const caption = `${shareText}\n\nRead more here: ${shareUrl}`;
+                                        navigator.clipboard.writeText(caption);
+                                        const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+                                        window.open(linkedInUrl, '_blank', 'noreferrer');
+                                        alert("A suggested caption has been copied to your clipboard. You can paste it in your LinkedIn post!");
+                                    }}
+                                    className={styles.copyBtn}
+                                    title="Share on LinkedIn with a suggested caption"
                                 >
                                     LinkedIn
-                                </a>
+                                </button>
                             </li>
                             <li>
-                                <a
-                                    href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(`Check out this article: https://olguuysal.com/blog/${post.slug}`)}`}
+                                <button
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(shareUrl);
+                                        alert("Link copied to clipboard");
+                                    }}
+                                    className={styles.copyBtn}
                                 >
-                                    Email
-                                </a>
+                                    Copy Link
+                                </button>
                             </li>
                         </ul>
                     </div>

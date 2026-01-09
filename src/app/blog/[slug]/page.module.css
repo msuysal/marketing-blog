@@ -269,6 +269,26 @@
     border-bottom-color: var(--accent);
 }
 
+.copyBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--foreground);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.copyBtn:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
 .footer {
     margin-top: 6rem;
     padding-top: 2rem;
