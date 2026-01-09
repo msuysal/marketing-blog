@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ScrollToTop from "@/components/ScrollToTop";
 import TableOfContents from "@/components/TableOfContents";
+import ShareButtons from "@/components/ShareButtons";
 
 interface Props {
     params: { slug: string };
@@ -93,43 +94,7 @@ export default async function BlogPost({ params }: Props) {
 
                     <div className={styles.shareSidebar}>
                         <h4>Share Perspectives</h4>
-                        <ul className={styles.shareLinks}>
-                            <li>
-                                <a
-                                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    X / Twitter
-                                </a>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => {
-                                        const caption = `${shareText}\n\nRead more here: ${shareUrl}`;
-                                        navigator.clipboard.writeText(caption);
-                                        const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
-                                        window.open(linkedInUrl, '_blank', 'noreferrer');
-                                        alert("A suggested caption has been copied to your clipboard. You can paste it in your LinkedIn post!");
-                                    }}
-                                    className={styles.copyBtn}
-                                    title="Share on LinkedIn with a suggested caption"
-                                >
-                                    LinkedIn
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(shareUrl);
-                                        alert("Link copied to clipboard");
-                                    }}
-                                    className={styles.copyBtn}
-                                >
-                                    Copy Link
-                                </button>
-                            </li>
-                        </ul>
+                        <ShareButtons shareUrl={shareUrl} shareText={shareText} />
                     </div>
                 </div>
 
