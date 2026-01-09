@@ -11,7 +11,7 @@ export interface Post {
 export const posts: Post[] = [
   {
     slug: "influence-coordination-problem",
-    title: "Influence Is a Coordination Problem, Not a Content Problem",
+    title: "The Coordination Equilibrium: Orchestrating Influence Beyond the Content Trap",
     excerpt: "Brands often fail by optimizing for content quality when the real bottleneck is social coordination. We analyze how influence scales through synchronized action rather than broad distribution.",
     date: "Jan 09, 2026",
     tags: ["Influence & Authority", "Marketing Game Theory", "Behavioral Logic"],
