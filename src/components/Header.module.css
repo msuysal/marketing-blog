@@ -18,10 +18,10 @@
 
 .tagline {
     font-weight: 600;
-    text-transform: uppercase;
     font-size: 0.65rem;
     letter-spacing: 0.05em;
     color: var(--accent);
+    font-style: italic;
 }
 
 .date {
