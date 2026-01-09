@@ -83,7 +83,16 @@ export const posts: Post[] = [
       <h2>The Geometry of Influence</h2>
       <p>Reach is linear; influence is geometric. Reach tells you how many people are in the room; influence tells you who is listening and who is prepared to act. A creator with 10,000 deep-trust followers often possesses more systemic influence than a celebrity with 10,000,000 superficial impressions. The "geometry" of the impact—the depth and density of the connection—is the true driver of ROI.</p>
 
-      <p>We analyze the "Influencer/Follower Topology": Is it a hub-and-spoke model of passive consumption, or is it a decentralized network of active peer-to-peer validation?</p>
+      <p>We analyze the <strong>"Influencer/Follower Topology"</strong> to identify where power actually resides. Most brands mistakenly invest in <em>Hub-and-Spoke</em> models—traditional broadcast structures where a single node pushes information to a passive audience. While this creates high visibility, it is structurally fragile; the moment the central node stops pushing, the resonance dies. 
+      <br /><br />
+      The true systems architect looks for <strong>Decentralized Networks</strong>. In these topologies, the followers are not just consumers; they are active validators who propagate the signal to their own mini-networks. This creates a peer-to-peer trust loop that is self-sustaining and significantly more resistant to algorithmic volatility. 
+      <br /><br />
+      To distinguish between the two, we measure three archetypal signals:
+      <ul>
+        <li><strong>Structural Velocity:</strong> How quickly a signal travels between secondary nodes without the primary influencer's intervention.</li>
+        <li><strong>Clustering Coefficient:</strong> The density of connections within the follower base. Do they talk to each other, or only to the 'star'?</li>
+        <li><strong>Latency of Trust:</strong> The time required for a follower to move from passive observer to active advocate. In decentralized networks, this latency is consistently lower due to peer validation.</li>
+      </ul></p>
 
       <blockquote>"Reach is what you pay for; Influence is what you earn through consistent architectural integrity."</blockquote>
 
