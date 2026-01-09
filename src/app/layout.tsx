@@ -17,7 +17,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://marketing-blog-six.vercel.app"),
+  metadataBase: new URL("https://marketing-blog-teal.vercel.app"),
   title: {
     default: "Marketing System Design | Olgu Uysal",
     template: "%s | Olgu Uysal"

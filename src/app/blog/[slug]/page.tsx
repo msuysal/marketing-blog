@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = posts.find((p) => p.slug === slug);
     if (!post) return { title: "Not Found" };
 
-    const url = `https://marketing-blog-six.vercel.app/blog/${post.slug}`;
+    const url = `https://marketing-blog-teal.vercel.app/blog/${post.slug}`;
 
     return {
         title: post.title,
@@ -57,7 +57,7 @@ export default async function BlogPost({ params }: Props) {
         notFound();
     }
 
-    const shareUrl = `https://marketing-blog-six.vercel.app/blog/${post.slug}`;
+    const shareUrl = `https://marketing-blog-teal.vercel.app/blog/${post.slug}`;
     const shareText = `"${post.title}" - Essays on influence, behavioral logic, and marketing systems.`;
 
     if (!post.content || post.content.trim() === "") {
