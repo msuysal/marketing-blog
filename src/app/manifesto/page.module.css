@@ -96,7 +96,6 @@
 .postFlow {
     margin-top: 6rem;
     padding: 3rem;
-    background-color: #f9f9f9;
     background-color: var(--background-dim);
     text-align: center;
     border: 1px solid var(--border-color);

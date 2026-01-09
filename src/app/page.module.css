@@ -320,7 +320,8 @@
 }
 
 .newsletter {
-  padding: 6rem 1rem;
+  padding: 3rem 1rem;
+  /* Reduced from 6rem */
   background-color: var(--background);
   border-bottom: 1px solid var(--border-color);
 }
@@ -328,13 +329,16 @@
 .newsletterContainer {
   display: flex;
   align-items: center;
-  gap: 5rem;
-  max-width: 1000px;
+  gap: 3rem;
+  /* Reduced from 5rem */
+  max-width: 900px;
+  /* Slightly tighter */
   margin: 0 auto;
 }
 
 .newsletterImage {
-  flex: 0 0 40%;
+  flex: 0 0 30%;
+  /* Reduced from 40% to make illustration smaller */
 }
 
 .newsletterImage img {
@@ -349,8 +353,10 @@
 
 .newsletterContent h3 {
   font-family: var(--font-serif);
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  /* Slightly smaller */
+  margin-bottom: 1rem;
+  /* Reduced from 1.5rem */
   line-height: 1.1;
 }
 
