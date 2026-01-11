@@ -115,7 +115,6 @@ const GrowthLoopVisual = () => {
                     <div className={styles.centerValue}>High</div>
                 </div>
 
-                {/* Nodes */}
                 {nodes.map((node) => (
                     <div
                         key={node.id}
@@ -123,7 +122,9 @@ const GrowthLoopVisual = () => {
                         style={{
                             left: `${node.x}%`,
                             top: `${node.y}%`,
-                            transform: activeNode === node.id ? 'scale(1.15) translateY(-5px)' : 'translate(0,0)',
+                            transform: activeNode === node.id
+                                ? 'translate(-50%, -50%) scale(1.15) translateY(-5px)'
+                                : 'translate(-50%, -50%)',
                             borderColor: activeNode === node.id ? 'var(--accent)' : 'var(--foreground)'
                         }}
                         onMouseEnter={() => setActiveNode(node.id)}
