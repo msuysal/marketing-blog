@@ -112,7 +112,7 @@ export default function ThePerspective() {
 
                 <div className={styles.postFlow}>
                     <div className={styles.flowLabel}>Next Step</div>
-                    <Link href="/knowledge-base" className={styles.flowLink}>
+                    <Link href="/articles" className={styles.flowLink}>
                         Read the Articles &rarr;
                     </Link>
                 </div>

@@ -66,7 +66,7 @@ export default async function BlogPost({ params }: Props) {
             <div className={styles.container}>
                 <h1 className={styles.title}>{post.title}</h1>
                 <p>Content is currently being archived. Please check back shortly.</p>
-                <Link href="/knowledge-base" className={styles.backLink}>&larr; Return to Knowledge Base</Link>
+                <Link href="/articles" className={styles.backLink}>&larr; Return to Articles</Link>
             </div>
         );
     }
@@ -135,7 +135,7 @@ export default async function BlogPost({ params }: Props) {
             </section>
 
             <footer className={styles.footer}>
-                <Link href="/knowledge-base" className={styles.backLink}>&larr; Return to Articles</Link>
+                <Link href="/articles" className={styles.backLink}>&larr; Return to Articles</Link>
             </footer>
 
             <ScrollToTop />

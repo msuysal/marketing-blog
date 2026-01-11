@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { posts, allIndustries } from "@/lib/posts";
-import styles from "../knowledge-base/page.module.css";
+import styles from "../articles/page.module.css";
 import { useSearchParams, useRouter } from "next/navigation";
 
 function IndustryBestPracticesContent() {

@@ -45,7 +45,7 @@ const Header = () => {
                         <nav id="main-nav" className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ""}`} aria-label="Main navigation">
                             <ul className={styles.navList}>
                                 <li className={styles.navItem}>
-                                    <Link href="/knowledge-base" onClick={() => setIsMenuOpen(false)}>Articles</Link>
+                                    <Link href="/articles" onClick={() => setIsMenuOpen(false)}>Articles</Link>
                                 </li>
                                 <li className={styles.navItem}>
                                     <Link href="/deconstructions" onClick={() => setIsMenuOpen(false)}>Deconstructions</Link>

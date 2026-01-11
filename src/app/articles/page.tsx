@@ -6,7 +6,7 @@ import { posts, allTags } from "@/lib/posts";
 import styles from "./page.module.css";
 import { useSearchParams, useRouter } from "next/navigation";
 
-function KnowledgeBaseContent() {
+function ArticlesPageContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
 
@@ -57,7 +57,7 @@ function KnowledgeBaseContent() {
             params.set("search", searchQuery);
         }
 
-        router.push(params.toString() ? `/knowledge-base?${params.toString()}` : "/knowledge-base");
+        router.push(params.toString() ? `/articles?${params.toString()}` : "/articles");
     };
 
     const handleClearAll = () => {
@@ -92,7 +92,7 @@ function KnowledgeBaseContent() {
                     ))}
                 </ul>
                 <div className={styles.sidebarFooter}>
-                    <p aria-hidden="true">Foundation Archive / Vol. 1</p>
+                    <p aria-hidden="true">Foundation Archive / Articles</p>
                 </div>
             </aside>
 
@@ -112,7 +112,7 @@ function KnowledgeBaseContent() {
                                 {' '}&mdash; {filteredPosts.length} {filteredPosts.length === 1 ? 'Article' : 'Articles'}
                             </span>
                         ) : (
-                            <span>All Foundation Articles &mdash; {articlePosts.length} Total</span>
+                            <span>All Articles &mdash; {articlePosts.length} Total</span>
                         )}
                     </div>
                 </header>
@@ -148,11 +148,11 @@ function KnowledgeBaseContent() {
     );
 }
 
-export default function KnowledgeBase() {
+export default function ArticlesPage() {
     return (
         <div className={styles.pageWrapper}>
-            <Suspense fallback={<div className={styles.loading}>Accessing Foundational Index...</div>}>
-                <KnowledgeBaseContent />
+            <Suspense fallback={<div className={styles.loading}>Accessing Articles...</div>}>
+                <ArticlesPageContent />
             </Suspense>
         </div>
     );

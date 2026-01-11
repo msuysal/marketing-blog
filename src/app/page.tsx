@@ -62,7 +62,7 @@ export default function Home() {
       <section className={styles.gridSection}>
         <div className={styles.sectionHeader}>
           <h3>Latest Intelligence</h3>
-          <Link href="/knowledge-base" aria-label="Explore all articles in the knowledge base">Explore Articles</Link>
+          <Link href="/articles" aria-label="Explore all articles in the knowledge base">Explore Articles</Link>
         </div>
 
         <div className={styles.grid}>

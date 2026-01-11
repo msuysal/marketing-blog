@@ -21,17 +21,17 @@ const Footer = () => {
                     <div className={styles.column}>
                         <h4 className={styles.heading}>Articles</h4>
                         <ul className={styles.list}>
-                            <li><Link href="/knowledge-base?tag=Behavioral%20Logic">Behavioral Logic</Link></li>
-                            <li><Link href="/knowledge-base?tag=Systems%20Infrastructure">Systems Architecture</Link></li>
-                            <li><Link href="/knowledge-base?tag=Influence%20%26%20Authority">Influence & Authority</Link></li>
-                            <li><Link href="/knowledge-base?tag=Marketing%20Game%20Theory">Game Theory</Link></li>
+                            <li><Link href="/articles?tag=Behavioral%20Logic">Behavioral Logic</Link></li>
+                            <li><Link href="/articles?tag=Systems%20Infrastructure">Systems Architecture</Link></li>
+                            <li><Link href="/articles?tag=Influence%20%26%20Authority">Influence & Authority</Link></li>
+                            <li><Link href="/articles?tag=Marketing%20Game%20Theory">Game Theory</Link></li>
                         </ul>
                     </div>
 
                     <div className={styles.column}>
                         <h4 className={styles.heading}>Explorer</h4>
                         <ul className={styles.list}>
-                            <li><Link href="/knowledge-base">All Articles</Link></li>
+                            <li><Link href="/articles">All Articles</Link></li>
                             <li><Link href="/deconstructions">Deconstructions</Link></li>
                             <li><Link href="/about">About</Link></li>
                             <li><Link href="/contact">Contact</Link></li>
