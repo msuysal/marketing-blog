@@ -107,6 +107,11 @@
     background-color: var(--gray-medium);
     position: relative;
     cursor: pointer;
+    transition: height 0.2s ease;
+}
+
+.progressBar:hover {
+    height: 8px;
 }
 
 .progressFill {

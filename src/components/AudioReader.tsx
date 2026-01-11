@@ -33,6 +33,8 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
         };
     }, []);
 
+    const fullTextRef = useRef<string>("");
+
     const stripHtml = (html: string) => {
         const tmp = document.createElement("div");
         tmp.innerHTML = html;
@@ -46,19 +48,31 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
         return tmp.textContent || tmp.innerText || "";
     };
 
-    const handlePlayPause = () => {
+    const handlePlayPause = (startIndex = 0) => {
         if (!supported) return;
 
-        if (isPlaying) {
+        if (isPlaying && startIndex === 0) {
             window.speechSynthesis.pause();
             setIsPlaying(false);
         } else {
-            if (window.speechSynthesis.paused) {
+            if (window.speechSynthesis.paused && startIndex === 0) {
                 window.speechSynthesis.resume();
                 setIsPlaying(true);
             } else {
-                const text = `${title}. ${stripHtml(content)}`;
-                const utterance = new SpeechSynthesisUtterance(text);
+                window.speechSynthesis.cancel();
+
+                // If starting fresh, generate and store the full text
+                if (startIndex === 0 && !fullTextRef.current) {
+                    fullTextRef.current = `${title}. ${stripHtml(content)}`;
+                } else if (startIndex === 0 && fullTextRef.current) {
+                    // Just play from start if already generated
+                }
+
+                const textToSpeak = startIndex > 0
+                    ? fullTextRef.current.slice(startIndex)
+                    : fullTextRef.current;
+
+                const utterance = new SpeechSynthesisUtterance(textToSpeak);
 
                 // Try to find a premium/natural sounding voice
                 const voices = voicesRef.current;
@@ -71,14 +85,17 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
                 utterance.volume = 1;
 
                 utterance.onboundary = (event) => {
-                    const totalLength = text.length;
-                    const currentPos = event.charIndex;
+                    const totalLength = fullTextRef.current.length;
+                    const currentPos = startIndex + event.charIndex;
                     setProgress((currentPos / totalLength) * 100);
                 };
 
                 utterance.onend = () => {
                     setIsPlaying(false);
-                    setProgress(0);
+                    // Only reset progress if we actually finished the whole thing
+                    if (startIndex + textToSpeak.length >= fullTextRef.current.length - 10) {
+                        setProgress(0);
+                    }
                 };
 
                 utteranceRef.current = utterance;
@@ -86,6 +103,24 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
                 setIsPlaying(true);
             }
         }
+    };
+
+    const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!supported) return;
+
+        // Ensure fullText is generated
+        if (!fullTextRef.current) {
+            fullTextRef.current = `${title}. ${stripHtml(content)}`;
+        }
+
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const width = rect.width;
+        const percentage = Math.max(0, Math.min(1, x / width));
+        const targetChar = Math.floor(fullTextRef.current.length * percentage);
+
+        setProgress(percentage * 100);
+        handlePlayPause(targetChar);
     };
 
     const toggleSpeed = () => {
@@ -120,7 +155,7 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
 
             <div className={styles.controls}>
                 <button
-                    onClick={handlePlayPause}
+                    onClick={() => handlePlayPause()}
                     className={styles.playBtn}
                     aria-label={isPlaying ? "Pause audio" : "Play audio"}
                 >
@@ -143,7 +178,16 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
                 </div>
             </div>
 
-            <div className={styles.progressBar}>
+            <div
+                className={styles.progressBar}
+                onClick={handleSeek}
+                role="slider"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={Math.round(progress)}
+                aria-label="Seek through audio"
+                style={{ cursor: 'pointer' }}
+            >
                 <div
                     className={styles.progressFill}
                     style={{ width: `${progress}%` }}
