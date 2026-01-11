@@ -5,6 +5,7 @@ import Link from "next/link";
 import { posts, allTags } from "@/lib/posts";
 import styles from "./page.module.css";
 import { useSearchParams, useRouter } from "next/navigation";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const ITEMS_PER_PAGE = 5;
 
@@ -206,6 +207,7 @@ function ArticlesPageContent() {
                         </button>
                     </div>
                 )}
+                <ScrollToTop />
             </main>
         </div>
     );
