@@ -36,7 +36,7 @@ const Header = () => {
                         <Link href="/" className={styles.logoLink}>
                             <div className={styles.logoMasthead}>
                                 <span className={styles.logoMain}>Marketing System Design</span>
-                                <span className={styles.logoSubtitle}>Essays on influence, behavioral logic, and marketing systems</span>
+                                <span className={styles.logoSubtitle}>Essays on influence, behavioral logic and marketing systems</span>
                             </div>
                         </Link>
                     </div>
