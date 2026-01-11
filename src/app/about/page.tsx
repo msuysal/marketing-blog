@@ -23,15 +23,15 @@ export default function About() {
                     <ul className={styles.list}>
                         <li>
                             <span className={styles.label}>Economics</span>
-                            <p>Her foundational expertise in Economics provides a rigorous lens for understanding market dynamics, incentives, and systemic value creation.</p>
+                            <p>My background in Economics serves as the primary lens through which I analyze market dynamics and human incentives.</p>
                         </li>
                         <li>
                             <span className={styles.label}>Data Science</span>
-                            <p>With a postgraduate degree in Data Science for Marketing, she translates fragmented data points into coherent, actionable behavioral architectures.</p>
+                            <p>With a postgraduate focus on Data Science for Marketing, I translate fragmented data points into coherent behavioral architectures.</p>
                         </li>
                         <li>
                             <span className={styles.label}>Global Presence</span>
-                            <p>Based between the cultural and strategic hubs of <strong>Istanbul</strong> and <strong>Lisbon</strong>, she maintains an international perspective on growth and brand positioning.</p>
+                            <p>Living and working across several continents, from the USA to the Middle East, has shaped my understanding of the human constant. I view culture as a variable interface, but I design for the core.</p>
                         </li>
                     </ul>
                 </div>
