@@ -20,7 +20,7 @@ export default function Contact() {
                         <h3>Location</h3>
                         <p>Istanbul</p>
                         <p>Lisbon</p>
-                        <p>Places in between</p>
+                        <p>& places in between</p>
                     </div>
 
                     <div className={styles.infoBlock}>
