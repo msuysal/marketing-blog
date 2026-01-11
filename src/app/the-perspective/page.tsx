@@ -105,12 +105,9 @@ export default function ThePerspective() {
 
                 <div className={styles.footer}>
                     <p>
-                        Marketing is not a series of campaigns.
-                        It is a system of decisions, incentives, and structures.
-                        And systems — whether we acknowledge them or not —
-                        always produce outcomes.
+                        "Marketing is an operational sync of decisions and structures. Campaigns capture attention, but systems hold it. And systems always produce the outcomes they were designed for."
                     </p>
-                    <p className={styles.signature}>&mdash; Olgu Uysal</p>
+                    <p className={styles.signature}>&mdash; Ms. Olgu Uysal</p>
                 </div>
 
                 <div className={styles.postFlow}>
