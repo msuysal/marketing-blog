@@ -81,7 +81,7 @@ export default async function BlogPost({ params }: Props) {
                 <p className={styles.lead}>{post.excerpt}</p>
                 <div className={styles.metaBottom}>
                     {post.tags.map(tag => (
-                        <Link key={tag} href={`/knowledge-base?tag=${encodeURIComponent(tag)}`} className={styles.tag}>
+                        <Link key={tag} href={`/articles?tag=${encodeURIComponent(tag)}`} className={styles.tag}>
                             {tag}
                         </Link>
                     ))}
