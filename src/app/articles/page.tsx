@@ -61,7 +61,7 @@ function ArticlesPageContent() {
     };
 
     const handleClearAll = () => {
-        router.push("/knowledge-base");
+        router.push("/articles");
     };
 
     return (

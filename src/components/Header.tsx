@@ -15,7 +15,7 @@ const Header = () => {
         const formData = new FormData(e.currentTarget);
         const query = formData.get('q') as string;
         if (query.trim()) {
-            router.push(`/knowledge-base?search=${encodeURIComponent(query)}`);
+            router.push(`/articles?search=${encodeURIComponent(query)}`);
             setIsSearchOpen(false);
         }
     };
