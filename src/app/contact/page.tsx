@@ -17,27 +17,22 @@ export default function Contact() {
             <div className={styles.grid}>
                 <div className={styles.infoColumn}>
                     <div className={styles.infoBlock}>
-                        <h3>Global Hubs</h3>
-                        <div className={styles.hubItem}>
-                            <strong>Istanbul</strong>
-                            <p>Strategic Operations & Brand Systems</p>
-                        </div>
-                        <div className={styles.hubItem}>
-                            <strong>Lisbon</strong>
-                            <p>Data Science & International Digital Strategy</p>
-                        </div>
+                        <h3>Location</h3>
+                        <p>Istanbul</p>
+                        <p>Lisbon</p>
+                        <p>Places in between</p>
                     </div>
 
                     <div className={styles.infoBlock}>
                         <h3>Communication</h3>
                         <p className={styles.directLine}><a href="mailto:olgu@ohmedya.com">olgu@ohmedya.com</a></p>
-                        <p className={styles.responseNote}>Analytical priority is given to clear, structured communication. Expect a response within 48 systemic hours.</p>
+                        <p><a href="https://www.linkedin.com/in/olguuysal/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
                     </div>
 
                     <div className={styles.infoBlock}>
                         <h3>Press & Media</h3>
                         <p className={styles.pressText}>
-                            For interview requests, technical commentary on marketing systems, or speaking engagements, please flag your message as <strong>[URGENT: PRESS]</strong> in the subject line.
+                            For interview requests, technical commentary on marketing systems, or podcast engagements, please contact me directly via email.
                         </p>
                     </div>
                 </div>
