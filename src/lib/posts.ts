@@ -140,16 +140,7 @@ graph LR
       <h2>Engineering the Growth Loop</h2>
       <p>A Growth Loop feeds the output of one cycle into the input of the next. Most loops fail due to weak connections. Engineering for clustering builds "Structural Velocity":
 
-      <pre class="mermaid">
-stateDiagram-v2
-    [*] --> Acquisition
-    Acquisition --> PeerValidation
-    PeerValidation --> Activation
-    Activation --> Retention
-    Retention --> Referral
-    Referral --> PeerValidation: Cluster Resonance
-    Referral --> Acquisition: Network Scale
-    </pre>
+      <div data-widget="growthloop"></div>
 
       <ul>
         <li><strong>Niche Saturation:</strong> Dominating a specific cluster until internal density reaches a tipping point.</li>

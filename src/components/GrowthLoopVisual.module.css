@@ -1,0 +1,220 @@
+.container {
+    background: linear-gradient(145deg, #ffffff, #f5f5f7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 3rem;
+    margin: 3rem 0;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-sans);
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--foreground);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.diagram {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+}
+
+.track {
+    fill: none;
+    stroke: var(--gray-medium);
+    stroke-width: 2;
+    opacity: 0.3;
+}
+
+.activeTrack {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 3;
+    stroke-dasharray: 10, 5;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 4px var(--accent));
+    animation: flow 20s linear infinite;
+}
+
+@keyframes flow {
+    to {
+        stroke-dashoffset: -1000;
+    }
+}
+
+.node {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 2px solid var(--foreground);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.node:hover {
+    transform: scale(1.1) translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(226, 195, 49, 0.3);
+}
+
+/* Positioning nodes in a circle */
+/* Center is 50%, 50% */
+/* Radius approx 40% */
+/* CSS trigonometry would be ideal but simple calc/absolute works */
+
+.node:nth-child(1) {
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* Top: Acquisition */
+.node:nth-child(2) {
+    top: 35%;
+    right: 5%;
+    transform: translate(0, -50%);
+}
+
+/* Right-Top: Peer Validation */
+.node:nth-child(3) {
+    bottom: 20%;
+    right: 15%;
+    transform: translate(0, 0);
+}
+
+/* Right-Bottom: Activation */
+.node:nth-child(4) {
+    bottom: 20%;
+    left: 15%;
+    transform: translate(0, 0);
+}
+
+/* Left-Bottom: Retention */
+.node:nth-child(5) {
+    top: 35%;
+    left: 5%;
+    transform: translate(0, -50%);
+}
+
+/* Left-Top: Referral */
+
+/* Hover state overrides transforms slightly, handled in JS or carefully with CSS vars */
+
+.centerLabel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--foreground);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+}
+
+.centerTitle {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.centerValue {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 0 10px var(--accent);
+    z-index: 8;
+    offset-path: path("M250,50 A200,200 0 1,1 249,50");
+    /* SVG path coords aligned with viewbox */
+    animation: move 6s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        offset-distance: 0%;
+    }
+
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+.description {
+    margin-top: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-left: 3px solid var(--accent);
+    font-size: 0.9rem;
+    color: var(--gray-dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    min-height: 100px;
+    transition: opacity 0.3s;
+}
+
+.description h4 {
+    color: var(--foreground);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .node {
+        width: 60px;
+        height: 60px;
+        font-size: 0.6rem;
+    }
+
+    .centerLabel {
+        width: 100px;
+        height: 100px;
+    }
+
+    .centerValue {
+        font-size: 1.2rem;
+    }
+}

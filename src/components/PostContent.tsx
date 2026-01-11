@@ -5,6 +5,7 @@ import parse, { domToReact, HTMLReactParserOptions, Element } from "html-react-p
 import GameTheoryWidget from "./GameTheoryWidget";
 import NudgeSimulator from "./NudgeSimulator";
 import Mermaid from "./Mermaid";
+import GrowthLoopVisual from "./GrowthLoopVisual";
 
 interface PostContentProps {
     content: string;
@@ -21,6 +22,9 @@ const PostContent: React.FC<PostContentProps> = ({ content }) => {
                     }
                     if (domNode.attribs["data-widget"] === "nudgesimulator") {
                         return <NudgeSimulator />;
+                    }
+                    if (domNode.attribs["data-widget"] === "growthloop") {
+                        return <GrowthLoopVisual />;
                     }
                 }
 
