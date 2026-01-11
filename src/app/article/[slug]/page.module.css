@@ -385,8 +385,14 @@
 
 .navLinkPrev:hover .navTitle,
 .navLinkNext:hover .navTitle {
-    text-decoration: underline;
+    border-bottom: none;
 }
+
+.navLinkPrev,
+.navLinkNext {
+    border-bottom: none !important;
+}
+
 
 @media (max-width: 1200px) {
     .layout {
