@@ -20,12 +20,12 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
-            We optimized attention.
-            <span className={styles.dimmed}>We forgot meaning.</span>
+            Marketing is a system.
+            <span className={styles.dimmed}>Not a function.</span>
           </h1>
           <div className={styles.heroContent}>
             <p className={styles.heroBody}>
-              Long-form thinking on influence, authority, and the systems that give ideas structure and meaning.
+              Exploring the intersection of behavioral logic and systemic architecture. I deconstruct the mechanics of influence to build structures that give ideas meaning and scale.
             </p>
 
           </div>
