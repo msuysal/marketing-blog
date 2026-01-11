@@ -200,3 +200,61 @@ h4 a:hover,
   font-size: 1.25rem;
   color: var(--gray-dark);
 }
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    /* Prevent zoom on input focus */
+  }
+
+  /* Ensure touch targets are at least 44x44px */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+
+  /* Improve readability on mobile */
+  .prose-content {
+    font-size: 1.05rem;
+  }
+
+  .prose-content blockquote {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+  }
+
+  /* Prevent horizontal scroll */
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Better spacing on mobile */
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Improve tap highlighting */
+@media (hover: none) {
+
+  a,
+  button {
+    -webkit-tap-highlight-color: rgba(226, 195, 49, 0.3);
+  }
+}

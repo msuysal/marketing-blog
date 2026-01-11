@@ -387,3 +387,26 @@
     color: var(--accent-text) !important;
     font-weight: 700;
 }
+
+@media (max-width: 640px) {
+    .pagination {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .navBtn {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+
+    .pageNumber {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+
+    .pageNumbers {
+        gap: 0.25rem;
+    }
+}

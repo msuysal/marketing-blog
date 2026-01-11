@@ -355,4 +355,16 @@
     .rightSection {
         gap: 1rem;
     }
+
+    .logoMain {
+        font-size: 1.5rem;
+    }
+
+    .logoSubtitle {
+        font-size: 0.7rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
 }
