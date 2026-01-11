@@ -14,7 +14,7 @@ interface Props {
 
 export async function generateStaticParams() {
     return posts
-        .filter((post) => !post.tags.includes("Deconstruction"))
+        .filter((post) => post.tags.includes("Deconstruction"))
         .map((post) => ({
             slug: post.slug,
         }));
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = posts.find((p) => p.slug === slug);
     if (!post) return { title: "Not Found" };
 
-    const url = `https://marketing-blog-teal.vercel.app/article/${post.slug}`;
+    const url = `https://marketing-blog-teal.vercel.app/deconstruction/${post.slug}`;
 
     return {
         title: post.title,
@@ -60,21 +60,11 @@ export default async function BlogPost({ params }: Props) {
     const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
     const prevPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
 
-    if (!post) {
+    if (!post || !post.tags.includes("Deconstruction")) {
         notFound();
     }
 
-    // Redirect deconstructions to the correct route
-    if (post.tags.includes("Deconstruction")) {
-        return (
-            <div className={styles.container}>
-                <p>Redirecting...</p>
-                <meta httpEquiv="refresh" content={`0;url=/deconstruction/${post.slug}`} />
-            </div>
-        );
-    }
-
-    const shareUrl = `https://marketing-blog-teal.vercel.app/article/${post.slug}`;
+    const shareUrl = `https://marketing-blog-teal.vercel.app/deconstruction/${post.slug}`;
     const shareText = `"${post.title}" - Essays on influence, behavioral logic, and marketing systems.`;
 
     if (!post.content || post.content.trim() === "") {
@@ -82,7 +72,7 @@ export default async function BlogPost({ params }: Props) {
             <div className={styles.container}>
                 <h1 className={styles.title}>{post.title}</h1>
                 <p>Content is currently being archived. Please check back shortly.</p>
-                <Link href="/articles" className={styles.backLink}>&larr; Return to Articles</Link>
+                <Link href="/deconstructions" className={styles.backLink}>&larr; Return to Deconstructions</Link>
             </div>
         );
     }
@@ -97,7 +87,7 @@ export default async function BlogPost({ params }: Props) {
                 <p className={styles.lead}>{post.excerpt}</p>
                 <div className={styles.metaBottom}>
                     {post.tags.map(tag => (
-                        <Link key={tag} href={`/articles?tag=${encodeURIComponent(tag)}`} className={styles.tag}>
+                        <Link key={tag} href={`/deconstructions?industry=${encodeURIComponent(post.industry || "")}`} className={styles.tag}>
                             {tag}
                         </Link>
                     ))}
@@ -167,7 +157,7 @@ export default async function BlogPost({ params }: Props) {
             </section>
 
             <footer className={styles.footer}>
-                <Link href="/articles" className={styles.backLink}>&larr; Return to Articles</Link>
+                <Link href="/deconstructions" className={styles.backLink}>&larr; Return to Deconstructions</Link>
             </footer>
 
             <ScrollToTop />
