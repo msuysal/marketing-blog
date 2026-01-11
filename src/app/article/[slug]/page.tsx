@@ -89,6 +89,14 @@ export default async function BlogPost({ params }: Props) {
 
     return (
         <article className={styles.container}>
+            <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+                <Link href="/">Home</Link>
+                <span className={styles.breadcrumbSeparator}>/</span>
+                <Link href="/articles">Articles</Link>
+                <span className={styles.breadcrumbSeparator}>/</span>
+                <span className={styles.breadcrumbCurrent}>{post.title}</span>
+            </nav>
+
             <header className={styles.header}>
                 <div className={styles.metaTop}>
                     <span className={styles.date}>{post.date}</span>
