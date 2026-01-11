@@ -22,17 +22,37 @@ export const metadata: Metadata = {
     default: "Marketing System Design | Olgu Uysal",
     template: "%s | Olgu Uysal"
   },
-  description: "Essays on influence, behavioral logic, and marketing systems. Designed at the intersection of Data, Digital Architecture, and Behavioral Economics.",
-  keywords: ["Marketing Systems", "Behavioral Economics", "Influence", "Marketing Strategy", "Digital Architecture", "Data Signals", "Olgu Uysal"],
-  authors: [{ name: "Olgu Uysal" }],
+  description: "Essays on influence, behavioral logic and marketing systems. Designed at the intersection of Data, Digital Architecture, and Behavioral Economics.",
+  keywords: [
+    "Marketing Systems",
+    "Behavioral Economics",
+    "Influence",
+    "Marketing Strategy",
+    "Digital Architecture",
+    "Data Signals",
+    "Olgu Uysal",
+    "Marketing Consultant Istanbul",
+    "Marketing Consultant Lisbon",
+    "Growth Marketing",
+    "Marketing Analytics",
+    "Behavioral Design",
+    "Marketing System Architecture"
+  ],
+  authors: [{ name: "Olgu Uysal", url: "https://www.linkedin.com/in/olguuysal/" }],
   creator: "Olgu Uysal",
+  publisher: "Olgu Uysal",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://marketing-blog-six.vercel.app",
+    url: "https://marketing-blog-teal.vercel.app",
     siteName: "Marketing System Design",
     title: "Marketing System Design | Olgu Uysal",
-    description: "Essays on influence, behavioral logic, and marketing systems.",
+    description: "Essays on influence, behavioral logic and marketing systems.",
     images: [{
       url: "/og-image.png",
       width: 1200,
@@ -43,8 +63,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Marketing System Design | Olgu Uysal",
-    description: "Essays on influence, behavioral logic, and marketing systems.",
+    description: "Essays on influence, behavioral logic and marketing systems.",
     images: ["/og-image.png"],
+    creator: "@olguuysal",
   },
   robots: {
     index: true,
@@ -57,7 +78,25 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://marketing-blog-teal.vercel.app",
+    languages: {
+      'en-US': 'https://marketing-blog-teal.vercel.app',
+      'en-GB': 'https://marketing-blog-teal.vercel.app',
+      'en': 'https://marketing-blog-teal.vercel.app',
+    },
+  },
+  verification: {
+    google: "google-site-verification-code",
+  },
+  category: "Marketing",
+  other: {
+    "geo.region": "TR-34;PT-11",
+    "geo.placename": "Istanbul;Lisbon",
+    "geo.position": "41.0082;28.9784;38.7223;-9.1393",
+  },
 };
+
 
 
 
@@ -66,8 +105,68 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://marketing-blog-teal.vercel.app/#person",
+        "name": "Olgu Uysal",
+        "url": "https://marketing-blog-teal.vercel.app",
+        "sameAs": [
+          "https://www.linkedin.com/in/olguuysal/"
+        ],
+        "jobTitle": "Marketing Systems Consultant",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Independent"
+        },
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "Istanbul",
+            "addressCountry": "TR"
+          },
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "Lisbon",
+            "addressCountry": "PT"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://marketing-blog-teal.vercel.app/#website",
+        "url": "https://marketing-blog-teal.vercel.app",
+        "name": "Marketing System Design",
+        "description": "Essays on influence, behavioral logic and marketing systems",
+        "publisher": {
+          "@id": "https://marketing-blog-teal.vercel.app/#person"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://marketing-blog-teal.vercel.app/#blog",
+        "url": "https://marketing-blog-teal.vercel.app",
+        "name": "Marketing System Design",
+        "description": "Essays on influence, behavioral logic and marketing systems. Designed at the intersection of Data, Digital Architecture, and Behavioral Economics.",
+        "author": {
+          "@id": "https://marketing-blog-teal.vercel.app/#person"
+        },
+        "inLanguage": "en-US"
+      }
+    ]
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body className={`${inter.variable} ${newsreader.variable}`}>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Header />
