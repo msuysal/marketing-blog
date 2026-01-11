@@ -54,6 +54,10 @@ export default async function BlogPost({ params }: Props) {
     const { slug } = await params;
     const post = posts.find((p) => p.slug === slug);
 
+    const currentIndex = posts.findIndex((p) => p.slug === slug);
+    const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
+    const prevPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
+
     if (!post) {
         notFound();
     }
@@ -103,6 +107,22 @@ export default async function BlogPost({ params }: Props) {
                     <PostContent content={post.content} />
                 </div>
             </div>
+
+            <nav className={styles.navigation}>
+                {prevPost ? (
+                    <Link href={`/blog/${prevPost.slug}`} className={styles.navLinkPrev}>
+                        <span className={styles.navLabel}>&larr; Previous</span>
+                        <span className={styles.navTitle}>{prevPost.title}</span>
+                    </Link>
+                ) : <div></div>}
+
+                {nextPost ? (
+                    <Link href={`/blog/${nextPost.slug}`} className={styles.navLinkNext}>
+                        <span className={styles.navLabel}>Next &rarr;</span>
+                        <span className={styles.navTitle}>{nextPost.title}</span>
+                    </Link>
+                ) : <div></div>}
+            </nav>
 
             <section className={styles.relatedSection}>
                 <div className={styles.relatedHeader}>
