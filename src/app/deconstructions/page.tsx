@@ -89,10 +89,10 @@ function IndustryBestPracticesContent() {
                             </div>
                             <div className={styles.itemBody}>
                                 <h2 className={styles.itemTitle}>
-                                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                                    <Link href={`/article/${post.slug}`}>{post.title}</Link>
                                 </h2>
                                 <p className={styles.itemExcerpt}>{post.excerpt}</p>
-                                <Link href={`/blog/${post.slug}`} className={styles.readMore}>VIEW DECONSTRUCTION &rarr;</Link>
+                                <Link href={`/article/${post.slug}`} className={styles.readMore}>VIEW DECONSTRUCTION &rarr;</Link>
                             </div>
                         </article>
                     ))}

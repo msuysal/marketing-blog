@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../app/blog/[slug]/page.module.css";
+import styles from "../app/article/[slug]/page.module.css";
 
 interface ShareButtonsProps {
     shareUrl: string;

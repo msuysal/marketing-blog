@@ -44,7 +44,7 @@ export default function Home() {
         <article className={styles.featuredHorizontal}>
           <div className={styles.featuredHorizontalContent}>
             <h2 className={styles.featuredHorizontalTitle}>
-              <Link href={`/blog/${latestPost.slug}`}>{latestPost.title}</Link>
+              <Link href={`/article/${latestPost.slug}`}>{latestPost.title}</Link>
             </h2>
             <p className={styles.featuredHorizontalExcerpt}>{latestPost.excerpt}</p>
             <div className={styles.featuredHorizontalMeta}>
@@ -54,7 +54,7 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.featuredHorizontalLink}>
-            <Link href={`/blog/${latestPost.slug}`} className={styles.readMore} aria-label={`Read featured article: ${latestPost.title}`}>Read Article &rarr;</Link>
+            <Link href={`/article/${latestPost.slug}`} className={styles.readMore} aria-label={`Read featured article: ${latestPost.title}`}>Read Article &rarr;</Link>
           </div>
         </article>
       </section>
@@ -73,7 +73,7 @@ export default function Home() {
 
             return (
               <article key={post.slug} className={styles.card}>
-                <Link href={`/blog/${post.slug}`} className={styles.cardImageLink} aria-hidden="true" tabIndex={-1}>
+                <Link href={`/article/${post.slug}`} className={styles.cardImageLink} aria-hidden="true" tabIndex={-1}>
                   <GridIllustration type={type} />
                 </Link>
                 <div className={styles.cardTop}>
@@ -81,10 +81,10 @@ export default function Home() {
                   <span className={styles.cardDate}>{post.date}</span>
                 </div>
                 <h3 className={styles.cardTitle}>
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  <Link href={`/article/${post.slug}`}>{post.title}</Link>
                 </h3>
                 <p className={styles.cardExcerpt}>{post.excerpt}</p>
-                <Link href={`/blog/${post.slug}`} className={styles.cardCta}>Read Article &rarr;</Link>
+                <Link href={`/article/${post.slug}`} className={styles.cardCta}>Read Article &rarr;</Link>
               </article>
             );
           })}
