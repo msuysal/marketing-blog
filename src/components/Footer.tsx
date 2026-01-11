@@ -8,11 +8,13 @@ const Footer = () => {
                 <div className={styles.brand}>
                     <div className={styles.logoSection}>
                         <div className={styles.logoMain}>Olgu Uysal</div>
-                        <div className={styles.logoSub}>Marketing System Design</div>
                     </div>
                     <p className={styles.tagline}>
                         Essays on influence, behavioral logic, and marketing systems.
                     </p>
+                    <a href="https://www.linkedin.com/in/olguuysal/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
+                        LinkedIn
+                    </a>
                 </div>
 
                 <nav className={styles.nav}>

@@ -16,14 +16,6 @@
     border-bottom: 1px solid var(--border-subtle);
 }
 
-.tagline {
-    font-weight: 600;
-    font-size: 0.65rem;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-    font-style: italic;
-}
-
 .date {
     text-transform: uppercase;
     font-weight: 500;
@@ -36,6 +28,15 @@
     display: flex;
     justify-content: space-between;
 }
+
+.tagline {
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    font-style: italic;
+}
+
 
 .mainHeader {
     padding: 2rem 0;
@@ -73,7 +74,7 @@
 .logoMain {
     font-family: var(--font-serif);
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     letter-spacing: var(--letter-spacing-tight);
     color: var(--background);
     display: block;
@@ -82,11 +83,11 @@
 .logoSubtitle {
     font-family: var(--font-sans);
     font-weight: 500;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     letter-spacing: 0.05em;
     color: var(--accent);
     display: block;
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
 }
 
 .navList {
@@ -176,6 +177,119 @@
     top: 0;
 }
 
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.searchToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--background);
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.searchToggle:hover {
+    opacity: 0.7;
+}
+
+.searchOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(28, 28, 29, 0.98);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.searchContainer {
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+}
+
+.searchForm {
+    display: flex;
+    gap: 1rem;
+}
+
+.searchInput {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    border: 2px solid var(--accent);
+    background-color: transparent;
+    color: var(--background);
+    border-radius: 0;
+}
+
+.searchInput:focus {
+    outline: none;
+    background-color: rgba(253, 253, 251, 0.05);
+}
+
+.searchInput::placeholder {
+    color: var(--gray-medium);
+    font-style: italic;
+}
+
+.searchSubmit {
+    padding: 1.5rem 3rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background-color: var(--accent);
+    color: var(--accent-text);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.searchSubmit:hover {
+    opacity: 0.9;
+}
+
+.searchClose {
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--background);
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: opacity 0.2s ease;
+}
+
+.searchClose:hover {
+    opacity: 0.7;
+}
+
 @media (max-width: 968px) {
     .mainHeader {
         padding: 1.5rem 0;
@@ -215,5 +329,30 @@
 
     .topBar {
         display: none;
+    }
+
+    .searchForm {
+        flex-direction: column;
+    }
+
+    .searchInput {
+        font-size: 1.2rem;
+        padding: 1.2rem 1.5rem;
+    }
+
+    .searchSubmit {
+        padding: 1.2rem 2rem;
+    }
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (max-width: 968px) {
+    .rightSection {
+        gap: 1rem;
     }
 }

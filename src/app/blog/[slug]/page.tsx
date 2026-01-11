@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import ScrollToTop from "@/components/ScrollToTop";
 import TableOfContents from "@/components/TableOfContents";
 import ShareButtons from "@/components/ShareButtons";
+import PostContent from "@/components/PostContent";
 
 interface Props {
     params: { slug: string };
@@ -99,7 +100,7 @@ export default async function BlogPost({ params }: Props) {
                 </div>
 
                 <div className={styles.contentColumn} data-content="true">
-                    <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.content }} />
+                    <PostContent content={post.content} />
                 </div>
             </div>
 
