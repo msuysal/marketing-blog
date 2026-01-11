@@ -111,7 +111,7 @@ export default async function BlogPost({ params }: Props) {
                 </div>
                 <div className={styles.relatedGrid}>
                     {posts
-                        .filter(p => p.slug !== post.slug && !p.tags.includes("Case Study"))
+                        .filter(p => p.slug !== post.slug && !p.tags.includes("Deconstruction"))
                         .map(p => ({
                             post: p,
                             score: p.tags.filter(t => post.tags.includes(t)).length

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const articlePosts = posts.filter(post => !post.tags.includes("Case Study"));
+  const articlePosts = posts.filter(post => !post.tags.includes("Deconstruction"));
   const latestPost = articlePosts[0];
   const otherPosts = articlePosts.slice(1, 4);
 

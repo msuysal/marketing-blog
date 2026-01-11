@@ -11,14 +11,14 @@ function KnowledgeBaseContent() {
     const router = useRouter();
 
     const currentTags = (searchParams.get("tag")?.split(",").filter(Boolean) || [])
-        .filter(tag => tag !== "Case Study");
+        .filter(tag => tag !== "Deconstruction");
     const searchQuery = searchParams.get("search") || "";
 
-    // Filter out posts that are Case Studies
-    const articlePosts = posts.filter(post => !post.tags.includes("Case Study"));
+    // Filter out posts that are Deconstructions
+    const articlePosts = posts.filter(post => !post.tags.includes("Deconstruction"));
 
-    // Filter out the 'Case Study' tag itself from the sidebar index
-    const articleTags = allTags.filter(tag => tag !== "Case Study");
+    // Filter out the 'Deconstruction' tag itself from the sidebar index
+    const articleTags = allTags.filter(tag => tag !== "Deconstruction");
 
     // Combined filtering: tags + search
     const filteredPosts = useMemo(() => {

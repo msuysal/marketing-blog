@@ -48,7 +48,7 @@ const Header = () => {
                                     <Link href="/knowledge-base" onClick={() => setIsMenuOpen(false)}>Articles</Link>
                                 </li>
                                 <li className={styles.navItem}>
-                                    <Link href="/cases" onClick={() => setIsMenuOpen(false)}>Cases</Link>
+                                    <Link href="/deconstructions" onClick={() => setIsMenuOpen(false)}>Deconstructions</Link>
                                 </li>
                                 <li className={styles.navItem}>
                                     <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>

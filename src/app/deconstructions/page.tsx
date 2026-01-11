@@ -11,8 +11,8 @@ function IndustryBestPracticesContent() {
     const router = useRouter();
     const currentIndustries = searchParams.get("industry")?.split(",").filter(Boolean) || [];
 
-    // Filter only posts that have the "Case Study" tag
-    const allBestPractices = posts.filter(post => post.tags.includes("Case Study"));
+    // Filter only posts that have the "Deconstruction" tag
+    const allBestPractices = posts.filter(post => post.tags.includes("Deconstruction"));
 
     const filteredPosts = currentIndustries.length > 0
         ? allBestPractices.filter((post) => post.industry && currentIndustries.includes(post.industry))
@@ -27,9 +27,9 @@ function IndustryBestPracticesContent() {
         }
 
         if (newIndustries.length === 0) {
-            router.push("/best-practices");
+            router.push("/deconstructions");
         } else {
-            router.push(`/best-practices?industry=${encodeURIComponent(newIndustries.join(","))}`);
+            router.push(`/deconstructions?industry=${encodeURIComponent(newIndustries.join(","))}`);
         }
     };
 
@@ -39,7 +39,7 @@ function IndustryBestPracticesContent() {
                 <div className={styles.sidebarHeader}>
                     <h3>Industries</h3>
                     <button
-                        onClick={() => router.push("/best-practices")}
+                        onClick={() => router.push("/deconstructions")}
                         className={styles.clearBtn}
                         disabled={currentIndustries.length === 0}
                         aria-label="Clear all active industry filters"
@@ -61,22 +61,22 @@ function IndustryBestPracticesContent() {
                     ))}
                 </ul>
                 <div className={styles.sidebarFooter}>
-                    <p aria-hidden="true">Foundation Archive / Best Practices</p>
+                    <p aria-hidden="true">Foundation Archive / Deconstructions</p>
                 </div>
             </aside>
 
             <main className={styles.main}>
                 <header className={styles.resultsHeader}>
-                    <h1 className={styles.pageTitle}>Cases</h1>
+                    <h1 className={styles.pageTitle}>The Deconstructions</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
                         Displaying global best practices of how marketing systems and integrated design are applied across various industries.
                         Note: The global brand examples provided here are for educational analysis and do not reflect our own work.
                     </p>
                     <div className={styles.resultsMeta}>
                         {currentIndustries.length > 0 ? (
-                            <span>Selected Industries: {currentIndustries.map(i => <span key={i} className="highlight" style={{ marginRight: '0.5rem' }}>{i}</span>)} &mdash; {filteredPosts.length} Best Practices</span>
+                            <span>Selected Industries: {currentIndustries.map(i => <span key={i} className="highlight" style={{ marginRight: '0.5rem' }}>{i}</span>)} &mdash; {filteredPosts.length} Deconstructions</span>
                         ) : (
-                            <span>All Best Practices &mdash; {allBestPractices.length} Total</span>
+                            <span>All Deconstructions &mdash; {allBestPractices.length} Total</span>
                         )}
                     </div>
                 </header>
@@ -93,7 +93,7 @@ function IndustryBestPracticesContent() {
                                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                                 </h2>
                                 <p className={styles.itemExcerpt}>{post.excerpt}</p>
-                                <Link href={`/blog/${post.slug}`} className={styles.readMore}>VIEW BEST PRACTICE &rarr;</Link>
+                                <Link href={`/blog/${post.slug}`} className={styles.readMore}>VIEW DECONSTRUCTION &rarr;</Link>
                             </div>
                         </article>
                     ))}
@@ -101,7 +101,7 @@ function IndustryBestPracticesContent() {
 
                 {filteredPosts.length === 0 && (
                     <div className={styles.noResults}>
-                        <p>No best practices found for the selected industries.</p>
+                        <p>No deconstructions found for the selected industries.</p>
                     </div>
                 )}
             </main>
@@ -109,10 +109,10 @@ function IndustryBestPracticesContent() {
     );
 }
 
-export default function IndustryBestPractices() {
+export default function DeconstructionsPage() {
     return (
         <div className={styles.pageWrapper}>
-            <Suspense fallback={<div className={styles.loading}>Accessing Best Practice Archive...</div>}>
+            <Suspense fallback={<div className={styles.loading}>Accessing Deconstruction Archive...</div>}>
                 <IndustryBestPracticesContent />
             </Suspense>
         </div>

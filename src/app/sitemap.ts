@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://marketing-blog-six.vercel.app';
 
     // Basic pages
-    const routes = ['', '/knowledge-base', '/cases', '/about', '/contact', '/the-perspective'].map(
+    const routes = ['', '/knowledge-base', '/deconstructions', '/about', '/contact', '/the-perspective'].map(
         (route) => ({
             url: `${baseUrl}${route}`,
             lastModified: new Date(),

@@ -32,7 +32,7 @@ const Footer = () => {
                         <h4 className={styles.heading}>Explorer</h4>
                         <ul className={styles.list}>
                             <li><Link href="/knowledge-base">All Articles</Link></li>
-                            <li><Link href="/cases">Cases</Link></li>
+                            <li><Link href="/deconstructions">Deconstructions</Link></li>
                             <li><Link href="/about">About</Link></li>
                             <li><Link href="/contact">Contact</Link></li>
                         </ul>

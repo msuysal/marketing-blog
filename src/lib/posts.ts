@@ -291,10 +291,10 @@ stateDiagram-v2
   },
   {
     slug: "case-study-nike-resonance",
-    title: "Case Study: The Emotional Resonance System of Nike",
+    title: "Deconstruction: The Emotional Resonance System of Nike",
     excerpt: "How a global athletic giant uses a decentralized architectural approach to maintain universal brand soul while achieving local cultural relevance.",
     date: "Jan 07, 2026",
-    tags: ["Case Study", "Brand Resonance", "Systems Infrastructure"],
+    tags: ["Deconstruction", "Brand Resonance", "Systems Infrastructure"],
     industry: "Retail",
     content: `
       <p>Nike is often studied for its creative output, but its true power lies in its <strong>Global Resonance Architecture</strong>. The brand has mastered the ability to scale "Human Emotion" across diverse cultural contexts without diluting its core signal.</p>
@@ -439,10 +439,10 @@ stateDiagram-v2
   },
   {
     slug: "case-study-hubspot-utility",
-    title: "Case Study: HubSpot and the Utility-Based Acquisition Engine",
+    title: "Deconstruction: HubSpot and the Utility-Based Acquisition Engine",
     excerpt: "How 'Engineering as Marketing' replaced traditional lead-gen, building a high-trust entry point through functional value.",
     date: "Jan 05, 2026",
-    tags: ["Case Study", "Growth Loops", "Systems Infrastructure"],
+    tags: ["Deconstruction", "Growth Loops", "Systems Infrastructure"],
     industry: "Technology",
     content: `
       <p>HubSpot's growth is often attributed to "Inbound Marketing," but its most efficient acquisition channel is a piece of software: <strong>The Website Grader</strong>. This is the masterwork of the "Engineering as Marketing" discipline.</p>
@@ -554,10 +554,10 @@ stateDiagram-v2
   },
   {
     slug: "case-study-samsung-multi-tier",
-    title: "Case Study: Samsung’s Multi-Tier Innovation Architecture",
+    title: "Deconstruction: Samsung’s Multi-Tier Innovation Architecture",
     excerpt: "Designing a marketing system that manages hyper-complexity across disparate market tiers without fracturing brand authority.",
     date: "Jan 03, 2026",
-    tags: ["Case Study", "Systems Infrastructure", "Brand Resonance"],
+    tags: ["Deconstruction", "Systems Infrastructure", "Brand Resonance"],
     industry: "Electronics",
     content: `
       <p>Samsung operates in one of the most complex market environments in history. To succeed, they built a <strong>Multi-Tiered Innovation Matrix</strong> that allows them to be a luxury leader and a mass-market utility simultaneously.</p>
@@ -669,10 +669,10 @@ stateDiagram-v2
   },
   {
     slug: "case-study-mcdonalds-glocalization",
-    title: "Case Study: McDonald’s and the Global-Local Operational Matrix",
+    title: "Deconstruction: McDonald’s and the Global-Local Operational Matrix",
     excerpt: "An analysis of the 'Think Global, Act Local' architecture that allows for 100% operational consistency with 100% cultural adaptability.",
     date: "Jan 01, 2026",
-    tags: ["Case Study", "Systems Infrastructure", "Behavioral Logic"],
+    tags: ["Deconstruction", "Systems Infrastructure", "Behavioral Logic"],
     industry: "F&B",
     content: `
       <p>McDonald's is the ultimate example of <strong>Total System Consistency</strong>. However, the secret to its global dominance is not the Big Mac, but the architectural "Slack" that allows for radical cultural adaptation.</p>
