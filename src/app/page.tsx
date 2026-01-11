@@ -98,7 +98,7 @@ export default function Home() {
           </div>
           <div className={styles.newsletterContent}>
             <h3>Join the Syndicate</h3>
-            <p>Sign-up to newsletter to get alerted whenever there is a new article. We promise, only good stuff here.</p>
+            <p>Sign-up to newsletter to get alerted whenever there is a new article. Promise, only good stuff here.</p>
             <form className={styles.form} action="https://formspree.io/f/xdakqvgg" method="POST">
               <label htmlFor="newsletter-email" className="sr-only">Email address</label>
               <input id="newsletter-email" type="email" name="email" placeholder="Enter your email address" required aria-required="true" />
