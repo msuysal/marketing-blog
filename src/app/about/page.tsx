@@ -41,15 +41,15 @@ export default function About() {
                     <div className={styles.principles}>
                         <div className={styles.principle}>
                             <h3>15+ Years of Mastery</h3>
-                            <p>A career defined by the evolution from traditional strategy to the engineering of self-sustaining marketing engines.</p>
+                            <p>My career is defined by the evolution from traditional strategy to the engineering of self-sustaining marketing engines. I transform complex system and growth challenges into structured operational assets.</p>
                         </div>
                         <div className={styles.principle}>
                             <h3>Systems &gt; Campaigns</h3>
-                            <p>She believes that while campaigns capture attention, only well-architected systems can hold it and convert it into durable authority.</p>
+                            <p>I believe that while campaigns capture attention, only well-architected systems can hold it.</p>
                         </div>
                         <div className={styles.principle}>
-                            <h3>The Analytical Soul</h3>
-                            <p>Combining the discipline of an economist with the precision of a data scientist to design brand experiences that are both measurable and meaningful.</p>
+                            <h3>The Method</h3>
+                            <p>I look at marketing through the lens of incentives and patterns. I use data to map how ideas spread and behavioral logic to understand why.</p>
                         </div>
                     </div>
                 </div>
