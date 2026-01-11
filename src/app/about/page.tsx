@@ -13,7 +13,7 @@ export default function About() {
                 <div className={styles.meta}>The Profile</div>
                 <h1 className={styles.title}>Olgu Uysal</h1>
                 <p className={styles.lead}>
-                    Ms. Olgu Uysal is a Brand & Marketing Strategist operating at the intersection of structural logic and behavioral resonance. With over 15 years of industry experience, she architects systems that bridge the gap between high-level brand narrative and technical execution.
+                    I am interested in the invisible logic that makes ideas last. With a background in Economics and Data Science for Marketing, I bridge the gap between human behavior and operational systems. I build the machines that turn influence into infrastructure.
                 </p>
             </header>
 
