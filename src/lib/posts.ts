@@ -258,7 +258,7 @@ export const posts: Post[] = [
     `
   },
   {
-    slug: "case-study-nike-resonance",
+    slug: "nike-resonance",
     title: "Deconstruction: The Emotional Resonance System of Nike",
     excerpt: "How a global athletic giant uses a decentralized architectural approach to maintain universal brand soul while achieving local cultural relevance.",
     date: "Jan 07, 2026",
@@ -406,7 +406,7 @@ export const posts: Post[] = [
     `
   },
   {
-    slug: "case-study-hubspot-utility",
+    slug: "hubspot-utility",
     title: "Deconstruction: HubSpot and the Utility-Based Acquisition Engine",
     excerpt: "HubSpot replaced lead-gen with 'Engineering as Marketing'. An analysis of how functional value builds a high-trust entry point.",
     date: "Jan 05, 2026",
@@ -521,7 +521,7 @@ export const posts: Post[] = [
     `
   },
   {
-    slug: "case-study-samsung-multi-tier",
+    slug: "samsung-multi-tier",
     title: "Deconstruction: Samsung’s Multi-Tier Innovation Architecture",
     excerpt: "An analysis of a marketing system managing hyper-complexity. Samsung succeeds by acting as a luxury leader and mass-market utility simultaneously.",
     date: "Jan 03, 2026",
@@ -636,7 +636,7 @@ export const posts: Post[] = [
     `
   },
   {
-    slug: "case-study-mcdonalds-glocalization",
+    slug: "mcdonalds-glocalization",
     title: "Deconstruction: McDonald’s and the Global-Local Operational Matrix",
     excerpt: "An analysis of the 'Think Global, Act Local' architecture. McDonald's achieves 100% consistency with 100% cultural adaptability.",
     date: "Jan 01, 2026",
