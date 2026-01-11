@@ -106,6 +106,11 @@ function IndustryBestPracticesContent() {
                         ) : (
                             <span>All Deconstructions &mdash; {allBestPractices.length} Total</span>
                         )}
+                        {totalPages > 1 && (
+                            <span style={{ marginLeft: '1rem', opacity: 0.6 }}>
+                                &bull; Page {currentPage} of {totalPages}
+                            </span>
+                        )}
                     </div>
                 </header>
 
