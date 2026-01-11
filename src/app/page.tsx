@@ -29,7 +29,7 @@ export default function Home() {
             </p>
 
           </div>
-          <Link href="/manifesto" className={styles.heroCta}>EXPLORE THE PERSPECTIVE &rarr;</Link>
+          <Link href="/the-perspective" className={styles.heroCta}>EXPLORE THE PERSPECTIVE &rarr;</Link>
         </div>
 
         <div className={styles.heroIllustration}>

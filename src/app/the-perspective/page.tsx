@@ -4,11 +4,11 @@ import ScrollToTop from "@/components/ScrollToTop";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Manifesto | The Systemic Perspective",
+    title: "The Systemic Perspective",
     description: "The core philosophy of Marketing System Design. Moving from simple persuasion to architectural integrity in digital growth.",
 };
 
-export default function Manifesto() {
+export default function ThePerspective() {
     return (
         <main className={styles.container}>
             <div className={styles.content}>
