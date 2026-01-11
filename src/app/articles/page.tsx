@@ -174,17 +174,32 @@ function ArticlesPageContent() {
                         <button
                             disabled={currentPage === 1}
                             onClick={() => handlePageChange(currentPage - 1)}
-                            className={styles.pageBtn}
+                            className={styles.navBtn}
+                            aria-label="Previous Page"
                         >
-                            &larr; Previous
+                            &larr;
                         </button>
-                        <span className={styles.pageInfo}>Page {currentPage} of {totalPages}</span>
+
+                        <div className={styles.pageNumbers}>
+                            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                                <button
+                                    key={page}
+                                    onClick={() => handlePageChange(page)}
+                                    className={`${styles.pageNumber} ${currentPage === page ? styles.activePage : ""}`}
+                                    aria-current={currentPage === page ? "page" : undefined}
+                                >
+                                    {page}
+                                </button>
+                            ))}
+                        </div>
+
                         <button
                             disabled={currentPage === totalPages}
                             onClick={() => handlePageChange(currentPage + 1)}
-                            className={styles.pageBtn}
+                            className={styles.navBtn}
+                            aria-label="Next Page"
                         >
-                            Next &rarr;
+                            &rarr;
                         </button>
                     </div>
                 )}
