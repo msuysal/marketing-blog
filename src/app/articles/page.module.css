@@ -16,11 +16,12 @@
     padding: 5rem 2.5rem;
     border-right: 1px solid var(--border-color);
     position: sticky;
-    top: 2rem;
+    top: 120px;
     align-self: start;
-    max-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 140px);
     overflow-y: auto;
 }
+
 
 .sidebarHeader {
     display: flex;
