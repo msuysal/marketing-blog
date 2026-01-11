@@ -16,11 +16,10 @@
     padding: 5rem 2.5rem;
     border-right: 1px solid var(--border-color);
     position: sticky;
-    top: 0;
+    top: 2rem;
     align-self: start;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
 }
 
 .sidebarHeader {
