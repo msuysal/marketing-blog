@@ -69,8 +69,7 @@ function IndustryBestPracticesContent() {
                 <header className={styles.resultsHeader}>
                     <h1 className={styles.pageTitle}>The Deconstructions</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
-                        Displaying global best practices of how marketing systems and integrated design are applied across various industries.
-                        Note: The global brand examples provided here are for educational analysis and do not reflect our own work.
+                        Architectural analysis of global systems. These deconstructions examine the mechanics of market leaders to isolate the principles of their structural success.
                     </p>
                     <div className={styles.resultsMeta}>
                         {currentIndustries.length > 0 ? (
