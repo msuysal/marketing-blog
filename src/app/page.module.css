@@ -102,15 +102,29 @@
   height: auto;
   object-fit: contain;
   padding: 2.5rem;
-  transition: all 0.8s ease;
+  transition: transform 0.6s ease;
   mix-blend-mode: multiply;
   filter: contrast(1.1) brightness(1.02);
   /* Perfect blend into the bone background */
 }
 
 .heroIllustration:hover .heroImg {
-  opacity: 1;
+  transform: scale(1.02);
+  animation: subtleFloat 3s ease-in-out infinite;
 }
+
+@keyframes subtleFloat {
+
+  0%,
+  100% {
+    transform: scale(1.02) translateY(0px);
+  }
+
+  50% {
+    transform: scale(1.02) translateY(-5px);
+  }
+}
+
 
 .featuredSection {
   padding: 4rem 5rem;
