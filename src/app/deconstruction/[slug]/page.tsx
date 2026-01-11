@@ -56,9 +56,10 @@ export default async function BlogPost({ params }: Props) {
     const { slug } = await params;
     const post = posts.find((p) => p.slug === slug);
 
-    const currentIndex = posts.findIndex((p) => p.slug === slug);
-    const nextPost = currentIndex > 0 ? posts[currentIndex - 1] : null;
-    const prevPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
+    const deconstructionPosts = posts.filter(p => p.tags.includes("Deconstruction"));
+    const currentIndex = deconstructionPosts.findIndex((p) => p.slug === slug);
+    const nextPost = currentIndex > 0 ? deconstructionPosts[currentIndex - 1] : null;
+    const prevPost = currentIndex < deconstructionPosts.length - 1 ? deconstructionPosts[currentIndex + 1] : null;
 
     if (!post || !post.tags.includes("Deconstruction")) {
         notFound();
@@ -116,14 +117,14 @@ export default async function BlogPost({ params }: Props) {
 
             <nav className={styles.navigation}>
                 {prevPost ? (
-                    <Link href={prevPost.tags.includes("Deconstruction") ? `/deconstruction/${prevPost.slug}` : `/article/${prevPost.slug}`} className={styles.navLinkPrev}>
+                    <Link href={`/deconstruction/${prevPost.slug}`} className={styles.navLinkPrev}>
                         <span className={styles.navLabel}>&larr; Previous</span>
                         <span className={styles.navTitle}>{prevPost.title}</span>
                     </Link>
                 ) : <div></div>}
 
                 {nextPost ? (
-                    <Link href={nextPost.tags.includes("Deconstruction") ? `/deconstruction/${nextPost.slug}` : `/article/${nextPost.slug}`} className={styles.navLinkNext}>
+                    <Link href={`/deconstruction/${nextPost.slug}`} className={styles.navLinkNext}>
                         <span className={styles.navLabel}>Next &rarr;</span>
                         <span className={styles.navTitle}>{nextPost.title}</span>
                     </Link>
