@@ -171,7 +171,7 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
                     )}
                 </button>
                 <div className={styles.meta}>
-                    <span className={styles.label}>Listen to Perspective</span>
+                    <span className={styles.label}>{title}</span>
                     <span className={styles.time}>
                         Automated structural reading &bull; ~{Math.ceil(stripHtml(content).split(' ').length / 150)} min
                     </span>
