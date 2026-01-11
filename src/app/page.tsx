@@ -25,7 +25,7 @@ export default function Home() {
           </h1>
           <div className={styles.heroContent}>
             <p className={styles.heroBody}>
-              Exploring the intersection of behavioral logic and systemic architecture. I deconstruct the mechanics of influence to build structures that give ideas meaning and scale.
+              Exploring the intersection of behavioral logic and systemic architecture. Deconstructing the mechanics of influence to build structures that give ideas meaning and scale.
             </p>
 
           </div>
