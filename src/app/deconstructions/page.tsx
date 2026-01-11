@@ -5,11 +5,17 @@ import Link from "next/link";
 import { posts, allIndustries } from "@/lib/posts";
 import styles from "../articles/page.module.css";
 import { useSearchParams, useRouter } from "next/navigation";
+import ScrollToTop from "@/components/ScrollToTop";
+
+const ITEMS_PER_PAGE = 5;
 
 function IndustryBestPracticesContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const currentIndustries = searchParams.get("industry")?.split(",").filter(Boolean) || [];
+
+    // Get page from URL, default to 1
+    const currentPage = Number(searchParams.get("page")) || 1;
 
     // Filter only posts that have the "Deconstruction" tag
     const allBestPractices = posts.filter(post => post.tags.includes("Deconstruction"));
@@ -17,6 +23,18 @@ function IndustryBestPracticesContent() {
     const filteredPosts = currentIndustries.length > 0
         ? allBestPractices.filter((post) => post.industry && currentIndustries.includes(post.industry))
         : allBestPractices;
+
+    const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);
+
+    // Slice posts for current page
+    const paginatedPosts = filteredPosts.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+
+    const updateParams = (newParams: URLSearchParams) => {
+        router.push(newParams.toString() ? `/deconstructions?${newParams.toString()}` : "/deconstructions");
+    };
 
     const handleIndustryClick = (industry: string) => {
         let newIndustries: string[];
@@ -26,11 +44,22 @@ function IndustryBestPracticesContent() {
             newIndustries = [...currentIndustries, industry];
         }
 
-        if (newIndustries.length === 0) {
-            router.push("/deconstructions");
-        } else {
-            router.push(`/deconstructions?industry=${encodeURIComponent(newIndustries.join(","))}`);
+        const params = new URLSearchParams();
+        if (newIndustries.length > 0) {
+            params.set("industry", newIndustries.join(","));
         }
+
+        // Reset to page 1 when filtering
+        params.set("page", "1");
+
+        updateParams(params);
+    };
+
+    const handlePageChange = (page: number) => {
+        const params = new URLSearchParams(searchParams);
+        params.set("page", page.toString());
+        updateParams(params);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
@@ -81,7 +110,7 @@ function IndustryBestPracticesContent() {
                 </header>
 
                 <div className={styles.list}>
-                    {filteredPosts.map((post) => (
+                    {paginatedPosts.map((post) => (
                         <article key={post.slug} className={styles.item}>
                             <div className={styles.itemMeta}>
                                 <span className={styles.itemDate}>{post.date}</span>
@@ -103,6 +132,42 @@ function IndustryBestPracticesContent() {
                         <p>No deconstructions found for the selected industries.</p>
                     </div>
                 )}
+
+                {totalPages > 1 && (
+                    <div className={styles.pagination}>
+                        <button
+                            disabled={currentPage === 1}
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            className={styles.navBtn}
+                            aria-label="Previous Page"
+                        >
+                            &larr;
+                        </button>
+
+                        <div className={styles.pageNumbers}>
+                            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                                <button
+                                    key={page}
+                                    onClick={() => handlePageChange(page)}
+                                    className={`${styles.pageNumber} ${currentPage === page ? styles.activePage : ""}`}
+                                    aria-current={currentPage === page ? "page" : undefined}
+                                >
+                                    {page}
+                                </button>
+                            ))}
+                        </div>
+
+                        <button
+                            disabled={currentPage === totalPages}
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            className={styles.navBtn}
+                            aria-label="Next Page"
+                        >
+                            &rarr;
+                        </button>
+                    </div>
+                )}
+                <ScrollToTop />
             </main>
         </div>
     );
