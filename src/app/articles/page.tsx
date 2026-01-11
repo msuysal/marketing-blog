@@ -124,6 +124,9 @@ function ArticlesPageContent() {
             <main className={styles.main}>
                 <header className={styles.resultsHeader}>
                     <h1 className={styles.pageTitle}>Articles</h1>
+                    <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
+                        A repository of foundational frameworks. These essays decrypt the invisible mechanics of influence, behavioral economics, and system design that govern modern markets.
+                    </p>
 
                     <div className={styles.resultsMeta}>
                         {currentTags.length > 0 || searchQuery ? (
