@@ -11,15 +11,11 @@ const HeroPlaceholder = () => {
                 alt="Marketing Systems Architecture with human touch"
                 width={800}
                 height={600}
-                style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                    objectFit: 'contain'
-                }}
                 priority
             />
         </div>
     );
 };
+
 
 export default HeroPlaceholder;
