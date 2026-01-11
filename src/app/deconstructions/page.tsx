@@ -96,7 +96,7 @@ function IndustryBestPracticesContent() {
 
             <main className={styles.main}>
                 <header className={styles.resultsHeader}>
-                    <h1 className={styles.pageTitle}>The Deconstructions</h1>
+                    <h1 className={styles.pageTitle}>Deconstructions</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
                         Architectural analysis of global systems. These deconstructions examine the mechanics of market leaders to isolate the principles of their structural success.
                     </p>
