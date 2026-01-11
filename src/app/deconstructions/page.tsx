@@ -100,7 +100,7 @@ function IndustryBestPracticesContent() {
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
                         Architectural analysis of global systems. These deconstructions examine the mechanics of market leaders to isolate the principles of their structural success.
                     </p>
-                    <div className={styles.resultsMeta}>
+                    <div className={styles.resultsMeta} aria-live="polite">
                         {currentIndustries.length > 0 ? (
                             <span>Selected Industries: {currentIndustries.map(i => <span key={i} className="highlight" style={{ marginRight: '0.5rem' }}>{i}</span>)} &mdash; {filteredPosts.length} Deconstructions</span>
                         ) : (

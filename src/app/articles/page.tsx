@@ -129,7 +129,7 @@ function ArticlesPageContent() {
                         A repository of foundational frameworks. These essays decrypt the invisible mechanics of influence, behavioral economics, and system design that govern modern markets.
                     </p>
 
-                    <div className={styles.resultsMeta}>
+                    <div className={styles.resultsMeta} aria-live="polite">
                         {currentTags.length > 0 || searchQuery ? (
                             <span>
                                 {currentTags.length > 0 && (
