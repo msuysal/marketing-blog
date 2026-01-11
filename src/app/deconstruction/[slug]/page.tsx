@@ -7,6 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import TableOfContents from "@/components/TableOfContents";
 import ShareButtons from "@/components/ShareButtons";
 import PostContent from "@/components/PostContent";
+import AudioReader from "@/components/AudioReader";
 
 interface Props {
     params: { slug: string };
@@ -111,6 +112,7 @@ export default async function BlogPost({ params }: Props) {
                 </div>
 
                 <div className={styles.contentColumn} data-content="true">
+                    <AudioReader content={post.content} title={post.title} />
                     <PostContent content={post.content} />
                 </div>
             </div>
