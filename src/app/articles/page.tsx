@@ -6,7 +6,7 @@ import { posts, allTags } from "@/lib/posts";
 import styles from "./page.module.css";
 import { useSearchParams, useRouter } from "next/navigation";
 
-const ITEMS_PER_PAGE = 9;
+const ITEMS_PER_PAGE = 5;
 
 function ArticlesPageContent() {
     const searchParams = useSearchParams();
