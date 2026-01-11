@@ -137,21 +137,21 @@ export default async function BlogPost({ params }: Props) {
                 </div>
                 <div className={styles.relatedGrid}>
                     {posts
-                        .filter(p => p.slug !== post.slug && !p.tags.includes("Deconstruction"))
+                        .filter(p => p.slug !== post.slug && p.tags.includes("Deconstruction"))
                         .map(p => ({
                             post: p,
-                            score: p.tags.filter(t => post.tags.includes(t)).length
+                            score: p.industry === post.industry ? 2 : 0
                         }))
                         .sort((a, b) => b.score - a.score)
                         .slice(0, 3)
                         .map(({ post: relPost }) => (
                             <article key={relPost.slug} className={styles.relatedCard}>
                                 <div className={styles.relatedCardTop}>
-                                    <span className={styles.relatedCardTag}>{relPost.tags[0]}</span>
+                                    <span className={styles.relatedCardTag}>{relPost.industry || relPost.tags[0]}</span>
                                     <span className={styles.relatedCardDate}>{relPost.date}</span>
                                 </div>
                                 <h4 className={styles.relatedCardTitle}>
-                                    <Link href={`/article/${relPost.slug}`}>{relPost.title}</Link>
+                                    <Link href={`/deconstruction/${relPost.slug}`}>{relPost.title}</Link>
                                 </h4>
                                 <p className={styles.relatedCardExcerpt}>{relPost.excerpt}</p>
                             </article>
