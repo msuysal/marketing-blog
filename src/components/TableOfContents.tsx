@@ -77,7 +77,7 @@ export default function TableOfContents() {
     return (
         <nav className={styles.toc}>
             <div className={styles.tocHeader}>
-                <h4>Contents</h4>
+                <h4>Content</h4>
             </div>
             <ul className={styles.tocList}>
                 {headings.map((heading) => (
