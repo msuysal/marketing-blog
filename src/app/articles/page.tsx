@@ -6,6 +6,8 @@ import { posts, allTags } from "@/lib/posts";
 import styles from "./page.module.css";
 import { useSearchParams, useRouter } from "next/navigation";
 
+const ITEMS_PER_PAGE = 9;
+
 function ArticlesPageContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -13,6 +15,8 @@ function ArticlesPageContent() {
     const currentTags = (searchParams.get("tag")?.split(",").filter(Boolean) || [])
         .filter(tag => tag !== "Deconstruction");
     const searchQuery = searchParams.get("search") || "";
+    // Get page from URL, default to 1
+    const currentPage = Number(searchParams.get("page")) || 1;
 
     // Filter out posts that are Deconstructions
     const articlePosts = posts.filter(post => !post.tags.includes("Deconstruction"));
@@ -41,6 +45,18 @@ function ArticlesPageContent() {
         return results;
     }, [currentTags, searchQuery, articlePosts]);
 
+    const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);
+
+    // Slice posts for current page
+    const paginatedPosts = filteredPosts.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+
+    const updateParams = (newParams: URLSearchParams) => {
+        router.push(newParams.toString() ? `/articles?${newParams.toString()}` : "/articles");
+    };
+
     const handleTagClick = (tag: string) => {
         let newTags: string[];
         if (currentTags.includes(tag)) {
@@ -56,8 +72,17 @@ function ArticlesPageContent() {
         if (searchQuery) {
             params.set("search", searchQuery);
         }
+        // Reset to page 1 when filtering
+        params.set("page", "1");
 
-        router.push(params.toString() ? `/articles?${params.toString()}` : "/articles");
+        updateParams(params);
+    };
+
+    const handlePageChange = (page: number) => {
+        const params = new URLSearchParams(searchParams);
+        params.set("page", page.toString());
+        updateParams(params);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const handleClearAll = () => {
@@ -118,7 +143,7 @@ function ArticlesPageContent() {
                 </header>
 
                 <div className={styles.list}>
-                    {filteredPosts.map((post) => (
+                    {paginatedPosts.map((post) => (
                         <article key={post.slug} className={styles.item}>
                             <div className={styles.itemMeta}>
                                 <span className={styles.itemDate}>{post.date}</span>
@@ -140,6 +165,26 @@ function ArticlesPageContent() {
                         <p>No foundational records found.</p>
                         <button onClick={handleClearAll} className={styles.resetButton}>
                             Clear Filters
+                        </button>
+                    </div>
+                )}
+
+                {totalPages > 1 && (
+                    <div className={styles.pagination}>
+                        <button
+                            disabled={currentPage === 1}
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            className={styles.pageBtn}
+                        >
+                            &larr; Previous
+                        </button>
+                        <span className={styles.pageInfo}>Page {currentPage} of {totalPages}</span>
+                        <button
+                            disabled={currentPage === totalPages}
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            className={styles.pageBtn}
+                        >
+                            Next &rarr;
                         </button>
                     </div>
                 )}
