@@ -8,10 +8,7 @@ interface ShareButtonsProps {
 }
 
 export default function ShareButtons({ shareUrl, shareText }: ShareButtonsProps) {
-    const copyToClipboard = (text: string, message: string) => {
-        navigator.clipboard.writeText(text);
-        alert(message);
-    };
+
 
     const shareOnLinkedIn = () => {
         const caption = `${shareText}\n\nRead more here: ${shareUrl}`;
@@ -39,14 +36,6 @@ export default function ShareButtons({ shareUrl, shareText }: ShareButtonsProps)
                     title="Share on LinkedIn with a suggested caption"
                 >
                     LinkedIn
-                </button>
-            </li>
-            <li>
-                <button
-                    onClick={() => copyToClipboard(shareUrl, "Link copied to clipboard")}
-                    className={styles.copyBtn}
-                >
-                    Copy Link
                 </button>
             </li>
         </ul>
