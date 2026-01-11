@@ -40,7 +40,7 @@ export const posts: Post[] = [
       <h2>The Local Optima Trap</h2>
       <p>In mathematical optimization, a Local Optimum creates a ceiling. It represents a solution that is superior to nearby alternatives but inferior to the global maximum. Hyper-targeting algorithms inherently search for this local optimum. They identify the audience for today's conversion while systematically ignoring the audiences that drive tomorrow's growth.<sup class="footnote-ref" id="fnref3"><a href="#fn3">3</a></sup></p>
 
-      <div data-widget="optimization"></div>
+
 
       <p>Removing "Noise" effectively removes the soil for future "Signals." This is known as <strong>Overfitting</strong>—designing a model so tuned to historical data that it fails to generalize to new realities.</p>
 
@@ -78,7 +78,7 @@ export const posts: Post[] = [
       <h2>The Coordination Fallacy</h2>
       <p><strong>Reception</strong> is distinct from <strong>Resolution</strong>. Traditional media models assume broadcast leads to impact. In a decentralized economy, simultaneous reception without a mechanism for collective action simply creates noise.</p>
 
-      <div data-widget="coordination"></div>
+
 
       <h2>Equilibrium and Social Proof</h2>
       <p>Influence occurs when a network reaches a <strong>Coordination Equilibrium</strong>. In game theory, an actor adopts a behavior only if they perceive valued peers doing the same. 
@@ -123,7 +123,7 @@ export const posts: Post[] = [
       <h2>Engineering the Growth Loop</h2>
       <p>A Growth Loop feeds the output of one cycle into the input of the next. Most loops fail due to weak connections. Engineering for clustering builds "Structural Velocity":
 
-      <div data-widget="growthloop"></div>
+
 
       <ul>
         <li><strong>Niche Saturation:</strong> Dominating a specific cluster until internal density reaches a tipping point.</li>
@@ -388,7 +388,7 @@ export const posts: Post[] = [
 
       <p>This is identified as the <strong>Prisoner’s Dilemma of Attention</strong>: Brands increase aggression, decimating the ecosystem's total utility.</p>
 
-      <div data-widget="gametheory"></div>
+
 
       <blockquote>"In a world of infinite automation, the decision to 'do more' is the most expensive mistake."</blockquote>
 
@@ -945,7 +945,7 @@ export const posts: Post[] = [
     content: `
       <p>Digital design is the new invisible hand. <strong>Choice Architecture</strong> is defined as the engineering of the path of least resistance. Defaults are designed, not just screens.</p>
 
-      <div data-widget="nudgesimulator"></div>
+
 
       <h2>The Power of the Default</h2>
       <p><strong>Cognitive Load</strong> must be balanced. Too many options cause paralysis; too few cause reactance. "Guided Freedom" is the design goal.</p>
