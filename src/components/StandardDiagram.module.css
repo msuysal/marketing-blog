@@ -1,0 +1,113 @@
+.container {
+    background: white;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: var(--font-sans);
+    position: relative;
+    overflow: hidden;
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--foreground);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.diagramArea {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+
+.node {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    z-index: 2;
+    min-width: 120px;
+}
+
+.node:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(226, 195, 49, 0.2);
+    transform: translateY(-2px);
+}
+
+.nodeHighlight {
+    border-color: var(--accent);
+    background: #fffcf0;
+}
+
+.connector {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    overflow: visible;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.line {
+    stroke: var(--gray-medium);
+    stroke-width: 2;
+    fill: none;
+    transition: stroke 0.3s;
+}
+
+.lineActive {
+    stroke: var(--accent);
+    stroke-dasharray: 5;
+    animation: dash 30s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -1000;
+    }
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+.button {
+    background: white;
+    border: 1px solid var(--foreground);
+    color: var(--foreground);
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.button:hover {
+    background: var(--foreground);
+    color: white;
+}
+
+.buttonActive {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text);
+}

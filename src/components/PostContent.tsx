@@ -6,6 +6,8 @@ import GameTheoryWidget from "./GameTheoryWidget";
 import NudgeSimulator from "./NudgeSimulator";
 import Mermaid from "./Mermaid";
 import GrowthLoopVisual from "./GrowthLoopVisual";
+import OptimizationVisual from "./OptimizationVisual";
+import CoordinationVisual from "./CoordinationVisual";
 
 interface PostContentProps {
     content: string;
@@ -25,6 +27,12 @@ const PostContent: React.FC<PostContentProps> = ({ content }) => {
                     }
                     if (domNode.attribs["data-widget"] === "growthloop") {
                         return <GrowthLoopVisual />;
+                    }
+                    if (domNode.attribs["data-widget"] === "optimization") {
+                        return <OptimizationVisual />;
+                    }
+                    if (domNode.attribs["data-widget"] === "coordination") {
+                        return <CoordinationVisual />;
                     }
                 }
 

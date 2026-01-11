@@ -40,16 +40,7 @@ export const posts: Post[] = [
       <h2>The Local Optima Trap</h2>
       <p>In mathematical optimization, a Local Optimum creates a ceiling. It represents a solution that is superior to nearby alternatives but inferior to the global maximum. Hyper-targeting algorithms inherently search for this local optimum. They identify the audience for today's conversion while systematically ignoring the audiences that drive tomorrow's growth.<sup class="footnote-ref" id="fnref3"><a href="#fn3">3</a></sup></p>
 
-      <pre class="mermaid">
-graph TD
-    A[Start Optimization] --> B{High Precision?}
-    B -- Yes --> C[Exploitation]
-    B -- No --> D[Exploration]
-    C --> E[Local Optima: Maximum Short-term ROI]
-    D --> F[Global Optima: Discovery of New Markets]
-    style E fill:#fff4dd,stroke:#d4a017,stroke-width:2px
-    style F fill:#d5e8d4,stroke:#82b366,stroke-width:2px
-    </pre>
+      <div data-widget="optimization"></div>
 
       <p>Removing "Noise" effectively removes the soil for future "Signals." This is known as <strong>Overfitting</strong>—designing a model so tuned to historical data that it fails to generalize to new realities.</p>
 
@@ -87,15 +78,7 @@ graph TD
       <h2>The Coordination Fallacy</h2>
       <p><strong>Reception</strong> is distinct from <strong>Resolution</strong>. Traditional media models assume broadcast leads to impact. In a decentralized economy, simultaneous reception without a mechanism for collective action simply creates noise.</p>
 
-      <pre class="mermaid">
-graph LR
-    A[Broadcast] --> B[Audience Node 1]
-    A --> C[Audience Node 2]
-    A --> D[Audience Node 3]
-    B -. No Link .-> C
-    C -. No Link .-> D
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    </pre>
+      <div data-widget="coordination"></div>
 
       <h2>Equilibrium and Social Proof</h2>
       <p>Influence occurs when a network reaches a <strong>Coordination Equilibrium</strong>. In game theory, an actor adopts a behavior only if they perceive valued peers doing the same. 
