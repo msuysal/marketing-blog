@@ -23,11 +23,11 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
         const div = document.createElement("div");
         div.innerHTML = content;
 
-        // Add full stops after headers to ensure AI voice pauses
-        const headers = div.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        headers.forEach(h => {
-            if (h.textContent && !h.textContent.endsWith('.')) {
-                h.textContent += ". ";
+        // Add full stops after headers and paragraphs to ensure AI voice pauses naturally
+        const headers = div.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li');
+        headers.forEach(el => {
+            if (el.textContent && !el.textContent.trim().endsWith('.') && !el.textContent.trim().endsWith('?') && !el.textContent.trim().endsWith('!')) {
+                el.innerHTML += ". ";
             }
         });
 
@@ -74,14 +74,20 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
 
                 const utterance = new SpeechSynthesisUtterance(textToSpeak);
 
-                // Try to find a high-quality English voice
+                // High-quality English voice selection
                 const voices = voicesRef.current;
                 const enVoices = voices.filter(v => v.lang.startsWith('en'));
 
-                const preferredVoice = enVoices.find(v => v.name.includes('Google US English') || v.name.includes('Premium') || v.name.includes('Natural'))
-                    || enVoices.find(v => v.lang === 'en-US')
-                    || enVoices[0]
-                    || voices[0];
+                // Sort and find best match (Premium/Enhanced voices first)
+                const preferredVoice =
+                    enVoices.find(v => (v.name.includes('Ava') || v.name.includes('Samantha') || v.name.includes('Allison')) && v.name.includes('Premium')) ||
+                    enVoices.find(v => v.name.includes('Google US English')) ||
+                    enVoices.find(v => v.name.includes('Samantha')) ||
+                    enVoices.find(v => v.name.includes('Daniel')) ||
+                    enVoices.find(v => v.name.includes('Enhanced') || v.name.includes('Premium')) ||
+                    enVoices.find(v => v.lang === 'en-US') ||
+                    enVoices[0] ||
+                    voices[0];
 
                 if (preferredVoice) utterance.voice = preferredVoice;
                 utterance.lang = 'en-US';
