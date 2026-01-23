@@ -79,6 +79,33 @@ export default async function BlogPost({ params }: Props) {
     const shareUrl = `https://marketing-blog-teal.vercel.app/article/${post.slug}`;
     const shareText = `"${post.title}" - Essays on influence, behavioral logic, and marketing systems.`;
 
+    const blogPostingSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": post.excerpt,
+        "author": {
+            "@type": "Person",
+            "name": "Olgu Uysal",
+            "url": "https://www.linkedin.com/in/olguuysal/"
+        },
+        "datePublished": post.date,
+        "url": shareUrl,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": shareUrl
+        },
+        "keywords": post.tags.join(", "),
+        "publisher": {
+            "@type": "Organization",
+            "name": "Marketing System Design",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://marketing-blog-teal.vercel.app/og-image.png"
+            }
+        }
+    };
+
     if (!post.content || post.content.trim() === "") {
         return (
             <div className={styles.container}>
@@ -91,6 +118,10 @@ export default async function BlogPost({ params }: Props) {
 
     return (
         <article className={styles.container}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+            />
             <Link href="/articles" className={styles.backToIndex}>
                 ← Back to Articles
             </Link>

@@ -14,59 +14,60 @@ export default function TableOfContents() {
     const [activeId, setActiveId] = useState<string>("");
 
     useEffect(() => {
-        // Get all h2 and h3 elements from the content
-        const contentElement = document.querySelector('[data-content="true"]');
-        if (!contentElement) return;
+        const timer = setTimeout(() => {
+            const contentElement = document.querySelector('[data-content="true"]');
+            if (!contentElement) return;
 
-        const elements = contentElement.querySelectorAll("h2, h3");
-        const items: TocItem[] = [];
+            const elements = contentElement.querySelectorAll("h2, h3");
+            const items: TocItem[] = [];
 
-        elements.forEach((element, index) => {
-            const text = element.textContent || "";
-            let id = element.id;
+            elements.forEach((element, index) => {
+                const text = element.textContent || "";
+                let id = element.id;
 
-            // If no id exists, create one
-            if (!id) {
-                id = `heading-${index}`;
-                element.id = id;
-            }
+                if (!id) {
+                    id = `heading-${index}`;
+                    element.id = id;
+                }
 
-            items.push({
-                id,
-                text,
-                level: element.tagName === "H2" ? 2 : 3,
-            });
-        });
-
-        setHeadings(items);
-
-        // Intersection Observer to track active section
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveId(entry.target.id);
-                    }
+                items.push({
+                    id,
+                    text,
+                    level: element.tagName === "H2" ? 2 : 3,
                 });
-            },
-            { rootMargin: "-20% 0px -35% 0px" }
-        );
-
-        elements.forEach((element) => {
-            observer.observe(element);
-        });
-
-        return () => {
-            elements.forEach((element) => {
-                observer.unobserve(element);
             });
-        };
+
+            setHeadings(items);
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            setActiveId(entry.target.id);
+                        }
+                    });
+                },
+                { rootMargin: "-10% 0px -70% 0px" }
+            );
+
+            elements.forEach((element) => {
+                observer.observe(element);
+            });
+
+            return () => {
+                elements.forEach((element) => {
+                    observer.unobserve(element);
+                });
+            };
+        }, 500); // 500ms delay to ensure content is rendered
+
+        return () => clearTimeout(timer);
     }, []);
 
     const handleClick = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
-            const yOffset = -80; // Offset for fixed header if any
+            const yOffset = -20; // Small padding for top of screen
             const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
             window.scrollTo({ top: y, behavior: "smooth" });
         }

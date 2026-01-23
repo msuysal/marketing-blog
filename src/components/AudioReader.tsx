@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import styles from './AudioReader.module.css';
 
 interface AudioReaderProps {
@@ -15,6 +15,28 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
     const [supported, setSupported] = useState(false);
     const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
     const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
+
+    const strippedContent = useMemo(() => {
+        if (typeof window === 'undefined') return "";
+
+        // Use a more robust stripping method that handles SSR/hydration better
+        const div = document.createElement("div");
+        div.innerHTML = content;
+
+        // Add full stops after headers to ensure AI voice pauses
+        const headers = div.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        headers.forEach(h => {
+            if (h.textContent && !h.textContent.endsWith('.')) {
+                h.textContent += ". ";
+            }
+        });
+
+        const text = div.textContent || div.innerText || "";
+        return text.replace(/\s+/g, ' ').trim();
+    }, [content]);
+
+    const fullText = useMemo(() => `${title}. ${strippedContent}`, [title, strippedContent]);
+    const readingTime = useMemo(() => Math.ceil(strippedContent.split(/\s+/).length / 150), [strippedContent]);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.speechSynthesis) {
@@ -33,21 +55,6 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
         };
     }, []);
 
-    const fullTextRef = useRef<string>("");
-
-    const stripHtml = (html: string) => {
-        const tmp = document.createElement("div");
-        tmp.innerHTML = html;
-
-        // Add pauses after headers by adding punctuation
-        const headers = tmp.querySelectorAll('h1, h2, h3, h4');
-        headers.forEach(h => {
-            h.textContent = h.textContent + ". ";
-        });
-
-        return tmp.textContent || tmp.innerText || "";
-    };
-
     const handlePlayPause = (startIndex = 0) => {
         if (!supported) return;
 
@@ -61,31 +68,30 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
             } else {
                 window.speechSynthesis.cancel();
 
-                // If starting fresh, generate and store the full text
-                if (startIndex === 0 && !fullTextRef.current) {
-                    fullTextRef.current = `${title}. ${stripHtml(content)}`;
-                } else if (startIndex === 0 && fullTextRef.current) {
-                    // Just play from start if already generated
-                }
-
                 const textToSpeak = startIndex > 0
-                    ? fullTextRef.current.slice(startIndex)
-                    : fullTextRef.current;
+                    ? fullText.slice(startIndex)
+                    : fullText;
 
                 const utterance = new SpeechSynthesisUtterance(textToSpeak);
 
-                // Try to find a premium/natural sounding voice
+                // Try to find a high-quality English voice
                 const voices = voicesRef.current;
-                const preferredVoice = voices.find(v => v.name.includes('Google US English') || v.name.includes('Premium') || v.name.includes('Natural')) || voices[0];
+                const enVoices = voices.filter(v => v.lang.startsWith('en'));
+
+                const preferredVoice = enVoices.find(v => v.name.includes('Google US English') || v.name.includes('Premium') || v.name.includes('Natural'))
+                    || enVoices.find(v => v.lang === 'en-US')
+                    || enVoices[0]
+                    || voices[0];
 
                 if (preferredVoice) utterance.voice = preferredVoice;
+                utterance.lang = 'en-US';
 
                 utterance.rate = speed;
                 utterance.pitch = 1;
                 utterance.volume = 1;
 
                 utterance.onboundary = (event) => {
-                    const totalLength = fullTextRef.current.length;
+                    const totalLength = fullText.length;
                     const currentPos = startIndex + event.charIndex;
                     setProgress((currentPos / totalLength) * 100);
                 };
@@ -93,7 +99,7 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
                 utterance.onend = () => {
                     setIsPlaying(false);
                     // Only reset progress if we actually finished the whole thing
-                    if (startIndex + textToSpeak.length >= fullTextRef.current.length - 10) {
+                    if (startIndex + textToSpeak.length >= fullText.length - 10) {
                         setProgress(0);
                     }
                 };
@@ -108,16 +114,11 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
     const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!supported) return;
 
-        // Ensure fullText is generated
-        if (!fullTextRef.current) {
-            fullTextRef.current = `${title}. ${stripHtml(content)}`;
-        }
-
         const rect = e.currentTarget.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const width = rect.width;
         const percentage = Math.max(0, Math.min(1, x / width));
-        const targetChar = Math.floor(fullTextRef.current.length * percentage);
+        const targetChar = Math.floor(fullText.length * percentage);
 
         setProgress(percentage * 100);
         handlePlayPause(targetChar);
@@ -173,7 +174,7 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
                 <div className={styles.meta}>
                     <span className={styles.label}>{title}</span>
                     <span className={styles.time}>
-                        Automated structural reading &bull; ~{Math.ceil(stripHtml(content).split(' ').length / 150)} min
+                        Automated structural reading &bull; ~{readingTime} min
                     </span>
                 </div>
             </div>

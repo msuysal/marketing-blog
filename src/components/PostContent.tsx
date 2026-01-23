@@ -1,13 +1,16 @@
 "use client";
 
 import React from "react";
-import parse, { domToReact, HTMLReactParserOptions, Element } from "html-react-parser";
-import GameTheoryWidget from "./GameTheoryWidget";
-import NudgeSimulator from "./NudgeSimulator";
-import Mermaid from "./Mermaid";
-import GrowthLoopVisual from "./GrowthLoopVisual";
-import OptimizationVisual from "./OptimizationVisual";
-import CoordinationVisual from "./CoordinationVisual";
+import parse, { HTMLReactParserOptions, Element } from "html-react-parser";
+import dynamic from "next/dynamic";
+
+const GameTheoryWidget = dynamic(() => import("./GameTheoryWidget"), { ssr: false, loading: () => <div className="widget-loading">Initializing Strategic Matrix...</div> });
+const NudgeSimulator = dynamic(() => import("./NudgeSimulator"), { ssr: false, loading: () => <div className="widget-loading">Calibrating Behavioral Variables...</div> });
+const Mermaid = dynamic(() => import("./Mermaid"), { ssr: false, loading: () => <div className="widget-loading">Rendering Systems Geometry...</div> });
+const GrowthLoopVisual = dynamic(() => import("./GrowthLoopVisual"), { ssr: false, loading: () => <div className="widget-loading">Mapping Compounding Flywheels...</div> });
+const OptimizationVisual = dynamic(() => import("./OptimizationVisual"), { ssr: false, loading: () => <div className="widget-loading">Analyzing Efficiency Curves...</div> });
+const CoordinationVisual = dynamic(() => import("./CoordinationVisual"), { ssr: false, loading: () => <div className="widget-loading">Synchronizing System Nodes...</div> });
+const LuxuryDopamineQuiz = dynamic(() => import("./LuxuryDopamineQuiz"), { ssr: false, loading: () => <div className="widget-loading">Engaging Psychological Assessment...</div> });
 
 interface PostContentProps {
     content: string;
@@ -33,6 +36,9 @@ const PostContent: React.FC<PostContentProps> = ({ content }) => {
                     }
                     if (domNode.attribs["data-widget"] === "coordination") {
                         return <CoordinationVisual />;
+                    }
+                    if (domNode.attribs["data-widget"] === "luxurydopaminequiz") {
+                        return <LuxuryDopamineQuiz />;
                     }
                 }
 

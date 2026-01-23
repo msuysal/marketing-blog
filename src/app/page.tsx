@@ -1,13 +1,25 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { posts } from "@/lib/posts";
 import GridIllustration from "@/components/GridIllustration";
 import HeroPlaceholder from "@/components/HeroPlaceholder";
+import SyndicateForm from "@/components/SyndicateForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Marketing System Design | Essays on Influence & Architecture",
-  description: "Explore the intersection of behavioral logic and marketing systems. Essays by Olgu Uysal on influence, authority, and incentive design.",
+  title: "Marketing System Design | Olgu Uysal | Influence & Architecture",
+  description: "Advanced frameworks on the intersection of behavioral logic, digital architecture, and marketing systems. Strategic essays by Olgu Uysal on building unassailable authority.",
+  keywords: [
+    "Marketing System Design",
+    "Olgu Uysal",
+    "Behavioral Logic",
+    "Marketing Architecture",
+    "Influence Economics",
+    "Data Driven Marketing",
+    "Incentive Design",
+    "Growth Strategy"
+  ]
 };
 
 export default function Home() {
@@ -94,16 +106,18 @@ export default function Home() {
       <section className={styles.newsletter}>
         <div className={styles.newsletterContainer}>
           <div className={styles.newsletterImage}>
-            <img src="/newsletter-illustration.png" alt="Marketing Systems Architecture Illustration" />
+            <Image
+              src="/newsletter-illustration.png"
+              alt="Marketing Systems Architecture Illustration"
+              width={600}
+              height={400}
+              style={{ objectFit: 'contain' }}
+            />
           </div>
           <div className={styles.newsletterContent}>
             <h3>Join the Syndicate</h3>
             <p>Sign-up to newsletter to get alerted whenever there is a new article. Promise, only good stuff here.</p>
-            <form className={styles.form} action="https://formspree.io/f/xdakqvgg" method="POST">
-              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
-              <input id="newsletter-email" type="email" name="email" placeholder="Enter your email address" required aria-required="true" />
-              <button type="submit">Subscribe</button>
-            </form>
+            <SyndicateForm formId="xdakqvgg" />
           </div>
         </div>
       </section>

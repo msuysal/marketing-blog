@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import type { Metadata } from "next";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
     title: "Contact | Connect with Olgu Uysal",
@@ -38,34 +39,7 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.formColumn}>
-                    <form className={styles.form} action="https://formspree.io/f/mqearoql" method="POST">
-                        <div className={styles.formGroup}>
-                            <label htmlFor="name">Name</label>
-                            <input type="text" id="name" name="name" required />
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label htmlFor="email">Email</label>
-                            <input type="email" id="email" name="email" required />
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label htmlFor="subject">Subject</label>
-                            <select id="subject" name="subject">
-                                <option>General Correspondence</option>
-                                <option>Consulting</option>
-                                <option>Speaking</option>
-                                <option>Press</option>
-                            </select>
-                        </div>
-
-                        <div className={styles.formGroup}>
-                            <label htmlFor="message">Message</label>
-                            <textarea id="message" name="message" rows={6} required></textarea>
-                        </div>
-
-                        <button type="submit" className={styles.submitBtn}>Send Message</button>
-                    </form>
+                    <ContactForm formId="mqearoql" />
                 </div>
             </div>
         </div>

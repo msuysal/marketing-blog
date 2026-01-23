@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import styles from "./Header.module.css";
@@ -8,7 +8,17 @@ import styles from "./Header.module.css";
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [currentDate, setCurrentDate] = useState<string>("");
     const router = useRouter();
+
+    useEffect(() => {
+        setCurrentDate(new Date().toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }));
+    }, []);
 
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -24,9 +34,9 @@ const Header = () => {
         <header className={styles.wrapper}>
             <div className={styles.topBar}>
                 <div className={styles.topContainer}>
-                    <span className={styles.date}>{new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                    <span className={styles.date}>{currentDate || "Loading Intelligence..."}</span>
                     <div className={styles.topLinks}>
-                        <span className={styles.tagline}>By Ms. Olgu Uysal</span>
+                        <span className={styles.tagline}>BY MS. OLGU UYSAL &mdash; ISTANBUL &bull; LISBON</span>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,6 @@
 .wrapper {
     background-color: var(--foreground);
     border-bottom: 1px solid var(--accent);
-    position: sticky;
-    top: 0;
     z-index: 100;
 }
 
@@ -10,8 +8,8 @@
     background-color: var(--foreground);
     color: var(--gray-medium);
     font-family: var(--font-sans);
-    font-size: 0.7rem;
-    padding: 0.4rem 0;
+    font-size: 0.75rem;
+    padding: 0.5rem 0;
     letter-spacing: 0.05em;
     border-bottom: 1px solid var(--border-subtle);
 }
@@ -30,11 +28,12 @@
 }
 
 .tagline {
-    font-weight: 600;
-    font-size: 0.65rem;
-    letter-spacing: 0.05em;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
     color: var(--accent);
-    font-style: italic;
+    text-transform: uppercase;
+    font-style: normal;
 }
 
 

@@ -15,7 +15,7 @@
 }
 
 .heroMain {
-  padding: 6rem 5rem;
+  padding: 8rem 5rem 6rem;
   background-color: var(--background);
   border-right: 1px solid var(--border-subtle);
   display: flex;
