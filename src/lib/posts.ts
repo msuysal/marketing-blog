@@ -21,7 +21,6 @@ export const posts: Post[] = [
       <h2>The Externality of Noise</h2>
       <p>Every time a creator optimizes for a short-term "hack"—be it rage-bait, algorithmic manipulation, or hollow engagement—they impose a negative externality on the entire ecosystem. They are "overgrazing" the trust of the audience. When one creator burns trust for a conversion, the cost of attention rises for everyone else.</p>
       
-      <div data-widget="coordination"></div>
 
       <p>Platform dynamics today represent a classic market failure. We are witnessing <strong>Adverse Selection</strong>: a "Market for Lemons" where low-quality, high-volume noise drives out high-quality, high-cost expertise because the system cannot effectively distinguish between the two at the point of consumption.</p>
 
@@ -36,8 +35,6 @@ export const posts: Post[] = [
         <li><strong>Structural Proof of Stake:</strong> Moving beyond vanity metrics to "Skin in the Game"—where authority is tied to verifiable outcomes, not just views.</li>
         <li><strong>Cooperative Signaling:</strong> Creators banding together to form "Trust Clusters," where the group's reputation acts as a quality filter (a Digital Guild).</li>
       </ul>
-
-      <div data-widget="gametheory"></div>
 
       <h2>The New Social Contract</h2>
       <p>The transition from a <strong>Transactional Creator Economy</strong> to a <strong>Systemic Knowledge Economy</strong> is not just a moral choice; it is a mathematical necessity. As the signal-to-noise ratio continues to collapse, the market will aggressively reprice trust. Those who treat influence as a common-pool resource to be protected, rather than a commodity to be mined, will inherit the new infrastructure of authority.</p>
