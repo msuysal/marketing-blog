@@ -16,13 +16,13 @@ export const posts: Post[] = [
     date: "Jan 23, 2026",
     tags: ["Public Economics", "Creator Economy", "Systems Design"],
     content: `
-      <p>In traditional economics, the <strong>Tragedy of the Commons</strong> describes a situation where individual users, acting independently according to their own self-interest, behave contrary to the common good of all users by depleting a shared resource. In 2026, our shared resource is not grazing land or clean water—it is <strong>Collective Attention</strong>.</p>
+      <p>In traditional economics, the <strong>Tragedy of the Commons</strong> describes a situation where individual users, acting independently according to their own self-interest, behave contrary to the common good of all users by depleting a shared resource. In 2026, our shared resource is not grazing land or clean water—it is <strong>Collective Attention</strong>.<sup id="fnref1" class="footnote-ref"><a href="#fn1">1</a></sup></p>
 
       <h2>The Externality of Noise</h2>
       <p>Every time a creator optimizes for a short-term "hack"—be it rage-bait, algorithmic manipulation, or hollow engagement—they impose a negative externality on the entire ecosystem. They are "overgrazing" the trust of the audience. When one creator burns trust for a conversion, the cost of attention rises for everyone else.</p>
       
 
-      <p>Platform dynamics today represent a classic market failure. We are witnessing <strong>Adverse Selection</strong>: a "Market for Lemons" where low-quality, high-volume noise drives out high-quality, high-cost expertise because the system cannot effectively distinguish between the two at the point of consumption.</p>
+      <p>Platform dynamics today represent a classic market failure. We are witnessing <strong>Adverse Selection</strong>: a "Market for Lemons" where low-quality, high-volume noise drives out high-quality, high-cost expertise because the system cannot effectively distinguish between the two at the point of consumption.<sup id="fnref2" class="footnote-ref"><a href="#fn2">2</a></sup></p>
 
       <blockquote>"Attention is a common-pool resource. Without structural governance, individual optimization leads to systemic collapse."</blockquote>
 
