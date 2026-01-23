@@ -43,7 +43,7 @@ export default function ArticlesPageContent() {
             });
         }
 
-        return results;
+        return results.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     }, [currentTags, searchQuery, articlePosts]);
 
     const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);

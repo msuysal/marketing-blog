@@ -20,9 +20,12 @@ export default function DeconstructionsContent() {
     // Filter only posts that have the "Deconstruction" tag
     const allBestPractices = posts.filter(post => post.tags.includes("Deconstruction"));
 
-    const filteredPosts = currentIndustries.length > 0
-        ? allBestPractices.filter((post) => post.industry && currentIndustries.includes(post.industry))
-        : allBestPractices;
+    const filteredPosts = useMemo(() => {
+        const results = currentIndustries.length > 0
+            ? allBestPractices.filter((post) => post.industry && currentIndustries.includes(post.industry))
+            : allBestPractices;
+        return results.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    }, [currentIndustries, allBestPractices]);
 
     const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);
 
