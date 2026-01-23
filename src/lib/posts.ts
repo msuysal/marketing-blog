@@ -10,6 +10,51 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: "tragedy-of-attention-commons",
+    title: "The Tragedy of the Attention Commons: Public Economics for Creators",
+    excerpt: "Applying public economics to the creator economy. How to solve for 'Influence Externalities' and build resilient systems in an era of noise.",
+    date: "Jan 23, 2026",
+    tags: ["Public Economics", "Creator Economy", "Systems Design"],
+    content: `
+      <p>In traditional economics, the <strong>Tragedy of the Commons</strong> describes a situation where individual users, acting independently according to their own self-interest, behave contrary to the common good of all users by depleting a shared resource. In 2026, our shared resource is not grazing land or clean water—it is <strong>Collective Attention</strong>.</p>
+
+      <h2>The Externality of Noise</h2>
+      <p>Every time a creator optimizes for a short-term "hack"—be it rage-bait, algorithmic manipulation, or hollow engagement—they impose a negative externality on the entire ecosystem. They are "overgrazing" the trust of the audience. When one creator burns trust for a conversion, the cost of attention rises for everyone else.</p>
+      
+      <div data-widget="coordination"></div>
+
+      <p>Platform dynamics today represent a classic market failure. We are witnessing <strong>Adverse Selection</strong>: a "Market for Lemons" where low-quality, high-volume noise drives out high-quality, high-cost expertise because the system cannot effectively distinguish between the two at the point of consumption.</p>
+
+      <blockquote>"Attention is a common-pool resource. Without structural governance, individual optimization leads to systemic collapse."</blockquote>
+
+      <h2>Influence as a Public Good</h2>
+      <p>If we view <strong>Authority</strong> not as a private asset to be extracted, but as a piece of <strong>Digital Infrastructure</strong>, our design philosophy shifts. High-trust information behaves like a public good: it is non-rivalrous (my use of your framework doesn't prevent others from using it) and potentially non-excludable.</p>
+
+      <p>To solve the tragedy, we must move from <em>Extraction</em> to <em>Maintenance</em>. This requires:</p>
+      <ul>
+        <li><strong>Internalizing Externalities:</strong> Content systems that punish short-term deception by reducing long-term "Systemic Reputation" scores.</li>
+        <li><strong>Structural Proof of Stake:</strong> Moving beyond vanity metrics to "Skin in the Game"—where authority is tied to verifiable outcomes, not just views.</li>
+        <li><strong>Cooperative Signaling:</strong> Creators banding together to form "Trust Clusters," where the group's reputation acts as a quality filter (a Digital Guild).</li>
+      </ul>
+
+      <div data-widget="gametheory"></div>
+
+      <h2>The New Social Contract</h2>
+      <p>The transition from a <strong>Transactional Creator Economy</strong> to a <strong>Systemic Knowledge Economy</strong> is not just a moral choice; it is a mathematical necessity. As the signal-to-noise ratio continues to collapse, the market will aggressively reprice trust. Those who treat influence as a common-pool resource to be protected, rather than a commodity to be mined, will inherit the new infrastructure of authority.</p>
+
+      <h2>Designing for Resilience</h2>
+      <p>The goal is to build <strong>Resilient Influence Systems</strong>. These are systems that gain value not by how much attention they capture, but by how much uncertainty they reduce for the user. In the era of the Attention Commons, the ultimate competitive advantage is <em>Reliability</em>.</p>
+
+      <hr />
+      <section class="footnotes">
+        <ol>
+          <li id="fn1">Hardin, G. (1968). "The Tragedy of the Commons." Science. The foundational logic for modern common-pool resource management. <a href="#fnref1">↩</a></li>
+          <li id="fn2">Akerlof, G. A. (1970). "The Market for 'Lemons': Quality Uncertainty and the Market Mechanism." Quarterly Journal of Economics. <a href="#fnref2">↩</a></li>
+        </ol>
+      </section>
+    `
+  },
+  {
     slug: "intellectual-captivity-luxury-dopamine",
     title: "Luxury Dopamine: The Mechanics of Intellectual Stagnation",
     excerpt: "Marketing systems often hide a structural flaw under the guise of sophistication. There is a specific feedback loop—Luxury Dopamine—designed to reward the sensation of insight without the necessity of application.",
