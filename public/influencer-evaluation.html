@@ -116,11 +116,11 @@ body{background:var(--color-background-primary)}
   <div class="g3" id="kpi-row" style="margin-bottom:12px"></div>
   <div style="display: flex; flex-direction: column; gap: 32px;">
     <div>
-      <div class="sec-title">Influencer Profiles</div>
+      <div class="sec-title">Network Nodes (Creators)</div>
       <div style="overflow-x:auto; margin-bottom: 8px"><table class="inf-tbl" id="overview-tbl"></table></div>
     </div>
     <div>
-      <div class="sec-title">Campaign Setup</div>
+      <div class="sec-title">System Variables</div>
       <div class="card" style="padding:.875rem 1rem;margin-bottom:12px">
         <div class="g2" style="margin-bottom:12px">
           <div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-secondary);margin-bottom:4px;font-family:'DM Mono',monospace">Budget (€)</div>
@@ -135,7 +135,7 @@ body{background:var(--color-background-primary)}
         <div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-secondary);margin-bottom:8px;font-family:'DM Mono',monospace">Criterion Weights <span id="wt-total" class="wt-badge wt-ok">100%</span></div>
         <div id="w-sliders"></div>
       </div>
-      <div class="sec-title">Platform Benchmarks</div>
+      <div class="sec-title">Ecosystem Baselines</div>
       <div class="bm-box" id="bm-box"></div>
     </div>
   </div>
@@ -167,7 +167,7 @@ body{background:var(--color-background-primary)}
 
 <div id="p-results" class="panel">
   <div class="g3" id="res-kpis" style="margin-bottom:14px"></div>
-  <div class="sec-title">Final Ranking — Composite Score (Rubric 34% · Engagement 33% · Sales 33%)</div>
+  <div class="sec-title">Structural Ranking — Composite Output (Rubric 34% · Signal 33% · Conversion 33%)</div>
   <div style="overflow-x:auto"><table class="inf-tbl" id="results-tbl" style="margin-bottom:16px"></table></div>
   <button class="export-btn" onclick="exportCSV()">Export CSV</button>
 </div>
@@ -175,17 +175,17 @@ body{background:var(--color-background-primary)}
 
 <script>
 const CRIT=[
-  {id:'brand',label:'Brand Fit',icon:'🎯'},
-  {id:'data', label:'Data Transparency',icon:'📊'},
-  {id:'econ', label:'Economic Efficiency',icon:'💰'},
-  {id:'cont', label:'Content Quality',icon:'✨'},
-  {id:'auth', label:'Audience Auth.',icon:'👥'},
+  {id:'brand',label:'Persona Alignment',icon:'🎯'},
+  {id:'data', label:'Data Integrity',icon:'📊'},
+  {id:'econ', label:'Unit Economics',icon:'💰'},
+  {id:'cont', label:'Behav. Resonance',icon:'✨'},
+  {id:'auth', label:'Struct. Authority',icon:'👥'},
 ];
-const DQS=['Bot >30%','Competitor deal','Legal/PR','Refused data','Cat. conflict'];
-const SL={1:'Critical',2:'Weak',3:'Average',4:'Good',5:'Excellent'};
+const DQS=['High Pseudo-Network','System Conflict','Brand Safety Risk','Black-Box Analytics','Topological Mismatch'];
+const SL={1:'Critical Risk',2:'Fragile',3:'Baseline',4:'Robust',5:'Dominant'};
 const CMULT={H:1.0,M:0.90,L:0.75};
-const AVC=['#EEEDFE','#E1F5EE','#FAEEDA'];
-const AVT=['#534AB7','#0F6E56','#854F0B'];
+const AVC=['#e2c331','#d1d1d1','#f4f2ee'];
+const AVT=['#1c1c1d','#1c1c1d','#1c1c1d'];
 const PLATFORMS={
   ig_post: {label:'Instagram Post',  er_good:3.0,er_avg:1.5,save_good:1.0,share_good:0.5,view_based:false,swipe:false},
   ig_reel: {label:'Instagram Reel',  er_good:5.0,er_avg:3.0,save_good:2.0,share_good:1.5,view_based:true, swipe:false},
@@ -199,21 +199,21 @@ let weights=[20,20,20,20,20];
 // 3 realistic influencers: star performer, average, problematic
 let infs=[
   {
-    name:'Lena Kovač', handle:'@lenakovac', followers:'61K', niche:'Wellness & Lifestyle', fee:2200,
+    name:'Lena Kovač', handle:'@lenakovac', followers:'61K', niche:'High-Fidelity Wellness', fee:2200,
     scores:[5,5,4,5,4], conf:'H',
     dqs:[false,false,false,false,false],
     eng:{reach:48000,impressions:112000,likes:3840,comments:421,shares:890,saves:1540,views:61000,swipe_ups:0,comment_qual:5},
     utm:{clicks:3200,sessions:2750,orders:198,revenue:14256,returns:12,repeat:61}
   },
   {
-    name:'Can Yıldız', handle:'@canyildiz', followers:'134K', niche:'Fashion & Lifestyle', fee:4800,
+    name:'Can Yıldız', handle:'@canyildiz', followers:'134K', niche:'Aspirational Aesthetics', fee:4800,
     scores:[3,3,3,4,3], conf:'M',
     dqs:[false,false,false,false,false],
     eng:{reach:89000,impressions:178000,likes:4450,comments:312,shares:620,saves:1780,views:105000,swipe_ups:0,comment_qual:3},
     utm:{clicks:5100,sessions:3980,orders:142,revenue:10224,returns:28,repeat:19}
   },
   {
-    name:'Mert Aksoy', handle:'@mertaksoy', followers:'310K', niche:'Tech & Gaming', fee:7800,
+    name:'Mert Aksoy', handle:'@mertaksoy', followers:'310K', niche:'SaaS & Consumer Tech', fee:7800,
     scores:[2,1,2,3,2], conf:'L',
     dqs:[false,false,false,true,false],
     eng:{reach:62000,impressions:95000,likes:1860,comments:189,shares:210,saves:310,views:88000,swipe_ups:0,comment_qual:2},
