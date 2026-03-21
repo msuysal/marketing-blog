@@ -117,7 +117,7 @@ body{background:var(--color-background-primary)}
   <div class="g2">
     <div>
       <div class="sec-title">Influencer Profiles</div>
-      <table class="inf-tbl" id="overview-tbl"></table>
+      <div style="overflow-x:auto; margin-bottom: 8px"><table class="inf-tbl" id="overview-tbl"></table></div>
     </div>
     <div>
       <div class="sec-title">Campaign Setup</div>
@@ -278,7 +278,7 @@ function setPlatform(btn,p){document.querySelectorAll('.platform-btn').forEach(b
 function renderBenchmarks(){
   const p=PLATFORMS[currentPlatform];
   const el=document.getElementById('bm-box');if(!el)return;
-  el.innerHTML=`<strong>${p.label}</strong><br>ER Good: <strong>${p.er_good}%+</strong> · ER Avg: <strong>${p.er_avg}%</strong>${p.save_good>0?` · Save Rate: <strong>${p.save_good}%+</strong>`:''}${p.share_good>0?` · Share Rate: <strong>${p.share_good}%+</strong>`:''}${p.swipe?'<br>Swipe-up Good: <strong>3%+</strong>':''}<br><span style="font-size:10px;color:var(--color-text-tertiary)">Industry averages 2024</span>`;
+  el.innerHTML=`<strong>${p.label}</strong><br>ER Good: <strong>${p.er_good}%+</strong> · ER Avg: <strong>${p.er_avg}%</strong>${p.save_good>0?` · Save Rate: <strong>${p.save_good}%+</strong>`:''}${p.share_good>0?` · Share Rate: <strong>${p.share_good}%+</strong>`:''}${p.swipe?'<br>Swipe-up Good: <strong>3%+</strong>':''}<br><span style="font-size:10px;color:var(--color-text-tertiary)">Industry averages 2026</span>`;
 }
 function renderWeights(){
   const c=document.getElementById('w-sliders');if(!c)return;
