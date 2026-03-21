@@ -10,6 +10,54 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: "influencer-measurement-ghost-successes",
+    title: "Ghost Successes and the Illusion of Engagement",
+    excerpt: "Engagement rate is not a single source of truth. The brands that win aren't the ones with the biggest reach; they ask better questions before signing the brief.",
+    date: "Mar 21, 2026",
+    tags: ["Influence & Authority", "Data Signals", "Systems Infrastructure"],
+    content: `
+      <p>Every marketer knows the post-launch interrogation.</p>
+      
+      <blockquote>"How many followers? How many views? What's the engagement rate?"</blockquote>
+
+      <p>This phase is exhausting. Not because it's hard, but because it's fueled by anxiety, not impact.</p>
+
+      <p>I've seen hundreds of campaigns where the numbers bloom and the reality is a desert. We call them <strong>"ghost successes"</strong>.</p>
+
+      <ul>
+        <li><strong>The Mega-Influencer:</strong> millions of followers who happen to be 14-year-olds with no credit cards.</li>
+        <li><strong>The 2M View Video:</strong> driven by bots and accidental scrolls.</li>
+        <li><strong>The Viral Sensation:</strong> everyone saw it. Nobody bought it.</li>
+      </ul>
+
+      <h2>The Vanity Trap</h2>
+
+      <p>Engagement rate is not a single source of truth. It's one signal among many, and it's the easiest one to fake.</p>
+
+      <p>Every brand needs a custom evaluation engine. Because the metrics that matter depend entirely on your objectives.</p>
+
+      <h2>The Engineering of Trust</h2>
+
+      <p>Here's what that engine should actually measure:</p>
+
+      <ul>
+        <li><strong>Brand Fit:</strong> Does this creator reflect your actual buyer persona, or just your aspirational one?</li>
+        <li><strong>Competitive Exclusivity:</strong> If a niche creator isn't working for you, they're likely working for your competitor. Is that a risk you've priced in?</li>
+        <li><strong>Audience Authority:</strong> Can this creator actually influence a purchase decision, or are they just entertainment?</li>
+        <li><strong>Data Transparency:</strong> Can you see past the surface-level screenshots into real attribution?</li>
+        <li><strong>Customer Quality:</strong> Are you acquiring loyalists, or one-hit wonders who vanish after the discount code expires?</li>
+      </ul>
+
+      <p>The brands that win aren't the ones with the biggest reach. They're the ones who ask better questions before they sign the brief.</p>
+
+      <h2>The Evaluation Engine</h2>
+
+      <p>I built an evaluation framework around these criteria with weighted scoring, engagement benchmarks, UTM tracking, and composite ranking. If your current campaign data feels like smoke and mirrors, drop a DM. I'll share it. Or better yet, test the live framework below.</p>
+
+      <div data-widget="evaluation"></div>
+    `
+  },
+  {
     slug: "tragedy-of-attention-commons",
     title: "The Tragedy of the Attention Commons: Public Economics for Creators",
     excerpt: "Applying public economics to the creator economy. How to solve for 'Influence Externalities' and build resilient systems in an era of noise.",

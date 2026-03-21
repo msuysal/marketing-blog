@@ -1,0 +1,502 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.app{font-family:'Sora',var(--font-sans);padding:1.5rem 0;color:var(--color-text-primary)}
+.app-header{margin-bottom:1.5rem}
+.app-header h1{font-size:19px;font-weight:600;letter-spacing:-.3px;margin-bottom:3px}
+.app-header p{font-size:12px;color:var(--color-text-secondary);font-family:'DM Mono',monospace}
+.tabs{display:flex;gap:0;margin-bottom:1.5rem;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden;width:fit-content;flex-wrap:wrap}
+.tb{padding:7px 16px;font-size:12px;font-weight:500;background:transparent;color:var(--color-text-secondary);cursor:pointer;border:none;font-family:'Sora',var(--font-sans);border-right:0.5px solid var(--color-border-tertiary);transition:all .15s}
+.tb:last-child{border-right:none}
+.tb:hover{background:var(--color-background-secondary)}
+.tb.on{background:var(--color-text-primary);color:var(--color-background-primary)}
+.panel{display:none}.panel.on{display:block}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.125rem 1.25rem;margin-bottom:12px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:620px){.g2{grid-template-columns:1fr}.g3{grid-template-columns:1fr 1fr}.g4{grid-template-columns:1fr 1fr}}
+.kpi{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.875rem 1rem;position:relative;overflow:hidden}
+.kpi .k-val{font-size:20px;font-weight:600;letter-spacing:-.5px;margin-bottom:2px;font-family:'DM Mono',monospace}
+.kpi .k-lbl{font-size:11px;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em}
+.kpi .k-sub{font-size:10px;color:var(--color-text-tertiary);margin-top:3px;font-family:'DM Mono',monospace}
+.kpi .k-bar{position:absolute;bottom:0;left:0;height:3px;border-radius:0 2px 0 0;width:100%}
+.k-green .k-val{color:#0F6E56}.k-green .k-bar{background:#1D9E75}
+.k-blue .k-val{color:#185FA5}.k-blue .k-bar{background:#378ADD}
+.k-amber .k-val{color:#854F0B}.k-amber .k-bar{background:#EF9F27}
+.k-red .k-val{color:#A32D2D}.k-red .k-bar{background:#E24B4A}
+.k-purple .k-val{color:#534AB7}.k-purple .k-bar{background:#7F77DD}
+.k-teal .k-val{color:#0F6E56}.k-teal .k-bar{background:#5DCAA5}
+.sec-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-secondary);margin-bottom:10px;font-family:'DM Mono',monospace}
+.inf-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.inf-tbl th{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-secondary);text-align:left;padding:8px 8px;border-bottom:0.5px solid var(--color-border-tertiary);white-space:nowrap;font-family:'DM Mono',monospace}
+.inf-tbl td{padding:10px 8px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:middle}
+.inf-tbl tr:last-child td{border-bottom:none}
+.inf-tbl tr:hover td{background:var(--color-background-secondary)}
+.av{width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;font-family:'DM Mono',monospace}
+.pill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px;font-family:'DM Mono',monospace;white-space:nowrap}
+.p-gr{background:#E1F5EE;color:#0F6E56}.p-bl{background:#E6F1FB;color:#185FA5}
+.p-am{background:#FAEEDA;color:#854F0B}.p-rd{background:#FCEBEB;color:#A32D2D}
+.p-dq{background:#F1EFE8;color:#444441;text-decoration:line-through}
+.c-g{color:#0F6E56}.c-a{color:#854F0B}.c-r{color:#A32D2D}.c-b{color:#185FA5}.c-n{color:var(--color-text-secondary)}
+.sc-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:10px}
+.sc-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.sc-name-in{font-size:14px;font-weight:600;border:none;background:transparent;color:var(--color-text-primary);font-family:'Sora',var(--font-sans);outline:none;flex:1;min-width:100px;border-bottom:0.5px dashed var(--color-border-secondary);padding-bottom:2px}
+.cr-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:10px}
+@media(max-width:560px){.cr-grid{grid-template-columns:1fr 1fr}}
+.cr-cell label{font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-secondary);display:block;margin-bottom:4px;font-family:'DM Mono',monospace}
+.cr-cell select{width:100%;padding:5px 6px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary);font-size:11px;font-family:'DM Mono',monospace}
+.cf-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding-top:8px;border-top:0.5px solid var(--color-border-tertiary)}
+.cf-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-secondary);font-family:'DM Mono',monospace}
+.cf-btn{padding:3px 10px;font-size:11px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);cursor:pointer;font-family:'DM Mono',monospace;transition:all .1s}
+.cf-btn.on{background:var(--color-text-primary);color:var(--color-background-primary);border-color:var(--color-text-primary)}
+.dq-lbl{display:flex;align-items:center;gap:3px;font-size:10px;color:var(--color-text-secondary);cursor:pointer;font-family:'DM Mono',monospace}
+.dq-lbl input{accent-color:#E24B4A}
+.eng-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-bottom:12px}
+.eng-col{border-right:0.5px solid var(--color-border-tertiary)}
+.eng-col:last-child{border-right:none}
+.eng-hd{background:var(--color-background-secondary);padding:10px 12px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:8px}
+.eng-field{padding:6px 12px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.eng-field:last-child{border-bottom:none}
+.eng-field label{font-size:9px;color:var(--color-text-tertiary);display:block;margin-bottom:2px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.04em}
+.eng-field input{width:100%;background:transparent;border:none;color:var(--color-text-primary);font-size:13px;font-family:'DM Mono',monospace;outline:none;padding:1px 0}
+.eng-field input:focus{background:var(--color-background-secondary);border-radius:3px;padding:1px 4px}
+.eng-field .calc{font-size:13px;font-weight:500;font-family:'DM Mono',monospace}
+.platform-btn{padding:4px 10px;font-size:11px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);cursor:pointer;font-family:'DM Mono',monospace;margin-right:4px;margin-bottom:4px;transition:all .1s}
+.platform-btn.on{background:var(--color-text-primary);color:var(--color-background-primary);border-color:var(--color-text-primary)}
+.bm-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;margin-bottom:10px;font-size:11px;font-family:'DM Mono',monospace;color:var(--color-text-secondary);line-height:1.8}
+.bm-box strong{color:var(--color-text-primary)}
+.insight{display:flex;gap:10px;padding:10px 14px;border-radius:var(--border-radius-md);margin-bottom:8px;font-size:12px;line-height:1.6}
+.insight.info{background:#E6F1FB;border-left:2px solid #378ADD;color:#0C447C}
+.insight.warn{background:#FAEEDA;border-left:2px solid #EF9F27;color:#633806}
+.insight.danger{background:#FCEBEB;border-left:2px solid #E24B4A;color:#501313}
+.insight.good{background:#E1F5EE;border-left:2px solid #1D9E75;color:#04342C}
+.insight-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.w-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.w-row label{font-size:11px;color:var(--color-text-secondary);flex:1;font-family:'DM Mono',monospace}
+.w-row input[type=range]{flex:2;accent-color:var(--color-text-primary)}
+.w-val{font-size:11px;font-weight:600;min-width:32px;text-align:right;font-family:'DM Mono',monospace;color:var(--color-text-primary)}
+.wt-badge{font-size:10px;padding:2px 8px;border-radius:4px;font-family:'DM Mono',monospace;margin-left:8px}
+.wt-ok{background:#E1F5EE;color:#0F6E56}.wt-bad{background:#FCEBEB;color:#A32D2D}
+.export-btn{padding:7px 18px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-primary);background:transparent;color:var(--color-text-primary);cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
+.export-btn:hover{background:var(--color-text-primary);color:var(--color-background-primary)}
+.fi-sub{font-size:11px;border:none;background:transparent;color:var(--color-text-secondary);font-family:'DM Mono',monospace;outline:none;border-bottom:0.5px dashed var(--color-border-secondary);padding-bottom:1px}
+.fi-sub::placeholder{color:var(--color-text-tertiary)}
+@media(max-width:600px){.eng-grid{grid-template-columns:1fr}.eng-col{border-right:none;border-bottom:0.5px solid var(--color-border-tertiary)}.eng-col:last-child{border-bottom:none}}
+</style>
+
+<div class="app">
+<div class="app-header">
+  <h1>Influencer Evaluation Engine</h1>
+  <p>v5 · 3 influencer · rubric · engagement · UTM & sales · composite ranking</p>
+</div>
+<div class="tabs">
+  <button class="tb on" onclick="go('overview')">Overview</button>
+  <button class="tb" onclick="go('score')">Scoring</button>
+  <button class="tb" onclick="go('engagement')">Engagement</button>
+  <button class="tb" onclick="go('utm')">UTM & Sales</button>
+  <button class="tb" onclick="go('results')">Results</button>
+</div>
+
+<div id="p-overview" class="panel on">
+  <div class="g3" id="kpi-row" style="margin-bottom:12px"></div>
+  <div class="g2">
+    <div>
+      <div class="sec-title">Influencer Profiles</div>
+      <table class="inf-tbl" id="overview-tbl"></table>
+    </div>
+    <div>
+      <div class="sec-title">Campaign Setup</div>
+      <div class="card" style="padding:.875rem 1rem;margin-bottom:12px">
+        <div class="g2" style="margin-bottom:12px">
+          <div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-secondary);margin-bottom:4px;font-family:'DM Mono',monospace">Budget (€)</div>
+            <input type="number" id="budget" value="18000" style="width:100%;padding:5px 8px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary);font-size:13px;font-family:'DM Mono',monospace" oninput="refresh()"></div>
+          <div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-secondary);margin-bottom:4px;font-family:'DM Mono',monospace">Target ROAS</div>
+            <input type="number" id="t-roas" value="3" step="0.5" style="width:100%;padding:5px 8px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary);font-size:13px;font-family:'DM Mono',monospace" oninput="refresh()"></div>
+          <div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-secondary);margin-bottom:4px;font-family:'DM Mono',monospace">Target CAC (€)</div>
+            <input type="number" id="t-cac" value="28" style="width:100%;padding:5px 8px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary);font-size:13px;font-family:'DM Mono',monospace" oninput="refresh()"></div>
+          <div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-secondary);margin-bottom:4px;font-family:'DM Mono',monospace">Avg Order (€)</div>
+            <input type="number" id="aov" value="72" style="width:100%;padding:5px 8px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary);font-size:13px;font-family:'DM Mono',monospace" oninput="refresh()"></div>
+        </div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-secondary);margin-bottom:8px;font-family:'DM Mono',monospace">Criterion Weights <span id="wt-total" class="wt-badge wt-ok">100%</span></div>
+        <div id="w-sliders"></div>
+      </div>
+      <div class="sec-title">Platform Benchmarks</div>
+      <div class="bm-box" id="bm-box"></div>
+    </div>
+  </div>
+</div>
+
+<div id="p-score" class="panel"><div id="score-cards"></div></div>
+
+<div id="p-engagement" class="panel">
+  <div style="margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+    <span class="sec-title" style="margin-bottom:0">Platform:</span>
+    <button class="platform-btn on" onclick="setPlatform(this,'ig_reel')">IG Reel</button>
+    <button class="platform-btn" onclick="setPlatform(this,'ig_post')">IG Post</button>
+    <button class="platform-btn" onclick="setPlatform(this,'ig_story')">IG Story</button>
+    <button class="platform-btn" onclick="setPlatform(this,'tiktok')">TikTok</button>
+    <button class="platform-btn" onclick="setPlatform(this,'yt_short')">YT Short</button>
+  </div>
+  <div class="eng-grid" id="eng-grid"></div>
+  <div class="g3" id="eng-kpis" style="margin-bottom:12px"></div>
+  <div class="sec-title">Engagement Insights</div>
+  <div id="eng-insights"></div>
+</div>
+
+<div id="p-utm" class="panel">
+  <div class="eng-grid" id="utm-grid"></div>
+  <div class="g3" id="utm-kpis" style="margin-bottom:14px"></div>
+  <div class="sec-title">Sales Insights</div>
+  <div id="utm-insights"></div>
+</div>
+
+<div id="p-results" class="panel">
+  <div class="g3" id="res-kpis" style="margin-bottom:14px"></div>
+  <div class="sec-title">Final Ranking — Composite Score (Rubric 34% · Engagement 33% · Sales 33%)</div>
+  <div style="overflow-x:auto"><table class="inf-tbl" id="results-tbl" style="margin-bottom:16px"></table></div>
+  <button class="export-btn" onclick="exportCSV()">Export CSV</button>
+</div>
+</div>
+
+<script>
+const CRIT=[
+  {id:'brand',label:'Brand Fit',icon:'🎯'},
+  {id:'data', label:'Data Transparency',icon:'📊'},
+  {id:'econ', label:'Economic Efficiency',icon:'💰'},
+  {id:'cont', label:'Content Quality',icon:'✨'},
+  {id:'auth', label:'Audience Auth.',icon:'👥'},
+];
+const DQS=['Bot >30%','Competitor deal','Legal/PR','Refused data','Cat. conflict'];
+const SL={1:'Critical',2:'Weak',3:'Average',4:'Good',5:'Excellent'};
+const CMULT={H:1.0,M:0.90,L:0.75};
+const AVC=['#EEEDFE','#E1F5EE','#FAEEDA'];
+const AVT=['#534AB7','#0F6E56','#854F0B'];
+const PLATFORMS={
+  ig_post: {label:'Instagram Post',  er_good:3.0,er_avg:1.5,save_good:1.0,share_good:0.5,view_based:false,swipe:false},
+  ig_reel: {label:'Instagram Reel',  er_good:5.0,er_avg:3.0,save_good:2.0,share_good:1.5,view_based:true, swipe:false},
+  ig_story:{label:'Instagram Story', er_good:8.0,er_avg:4.0,save_good:0,  share_good:0,  view_based:true, swipe:true},
+  tiktok:  {label:'TikTok',          er_good:6.0,er_avg:3.0,save_good:1.5,share_good:2.0,view_based:true, swipe:false},
+  yt_short:{label:'YouTube Short',   er_good:4.0,er_avg:2.0,save_good:0.5,share_good:1.0,view_based:true, swipe:false},
+};
+let currentPlatform='ig_reel';
+let weights=[20,20,20,20,20];
+
+// 3 realistic influencers: star performer, average, problematic
+let infs=[
+  {
+    name:'Lena Kovač', handle:'@lenakovac', followers:'61K', niche:'Wellness & Lifestyle', fee:2200,
+    scores:[5,5,4,5,4], conf:'H',
+    dqs:[false,false,false,false,false],
+    eng:{reach:48000,impressions:112000,likes:3840,comments:421,shares:890,saves:1540,views:61000,swipe_ups:0,comment_qual:5},
+    utm:{clicks:3200,sessions:2750,orders:198,revenue:14256,returns:12,repeat:61}
+  },
+  {
+    name:'Can Yıldız', handle:'@canyildiz', followers:'134K', niche:'Fashion & Lifestyle', fee:4800,
+    scores:[3,3,3,4,3], conf:'M',
+    dqs:[false,false,false,false,false],
+    eng:{reach:89000,impressions:178000,likes:4450,comments:312,shares:620,saves:1780,views:105000,swipe_ups:0,comment_qual:3},
+    utm:{clicks:5100,sessions:3980,orders:142,revenue:10224,returns:28,repeat:19}
+  },
+  {
+    name:'Mert Aksoy', handle:'@mertaksoy', followers:'310K', niche:'Tech & Gaming', fee:7800,
+    scores:[2,1,2,3,2], conf:'L',
+    dqs:[false,false,false,true,false],
+    eng:{reach:62000,impressions:95000,likes:1860,comments:189,shares:210,saves:310,views:88000,swipe_ups:0,comment_qual:2},
+    utm:{clicks:4200,sessions:2900,orders:61,revenue:4392,returns:38,repeat:4}
+  }
+];
+
+function ini(n){if(!n)return'?';return n.split(' ').map(x=>x[0]).join('').toUpperCase().slice(0,2)}
+function isDQ(inf){return inf.dqs.some(d=>d)}
+function hasEng(inf){return inf.eng.reach>0||inf.eng.views>0}
+function hasUtm(inf){return inf.utm.orders>0}
+
+function rubricScore(inf){
+  const tot=weights.reduce((a,b)=>a+b,0)||1;
+  let s=0;CRIT.forEach((_,j)=>s+=(weights[j]/tot)*inf.scores[j]);
+  return +(s*CMULT[inf.conf]).toFixed(2);
+}
+function getER(inf){
+  const p=PLATFORMS[currentPlatform];
+  const base=p.view_based?(inf.eng.views||inf.eng.reach):inf.eng.reach;
+  if(!base)return 0;
+  return +(((inf.eng.likes+inf.eng.comments+inf.eng.saves+inf.eng.shares)/base)*100).toFixed(2);
+}
+function getSaveRate(inf){const b=inf.eng.reach||inf.eng.views;return b>0?+((inf.eng.saves/b)*100).toFixed(2):0}
+function getShareRate(inf){const b=inf.eng.reach||inf.eng.views;return b>0?+((inf.eng.shares/b)*100).toFixed(2):0}
+function getSwipeRate(inf){return inf.eng.views>0?+((inf.eng.swipe_ups/inf.eng.views)*100).toFixed(2):0}
+function getImpRatio(inf){return inf.eng.reach>0?+(inf.eng.impressions/inf.eng.reach).toFixed(2):0}
+function engScore(inf){
+  if(!hasEng(inf))return null;
+  const p=PLATFORMS[currentPlatform];
+  const er=getER(inf);const sr=getSaveRate(inf);const shr=getShareRate(inf);
+  const eS=Math.min(5,Math.max(1,+(er/p.er_good*3.5).toFixed(1)));
+  const srS=p.save_good>0?Math.min(5,Math.max(1,+(sr/p.save_good*3.5).toFixed(1))):3;
+  const shrS=p.share_good>0?Math.min(5,Math.max(1,+(shr/p.share_good*3.5).toFixed(1))):3;
+  return +((eS+srS+shrS+inf.eng.comment_qual)/4).toFixed(2);
+}
+function getRoas(inf){return inf.fee>0&&inf.utm.revenue>0?+(inf.utm.revenue/inf.fee).toFixed(2):0}
+function getCvr(inf){return inf.utm.sessions>0?+((inf.utm.orders/inf.utm.sessions)*100).toFixed(1):0}
+function getCac(inf){return inf.utm.orders>0?+(inf.fee/inf.utm.orders).toFixed(0):0}
+function getRR(inf){return inf.utm.orders>0?+((inf.utm.returns/inf.utm.orders)*100).toFixed(1):0}
+function salesScore(inf){
+  if(!hasUtm(inf))return null;
+  const tR=+(document.getElementById('t-roas').value)||3;
+  const tC=+(document.getElementById('t-cac').value)||28;
+  const rS=Math.min(5,Math.max(1,+(getRoas(inf)/tR*2.5).toFixed(1)));
+  const cS=Math.min(5,Math.max(1,+(tC/Math.max(getCac(inf),1)*2.5).toFixed(1)));
+  const cvrS=Math.min(5,Math.max(1,+(getCvr(inf)/2).toFixed(1)));
+  return +((rS+cS+cvrS)/3).toFixed(2);
+}
+function finalScore(inf){
+  if(isDQ(inf))return{score:0,label:'DQ'};
+  const r=rubricScore(inf),e=engScore(inf),s=salesScore(inf);
+  if(!e&&!s)return{score:r,label:'Rubric only'};
+  if(e&&!s)return{score:+(r*0.5+e*0.5).toFixed(2),label:'Rubric+Eng'};
+  if(!e&&s)return{score:+(r*0.5+s*0.5).toFixed(2),label:'Rubric+Sales'};
+  return{score:+(r*0.34+e*0.33+s*0.33).toFixed(2),label:'Composite'};
+}
+function pillCls(s){if(s>=4.2)return'p-gr';if(s>=3.2)return'p-bl';if(s>=2.2)return'p-am';return'p-rd'}
+function colorS(s){if(s>=4.2)return'#1D9E75';if(s>=3.2)return'#378ADD';if(s>=2.2)return'#EF9F27';return'#E24B4A'}
+
+function setPlatform(btn,p){document.querySelectorAll('.platform-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');currentPlatform=p;renderEngagement();renderBenchmarks()}
+function renderBenchmarks(){
+  const p=PLATFORMS[currentPlatform];
+  const el=document.getElementById('bm-box');if(!el)return;
+  el.innerHTML=`<strong>${p.label}</strong><br>ER Good: <strong>${p.er_good}%+</strong> · ER Avg: <strong>${p.er_avg}%</strong>${p.save_good>0?` · Save Rate: <strong>${p.save_good}%+</strong>`:''}${p.share_good>0?` · Share Rate: <strong>${p.share_good}%+</strong>`:''}${p.swipe?'<br>Swipe-up Good: <strong>3%+</strong>':''}<br><span style="font-size:10px;color:var(--color-text-tertiary)">Industry averages 2024</span>`;
+}
+function renderWeights(){
+  const c=document.getElementById('w-sliders');if(!c)return;
+  c.innerHTML=CRIT.map((cr,i)=>`<div class="w-row"><label>${cr.icon} ${cr.label}</label><input type="range" min="0" max="60" step="5" value="${weights[i]}" oninput="weights[${i}]=+this.value;this.nextElementSibling.textContent=this.value+'%';updWt();refresh()"><span class="w-val">${weights[i]}%</span></div>`).join('');
+  updWt();
+}
+function updWt(){const s=weights.reduce((a,b)=>a+b,0);const el=document.getElementById('wt-total');if(!el)return;el.textContent=s+'%';el.className='wt-badge '+(s===100?'wt-ok':'wt-bad')}
+
+function renderKPIs(){
+  const totRev=infs.reduce((a,b)=>a+b.utm.revenue,0);
+  const totFee=infs.reduce((a,b)=>a+b.fee,0);
+  const totOrd=infs.reduce((a,b)=>a+b.utm.orders,0);
+  const tR=+(document.getElementById('t-roas').value)||3;
+  const bRoas=totFee>0&&totRev>0?(totRev/totFee).toFixed(2):'—';
+  const bCac=totOrd>0?(totFee/totOrd).toFixed(0):'—';
+  const el=document.getElementById('kpi-row');if(!el)return;
+  el.innerHTML=[
+    {v:totRev>0?'€'+totRev.toLocaleString():'—',l:'Total Revenue',s:'from €'+totFee.toLocaleString()+' spend',c:'k-green'},
+    {v:bRoas+(bRoas!=='—'?'x':''),l:'Blended ROAS',s:'target: '+tR+'x',c:bRoas!=='—'&&parseFloat(bRoas)>=tR?'k-green':'k-amber'},
+    {v:bCac!=='—'?'€'+bCac:'—',l:'Blended CAC',s:'target: €'+((+(document.getElementById('t-cac').value)||28)),c:'k-amber'},
+  ].map(k=>`<div class="kpi ${k.c}"><div class="k-val">${k.v}</div><div class="k-lbl">${k.l}</div><div class="k-sub">${k.s}</div><div class="k-bar"></div></div>`).join('');
+}
+
+function renderOverviewTable(){
+  const el=document.getElementById('overview-tbl');if(!el)return;
+  const tR=+(document.getElementById('t-roas').value)||3;
+  const p=PLATFORMS[currentPlatform];
+  el.innerHTML=`<thead><tr><th>Creator</th><th>Followers</th><th>Fee</th><th>Rubric</th><th>ER%</th><th>Save%</th><th>ROAS</th><th>Final</th></tr></thead><tbody>${infs.map((inf,i)=>{
+    const dq=isDQ(inf);const rs=rubricScore(inf);const fs=finalScore(inf);
+    const er=getER(inf);const sr=getSaveRate(inf);const roas=getRoas(inf);
+    return `<tr><td><div style="display:flex;align-items:center;gap:8px"><div class="av" style="background:${AVC[i]};color:${AVT[i]}">${ini(inf.name)}</div><div><div style="font-size:12px;font-weight:600">${inf.name}</div><div style="font-size:10px;color:var(--color-text-secondary);font-family:'DM Mono',monospace">${inf.niche}</div></div></div></td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--color-text-secondary)">${inf.followers}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px">€${inf.fee.toLocaleString()}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:12px;font-weight:600">${rs}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px;color:${er>0?(er>=p.er_good?'#0F6E56':er>=p.er_avg?'#854F0B':'#A32D2D'):'var(--color-text-secondary)'}">${er>0?er+'%':'—'}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px;color:${sr>0?(sr>=p.save_good?'#0F6E56':'#854F0B'):'var(--color-text-secondary)'}">${sr>0?sr+'%':'—'}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px;color:${roas>0?(roas>=tR?'#0F6E56':roas>=tR*.6?'#854F0B':'#A32D2D'):'var(--color-text-secondary)'}">${roas>0?roas+'x':'—'}</td>
+    <td><span class="pill ${dq?'p-dq':pillCls(fs.score)}">${dq?'DQ':fs.score}</span></td></tr>`;
+  }).join('')}</tbody>`;
+}
+
+function renderScoring(){
+  const el=document.getElementById('score-cards');if(!el)return;
+  el.innerHTML=infs.map((inf,i)=>{
+    const dq=isDQ(inf);const rs=rubricScore(inf);
+    return `<div class="sc-card"><div class="sc-head">
+      <div class="av" style="background:${AVC[i]};color:${AVT[i]}">${ini(inf.name)}</div>
+      <div style="flex:1;min-width:0">
+        <input class="sc-name-in" value="${inf.name}" onchange="infs[${i}].name=this.value;refresh()">
+        <div style="display:flex;gap:8px;margin-top:5px;flex-wrap:wrap">
+          <input class="fi-sub" value="${inf.handle}" style="width:75px" onchange="infs[${i}].handle=this.value">
+          <input class="fi-sub" value="${inf.followers}" style="width:65px" onchange="infs[${i}].followers=this.value">
+          <input class="fi-sub" value="${inf.niche}" style="width:110px" onchange="infs[${i}].niche=this.value">
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+        <div style="font-size:10px;color:var(--color-text-secondary);font-family:'DM Mono',monospace">Fee €</div>
+        <input type="number" value="${inf.fee}" style="width:80px;text-align:right;padding:4px 6px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary);font-size:12px;font-family:'DM Mono',monospace" onchange="infs[${i}].fee=+this.value;refresh()">
+      </div>
+      ${dq?`<span class="pill p-dq">DQ</span>`:`<span class="pill ${pillCls(rs)}">${rs}</span>`}
+    </div>
+    <div class="cr-grid">${CRIT.map((c,j)=>`<div class="cr-cell"><label>${c.icon} ${c.label}</label><select onchange="infs[${i}].scores[${j}]=+this.value;refresh()">${[1,2,3,4,5].map(v=>`<option value="${v}" ${inf.scores[j]===v?'selected':''}>${v} · ${SL[v]}</option>`).join('')}</select></div>`).join('')}</div>
+    <div class="cf-row">
+      <span class="cf-lbl">Conf:</span>
+      ${['H','M','L'].map(c=>`<button class="cf-btn ${inf.conf===c?'on':''}" onclick="infs[${i}].conf='${c}';refresh()">${c==='H'?'High':c==='M'?'Med':'Low'}</button>`).join('')}
+      <span class="cf-lbl" style="margin-left:6px">DQ:</span>
+      ${DQS.map((d,j)=>`<label class="dq-lbl"><input type="checkbox" ${inf.dqs[j]?'checked':''} onchange="infs[${i}].dqs[${j}]=this.checked;refresh()">${d}</label>`).join('')}
+    </div></div>`;
+  }).join('');
+}
+
+function renderEngagement(){
+  const p=PLATFORMS[currentPlatform];
+  const el=document.getElementById('eng-grid');if(!el)return;
+  el.innerHTML=infs.map((inf,i)=>{
+    const er=getER(inf);const sr=getSaveRate(inf);const shr=getShareRate(inf);const ir=getImpRatio(inf);const es=engScore(inf);
+    const erCls=er>0?(er>=p.er_good?'c-g':er>=p.er_avg?'c-a':'c-r'):'c-n';
+    return `<div class="eng-col">
+      <div class="eng-hd"><div class="av" style="background:${AVC[i]};color:${AVT[i]}">${ini(inf.name)}</div><div><div style="font-size:13px;font-weight:600">${inf.name}</div><div style="font-size:10px;color:var(--color-text-secondary);font-family:'DM Mono',monospace">${inf.handle}</div></div></div>
+      <div class="eng-field"><label>Reach</label><input type="number" value="${inf.eng.reach}" onchange="infs[${i}].eng.reach=+this.value;refresh()"></div>
+      <div class="eng-field"><label>Impressions</label><input type="number" value="${inf.eng.impressions}" onchange="infs[${i}].eng.impressions=+this.value;refresh()"></div>
+      ${p.view_based?`<div class="eng-field"><label>${p.swipe?'Story Views':'Views'}</label><input type="number" value="${inf.eng.views}" onchange="infs[${i}].eng.views=+this.value;refresh()"></div>`:''}
+      <div class="eng-field"><label>Likes</label><input type="number" value="${inf.eng.likes}" onchange="infs[${i}].eng.likes=+this.value;refresh()"></div>
+      <div class="eng-field"><label>Comments</label><input type="number" value="${inf.eng.comments}" onchange="infs[${i}].eng.comments=+this.value;refresh()"></div>
+      <div class="eng-field"><label>Shares</label><input type="number" value="${inf.eng.shares}" onchange="infs[${i}].eng.shares=+this.value;refresh()"></div>
+      <div class="eng-field"><label>Saves</label><input type="number" value="${inf.eng.saves}" onchange="infs[${i}].eng.saves=+this.value;refresh()"></div>
+      ${p.swipe?`<div class="eng-field"><label>Swipe-ups</label><input type="number" value="${inf.eng.swipe_ups}" onchange="infs[${i}].eng.swipe_ups=+this.value;refresh()"></div>`:''}
+      <div class="eng-field"><label>Comment Quality</label><select onchange="infs[${i}].eng.comment_qual=+this.value;refresh()" style="width:100%;background:transparent;border:none;color:var(--color-text-primary);font-size:12px;font-family:'DM Mono',monospace;outline:none">
+        ${[1,2,3,4,5].map(v=>`<option value="${v}" ${inf.eng.comment_qual===v?'selected':''}>${v}${v===1?' · Mostly negative':v===2?' · Mixed/generic':v===3?' · Neutral':v===4?' · Positive':' · High intent'}</option>`).join('')}
+      </select></div>
+      <div class="eng-field"><label>ER %</label><div class="calc ${erCls}">${er>0?er+'%':'—'}</div></div>
+      <div class="eng-field"><label>Save Rate</label><div class="calc ${sr>0?(sr>=p.save_good?'c-g':'c-a'):'c-n'}">${sr>0?sr+'%':'—'}</div></div>
+      <div class="eng-field"><label>Share Rate</label><div class="calc ${shr>0?(shr>=p.share_good?'c-g':'c-a'):'c-n'}">${shr>0?shr+'%':'—'}</div></div>
+      <div class="eng-field"><label>Imp / Reach</label><div class="calc c-b">${ir>0?ir+'x':'—'}</div></div>
+      <div class="eng-field"><label>Engagement Score</label><div class="calc" style="font-weight:700;color:${es?colorS(es):'var(--color-text-secondary)'}">${es||'—'}</div></div>
+    </div>`;
+  }).join('');
+
+  const withE=infs.filter(i=>hasEng(i));
+  const avgER=withE.length?+(withE.reduce((a,b)=>a+getER(b),0)/withE.length).toFixed(1):0;
+  const avgSR=withE.length?+(withE.reduce((a,b)=>a+getSaveRate(b),0)/withE.length).toFixed(2):0;
+  const totReach=infs.reduce((a,b)=>a+(b.eng.reach||b.eng.views),0);
+  const ek=document.getElementById('eng-kpis');if(ek)
+  ek.innerHTML=[
+    {v:avgER>0?avgER+'%':'—',l:'Avg ER',s:'benchmark: '+p.er_good+'%+',c:avgER>=p.er_good?'k-green':avgER>=p.er_avg?'k-amber':'k-purple'},
+    {v:avgSR>0?avgSR+'%':'—',l:'Avg Save Rate',s:'benchmark: '+p.save_good+'%+',c:avgSR>=p.save_good?'k-green':'k-amber'},
+    {v:totReach>0?totReach.toLocaleString():'—',l:'Total Reach',s:'all 3 creators',c:'k-blue'},
+  ].map(k=>`<div class="kpi ${k.c}"><div class="k-val">${k.v}</div><div class="k-lbl">${k.l}</div><div class="k-sub">${k.s}</div><div class="k-bar"></div></div>`).join('');
+
+  const ins=[];
+  const bER=[...withE].sort((a,b)=>getER(b)-getER(a))[0];
+  const bSR=[...withE].sort((a,b)=>getSaveRate(b)-getSaveRate(a))[0];
+  if(bER) ins.push({t:'good',i:'⭐',m:`<strong>${bER.name}</strong> leads on ER at ${getER(bER)}% — highest audience activation.`});
+  if(bSR) ins.push({t:'good',i:'🔖',m:`<strong>${bSR.name}</strong> save rate ${getSaveRate(bSR)}% — strongest purchase intent signal.`});
+  const lowER=withE.filter(i=>getER(i)<p.er_avg);
+  if(lowER.length) ins.push({t:'warn',i:'⚠',m:`<strong>${lowER.map(i=>i.name).join(', ')}</strong> ER below ${p.er_avg}% platform average — review content brief.`});
+  const hiImp=withE.filter(i=>getImpRatio(i)>2);
+  if(hiImp.length) ins.push({t:'info',i:'📢',m:`<strong>${hiImp.map(i=>i.name).join(', ')}</strong> imp/reach >2x — strong content recall potential.`});
+  const ei=document.getElementById('eng-insights');if(ei)ei.innerHTML=ins.map(a=>`<div class="insight ${a.t}"><span class="insight-icon">${a.i}</span><span>${a.m}</span></div>`).join('');
+}
+
+function renderUTM(){
+  const tR=+(document.getElementById('t-roas').value)||3;
+  const tC=+(document.getElementById('t-cac').value)||28;
+  const el=document.getElementById('utm-grid');if(!el)return;
+  el.innerHTML=infs.map((inf,i)=>{
+    const roas=getRoas(inf);const cvr=getCvr(inf);const cac=getCac(inf);const rr=getRR(inf);
+    const cpl=inf.utm.clicks>0?+(inf.fee/inf.utm.clicks).toFixed(2):0;const ss=salesScore(inf);
+    return `<div class="eng-col">
+      <div class="eng-hd"><div class="av" style="background:${AVC[i]};color:${AVT[i]}">${ini(inf.name)}</div><div><div style="font-size:13px;font-weight:600">${inf.name}</div><div style="font-size:10px;color:var(--color-text-secondary);font-family:'DM Mono',monospace">${inf.handle}</div></div></div>
+      <div class="eng-field"><label>UTM Clicks</label><input type="number" value="${inf.utm.clicks}" onchange="infs[${i}].utm.clicks=+this.value;refresh()"></div>
+      <div class="eng-field"><label>Sessions</label><input type="number" value="${inf.utm.sessions}" onchange="infs[${i}].utm.sessions=+this.value;refresh()"></div>
+      <div class="eng-field"><label>Orders</label><input type="number" value="${inf.utm.orders}" onchange="infs[${i}].utm.orders=+this.value;refresh()"></div>
+      <div class="eng-field"><label>Revenue €</label><input type="number" value="${inf.utm.revenue}" onchange="infs[${i}].utm.revenue=+this.value;refresh()"></div>
+      <div class="eng-field"><label>Returns</label><input type="number" value="${inf.utm.returns}" onchange="infs[${i}].utm.returns=+this.value;refresh()"></div>
+      <div class="eng-field"><label>Repeat Orders</label><input type="number" value="${inf.utm.repeat}" onchange="infs[${i}].utm.repeat=+this.value;refresh()"></div>
+      <div class="eng-field"><label>ROAS</label><div class="calc ${roas>0?(roas>=tR?'c-g':roas>=tR*.6?'c-a':'c-r'):'c-n'}">${roas>0?roas+'x':'—'}</div></div>
+      <div class="eng-field"><label>CVR %</label><div class="calc ${cvr>0?(cvr>=2?'c-g':cvr>=1?'c-a':'c-r'):'c-n'}">${cvr>0?cvr+'%':'—'}</div></div>
+      <div class="eng-field"><label>CAC €</label><div class="calc ${cac>0?(cac<=tC?'c-g':cac<=tC*1.5?'c-a':'c-r'):'c-n'}">${cac>0?'€'+cac:'—'}</div></div>
+      <div class="eng-field"><label>CPL €</label><div class="calc c-b">${cpl>0?'€'+cpl:'—'}</div></div>
+      <div class="eng-field"><label>Return Rate</label><div class="calc ${rr>0?(rr<=10?'c-g':rr<=20?'c-a':'c-r'):'c-n'}">${rr>0?rr+'%':'—'}</div></div>
+      <div class="eng-field"><label>Sales Score</label><div class="calc" style="font-weight:700;color:${ss?colorS(ss):'var(--color-text-secondary)'}">${ss||'—'}</div></div>
+    </div>`;
+  }).join('');
+
+  const totRev=infs.reduce((a,b)=>a+b.utm.revenue,0);
+  const totFee=infs.reduce((a,b)=>a+b.fee,0);
+  const totOrd=infs.reduce((a,b)=>a+b.utm.orders,0);
+  const bRoas=totFee>0&&totRev>0?(totRev/totFee).toFixed(2):'—';
+  const bCac=totOrd>0?(totFee/totOrd).toFixed(0):'—';
+  const uk=document.getElementById('utm-kpis');if(uk)
+  uk.innerHTML=[
+    {v:totRev>0?'€'+totRev.toLocaleString():'—',l:'Total Revenue',s:'on €'+totFee.toLocaleString()+' spend',c:'k-green'},
+    {v:bRoas+(bRoas!=='—'?'x':''),l:'Blended ROAS',s:'target: '+tR+'x',c:bRoas!=='—'&&parseFloat(bRoas)>=tR?'k-green':'k-amber'},
+    {v:bCac!=='—'?'€'+bCac:'—',l:'Blended CAC',s:'target: €'+tC,c:bCac!=='—'&&parseFloat(bCac)<=tC?'k-green':'k-amber'},
+  ].map(k=>`<div class="kpi ${k.c}"><div class="k-val">${k.v}</div><div class="k-lbl">${k.l}</div><div class="k-sub">${k.s}</div><div class="k-bar"></div></div>`).join('');
+
+  const ins=[];
+  const best=[...infs].filter(i=>hasUtm(i)).sort((a,b)=>getRoas(b)-getRoas(a))[0];
+  if(best) ins.push({t:'good',i:'⭐',m:`<strong>${best.name}</strong> leads with ROAS ${getRoas(best)}x and CVR ${getCvr(best)}% — prioritize for next cycle.`});
+  const hiRR=infs.filter(i=>getRR(i)>20);
+  if(hiRR.length) ins.push({t:'danger',i:'🚨',m:`<strong>${hiRR.map(i=>i.name).join(', ')}</strong> return rate >20% — possible audience/product mismatch or misleading content framing.`});
+  const hiRep=infs.filter(i=>i.utm.orders>0&&(i.utm.repeat/i.utm.orders)>.3);
+  if(hiRep.length) ins.push({t:'good',i:'📈',m:`<strong>${hiRep.map(i=>i.name).join(', ')}</strong> repeat rate >30% — strong LTV signal. Consider long-term partnership.`});
+  const dqInf=infs.filter(i=>isDQ(i));
+  if(dqInf.length) ins.push({t:'danger',i:'⛔',m:`<strong>${dqInf.map(i=>i.name).join(', ')}</strong> disqualified — exclude from campaign regardless of sales volume.`});
+  const ui=document.getElementById('utm-insights');if(ui)ui.innerHTML=ins.map(a=>`<div class="insight ${a.t}"><span class="insight-icon">${a.i}</span><span>${a.m}</span></div>`).join('');
+}
+
+function renderResults(){
+  const tR=+(document.getElementById('t-roas').value)||3;
+  const p=PLATFORMS[currentPlatform];
+  const sorted=[...infs].map((inf,i)=>({...inf,_i:i})).sort((a,b)=>{
+    if(isDQ(a)&&!isDQ(b))return 1;if(!isDQ(a)&&isDQ(b))return-1;
+    return finalScore(b).score-finalScore(a).score;
+  });
+  let rank=0;
+  const tbl=document.getElementById('results-tbl');if(!tbl)return;
+  tbl.innerHTML=`<thead><tr><th>#</th><th>Creator</th><th>Fee</th>${CRIT.map(c=>`<th>${c.icon}</th>`).join('')}<th>Rubric</th><th>ER%</th><th>Save%</th><th>Eng.</th><th>ROAS</th><th>Sales</th><th>Final</th></tr></thead><tbody>${sorted.map(inf=>{
+    const dq=isDQ(inf);if(!dq)rank++;
+    const i=inf._i;const fs=finalScore(inf);const es=engScore(inf);const ss=salesScore(inf);
+    const er=getER(inf);const sr=getSaveRate(inf);const roas=getRoas(inf);
+    const rkc=dq?'var(--color-background-secondary)':rank===1?'#FAEEDA':rank===2?'#D3D1C7':'var(--color-background-secondary)';
+    const rkt=dq?'var(--color-text-secondary)':rank===1?'#854F0B':rank===2?'#444441':'var(--color-text-secondary)';
+    return `<tr style="${dq?'opacity:.5':''}">
+    <td><span style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;font-family:'DM Mono',monospace;background:${rkc};color:${rkt}">${dq?'⛔':rank}</span></td>
+    <td><div style="display:flex;align-items:center;gap:7px"><div class="av" style="background:${AVC[i]};color:${AVT[i]};width:26px;height:26px;font-size:9px">${ini(inf.name)}</div><div><div style="font-size:12px;font-weight:600">${inf.name}</div><div style="font-size:10px;color:var(--color-text-secondary);font-family:'DM Mono',monospace">${inf.niche}</div></div></div></td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px">€${inf.fee.toLocaleString()}</td>
+    ${inf.scores.map(s=>`<td style="font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:${s>=4?'#1D9E75':s>=3?'#378ADD':s>=2?'#EF9F27':'#E24B4A'}">${s}</td>`).join('')}
+    <td style="font-family:'DM Mono',monospace;font-size:12px;font-weight:600">${rubricScore(inf)}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px;color:${er>0?(er>=p.er_good?'#0F6E56':er>=p.er_avg?'#854F0B':'#A32D2D'):'var(--color-text-tertiary)'}">${er>0?er+'%':'—'}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px;color:${sr>0?(sr>=p.save_good?'#0F6E56':'#854F0B'):'var(--color-text-tertiary)'}">${sr>0?sr+'%':'—'}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:${es?colorS(es):'var(--color-text-tertiary)'}">${es||'—'}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px;color:${roas>0?(roas>=tR?'#0F6E56':roas>=tR*.6?'#854F0B':'#A32D2D'):'var(--color-text-tertiary)'}">${roas>0?roas+'x':'—'}</td>
+    <td style="font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:${ss?colorS(ss):'var(--color-text-tertiary)'}">${ss||'—'}</td>
+    <td><span class="pill ${dq?'p-dq':pillCls(fs.score)}">${dq?'DQ':fs.score}</span><br><span style="font-size:9px;color:var(--color-text-tertiary);font-family:'DM Mono',monospace">${fs.label}</span></td>
+    </tr>`;
+  }).join('')}</tbody>`;
+
+  const valid=infs.filter(i=>!isDQ(i));
+  const top=valid.sort((a,b)=>finalScore(b).score-finalScore(a).score)[0];
+  const totRev=infs.reduce((a,b)=>a+b.utm.revenue,0);const totFee=infs.reduce((a,b)=>a+b.fee,0);
+  const rk=document.getElementById('res-kpis');if(rk)
+  rk.innerHTML=[
+    {v:top?top.name.split(' ')[0]:'—',l:'Top Performer',s:'Score: '+finalScore(top).score,c:'k-green'},
+    {v:'€'+totRev.toLocaleString(),l:'Total Revenue',s:'on €'+totFee.toLocaleString()+' spend',c:'k-green'},
+    {v:totFee>0&&totRev>0?(totRev/totFee).toFixed(2)+'x':'—',l:'Blended ROAS',s:'target: '+((+(document.getElementById('t-roas').value)||3))+'x',c:'k-amber'},
+  ].map(k=>`<div class="kpi ${k.c}"><div class="k-val">${k.v}</div><div class="k-lbl">${k.l}</div><div class="k-sub">${k.s}</div><div class="k-bar"></div></div>`).join('');
+}
+
+function refresh(){
+  renderKPIs();renderOverviewTable();
+  if(document.getElementById('p-score').classList.contains('on'))renderScoring();
+  if(document.getElementById('p-engagement').classList.contains('on'))renderEngagement();
+  if(document.getElementById('p-utm').classList.contains('on'))renderUTM();
+  if(document.getElementById('p-results').classList.contains('on'))renderResults();
+}
+function go(tab){
+  ['overview','score','engagement','utm','results'].forEach(t=>{document.getElementById('p-'+t).classList.toggle('on',t===tab)});
+  document.querySelectorAll('.tb').forEach((b,i)=>b.classList.toggle('on',['overview','score','engagement','utm','results'][i]===tab));
+  if(tab==='score')renderScoring();
+  if(tab==='engagement')renderEngagement();
+  if(tab==='utm')renderUTM();
+  if(tab==='results')renderResults();
+}
+function exportCSV(){
+  const rows=[['Name','Handle','Niche','Followers','Fee',...CRIT.map(c=>c.label),'Confidence','Rubric','ER%','Save%','Share%','Eng.Score','ROAS','CVR%','CAC','Return%','Sales Score','Final Score','Method','DQ']];
+  infs.forEach(inf=>rows.push([inf.name,inf.handle,inf.niche,inf.followers,inf.fee,...inf.scores,inf.conf,rubricScore(inf),getER(inf)||'—',getSaveRate(inf)||'—',getShareRate(inf)||'—',engScore(inf)||'—',getRoas(inf)||'—',getCvr(inf)||'—',getCac(inf)||'—',getRR(inf)||'—',salesScore(inf)||'—',finalScore(inf).score,finalScore(inf).label,isDQ(inf)?'YES':'NO']));
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(rows.map(r=>r.join(',')).join('\n'));
+  a.download='influencer_eval_filled.csv';a.click();
+}
+renderWeights();renderKPIs();renderOverviewTable();renderBenchmarks();
+</script>

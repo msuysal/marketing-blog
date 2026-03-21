@@ -11,6 +11,7 @@ const GrowthLoopVisual = dynamic(() => import("./GrowthLoopVisual"), { ssr: fals
 const OptimizationVisual = dynamic(() => import("./OptimizationVisual"), { ssr: false, loading: () => <div className="widget-loading">Analyzing Efficiency Curves...</div> });
 const CoordinationVisual = dynamic(() => import("./CoordinationVisual"), { ssr: false, loading: () => <div className="widget-loading">Synchronizing System Nodes...</div> });
 const LuxuryDopamineQuiz = dynamic(() => import("./LuxuryDopamineQuiz"), { ssr: false, loading: () => <div className="widget-loading">Engaging Psychological Assessment...</div> });
+const EvaluationWidget = dynamic(() => import("./EvaluationWidget"), { ssr: false, loading: () => <div className="widget-loading">Loading Evaluation Engine...</div> });
 
 interface PostContentProps {
     content: string;
@@ -39,6 +40,9 @@ const PostContent: React.FC<PostContentProps> = ({ content }) => {
                     }
                     if (domNode.attribs["data-widget"] === "luxurydopaminequiz") {
                         return <LuxuryDopamineQuiz />;
+                    }
+                    if (domNode.attribs["data-widget"] === "evaluation") {
+                        return <EvaluationWidget />;
                     }
                 }
 
