@@ -1,16 +1,30 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@400;500;600&display=swap');
+:root {
+  --color-background-primary: #fdfdfb;
+  --color-background-secondary: #f4f2ee;
+  --color-text-primary: #1c1c1d;
+  --color-text-secondary: #555;
+  --color-text-tertiary: #888;
+  --color-border-primary: #1c1c1d;
+  --color-border-secondary: #d1d1d1;
+  --color-border-tertiary: rgba(28, 28, 29, 0.1);
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
+  --font-sans: 'Sora', sans-serif;
+  --accent: #e2c331;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-.app{font-family:'Sora',var(--font-sans);padding:1.5rem 0;color:var(--color-text-primary)}
-.app-header{margin-bottom:1.5rem}
-.app-header h1{font-size:19px;font-weight:600;letter-spacing:-.3px;margin-bottom:3px}
-.app-header p{font-size:12px;color:var(--color-text-secondary);font-family:'DM Mono',monospace}
+body{background:var(--color-background-primary)}
+.app{font-family:'Sora',var(--font-sans);padding:1.5rem 1rem;color:var(--color-text-primary);max-width:100%;margin:0 auto}
+.app-header{margin-bottom:2rem}
+.app-header h1{font-size:24px;font-weight:600;letter-spacing:-.5px;margin-bottom:6px;font-family:'Sora', serif;}
 .tabs{display:flex;gap:0;margin-bottom:1.5rem;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden;width:fit-content;flex-wrap:wrap}
-.tb{padding:7px 16px;font-size:12px;font-weight:500;background:transparent;color:var(--color-text-secondary);cursor:pointer;border:none;font-family:'Sora',var(--font-sans);border-right:0.5px solid var(--color-border-tertiary);transition:all .15s}
+.tb{padding:8px 18px;font-size:13px;font-weight:500;background:transparent;color:var(--color-text-secondary);cursor:pointer;border:none;font-family:'Sora',var(--font-sans);border-right:0.5px solid var(--color-border-tertiary);transition:all .15s}
 .tb:last-child{border-right:none}
 .tb:hover{background:var(--color-background-secondary)}
-.tb.on{background:var(--color-text-primary);color:var(--color-background-primary)}
+.tb.on{background:var(--accent);color:var(--color-text-primary)}
 .panel{display:none}.panel.on{display:block}
 .card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.125rem 1.25rem;margin-bottom:12px}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -88,8 +102,7 @@
 
 <div class="app">
 <div class="app-header">
-  <h1>Influencer Evaluation Engine</h1>
-  <p>v5 · 3 influencer · rubric · engagement · UTM & sales · composite ranking</p>
+  <h1>Authority Engine: Custom Benchmarking Model</h1>
 </div>
 <div class="tabs">
   <button class="tb on" onclick="go('overview')">Overview</button>
