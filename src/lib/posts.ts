@@ -10,6 +10,103 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: "lifelog-facebook-and-voluntary-tracking",
+    title: "How Surveillance Became a Consumer Product",
+    excerpt: "DARPA shut down LifeLog on February 4, 2004, the exact day Facebook launched. How reality TV and smartphones made behavioral tracking voluntary.",
+    date: "Apr 20, 2026",
+    tags: ["Behavioral Logic", "Data Signals", "Systems Infrastructure"],
+    content: `
+      <p>On February 4, 2004, the Pentagon shut down a research project called LifeLog. That same afternoon, Mark Zuckerberg launched TheFacebook from his dorm room at Harvard.</p>
+
+      <p>I do not care about conspiracy theories. No public paper trail connects the two events. What interests me as a marketer is why the government version failed in six months while the commercial version signed up three billion people.</p>
+
+      <h2>What DARPA tried to build</h2>
+
+      <p>In mid-2003, program manager Douglas Gage started LifeLog inside DARPA. The goal was to record one person's entire daily life in a single database. Every phone call, every email, every GPS coordinate, every credit card swipe, and every song played.</p>
+
+      <p>Military researchers wanted that dataset so software models could learn how humans make decisions under pressure. Journalists and privacy groups found out about the project in late 2003 and attacked it in the press. Nobody wanted the state keeping a diary of their life. DARPA killed the program on February 4.</p>
+
+      <h2>Why people volunteered for the commercial version</h2>
+
+      <p>People fought a government database tooth and nail. Then they typed the exact same personal history into a commercial website for free, and early investors like Peter Thiel, who also co-founded the defense contractor Palantir, funded its expansion.</p>
+
+      <p>The incentive changed.</p>
+
+      <p>Shows like Big Brother and The Real World had spent five years training viewers to treat private life as a public audition. Being watched stopped feeling like a penalty. It started feeling like status. When Facebook added the News Feed in 2006 and the Like button in 2009, every photo upload and status update returned a visible score from your peers.</p>
+
+      <blockquote>"People will reject a tracker when you call it a database and pay for it when you call it a profile."</blockquote>
+
+      <h2>When the phone left the desk</h2>
+
+      <p>In 2004, logging your life still took effort. You had to sit at a desk, plug a digital camera into a USB port, and type on a keyboard.</p>
+
+      <p>Between 2007 and 2010, the iPhone and Android removed that pause. The tracker moved into your pocket. Instead of waiting for you to type an update, apps started recording where you walked, how many milliseconds your thumb paused on a video, and what time you woke up.</p>
+
+      <h2>What this means for marketers today</h2>
+
+      <p>Every modern ad platform and generative AI model runs on the behavioral exhaust that DARPA wanted to collect in 2003. When I audit how brands collect first-party data today, I keep four lessons from that history in mind:</p>
+
+      <ul>
+        <li><strong>Give an immediate social or practical return:</strong> Customers never fill out profile data to help your database. They share data when it immediately customizes their feed, saves their size, or shows them how they compare to peers.</li>
+        <li><strong>Watch passive behavior over survey answers:</strong> Where someone pauses on a page for four seconds tells you more than what they check on a customer survey.</li>
+        <li><strong>Respect the creepiness line:</strong> Using behavioral signals to improve recommendations works. Repeating someone's private browsing history back to them in an ad copy makes them close their account.</li>
+        <li><strong>Remember you are training the model:</strong> Every click and purchase signal you feed back into Meta or Google trains their bidding machine for your competitors too, so keep your highest-value customer records on your own servers.</li>
+      </ul>
+
+      <h3>References & Further Reading</h3>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=EzplUAbgFbU" target="_blank" rel="noopener noreferrer">Video: How the Military Studied Social Media (2004 Timeline)</a></li>
+        <li><a href="https://www.wired.com/2004/02/pentagon-kills-lifelog-project/" target="_blank" rel="noopener noreferrer">Wired (Feb 4, 2004): Pentagon Kills LifeLog Project</a></li>
+      </ul>
+    `
+  },
+  {
+    slug: "why-orkut-died-and-facebook-won",
+    title: "Why Orkut Died and Facebook Won",
+    excerpt: "In 2000, Orkut Büyükkökten built inCircle at Stanford. Why static directories lost to continuous activity feeds, and what it means for retention.",
+    date: "Apr 18, 2026",
+    tags: ["Growth Loops", "Behavioral Logic", "Systems Infrastructure"],
+    content: `
+      <p>In 2000, two years before Friendster launched, a Turkish computer science researcher at Stanford named Orkut Büyükkökten built an internal campus network called inCircle. Four years later at Google, he launched Orkut. Within months, Orkut owned social networking in Brazil and Turkey.</p>
+
+      <p>Then Facebook wiped out Orkut, Friendster, and MySpace in less than five years.</p>
+
+      <p>I watched dozens of community platforms repeat Orkut's mistake over the next two decades. They built a phonebook when they needed a ticker tape.</p>
+
+      <h2>The phonebook flaw</h2>
+
+      <p>Early social sites treated a person like a static page in a directory. You signed up, listed your favorite bands, uploaded four photos, and joined a few interest groups for your school or neighborhood. Once you added your friends, there was nothing left to do on Tuesday morning unless you clicked through twenty profiles one by one to see if anyone had changed a photo.</p>
+
+      <p>Orkut proved that tight regional clusters in places like São Paulo and Istanbul could grow fast through invite-only prestige. Still, the product sat still until the user went looking for something.</p>
+
+      <h2>The two features that changed retention</h2>
+
+      <p>Facebook survived because it stopped acting like a directory and started recording motion. Two specific product changes drove that shift:</p>
+
+      <ul>
+        <li><strong>The News Feed (September 2006):</strong> Instead of making you visit ten friend profiles to check for updates, the home screen pushed every breakup, party photo, and group join to you the second you logged in.</li>
+        <li><strong>The Like Button (February 2009):</strong> Leaving a comment took thirty seconds of thought. Clicking a thumbs-up took half a second and gave the poster a numeric scoreboard to chase.</li>
+      </ul>
+
+      <p style="text-align: center; font-style: italic; margin: 2rem 0;">Static Profile Directory &rarr; Live Activity Feed &rarr; One-Click Scoreboard</p>
+
+      <blockquote>"A directory waits for you to visit. A feed punishes you for missing a day."</blockquote>
+
+      <h2>How brands still repeat Orkut's mistake</h2>
+
+      <p>Whenever a company asks me why their brand community, loyalty app, or B2B customer portal has dead logins after month one, the problem is almost always the same. They built a static directory.</p>
+
+      <p>If a customer logs into your app on Thursday and sees the exact same screen they saw on Monday, they stop opening the app by month two. To keep a product or community alive, I check four things:</p>
+
+      <ul>
+        <li><strong>Show what changed since the last visit:</strong> Surface new peer activity, price drops, or progress updates right on the entry screen.</li>
+        <li><strong>Lower the cost of the first reaction:</strong> Give members a one-tap way to bookmark, vote, or agree before asking them to write a paragraph.</li>
+        <li><strong>Seed small, dense groups first:</strong> Copy Orkut's early rollout by filling one specific school, city, or profession to 60% density before opening the doors wide.</li>
+        <li><strong>Send triggers tied to real peer actions:</strong> Notify a user when someone in their immediate circle acts, rather than blasting generic weekly reminder emails.</li>
+      </ul>
+    `
+  },
+  {
     slug: "influencer-measurement-ghost-successes",
     title: "How to Evaluate Influencers With a Scorecard",
     excerpt: "Post-campaign reports often show high view counts while sales stay flat. Use this five-point rubric to evaluate creators before you sign.",
