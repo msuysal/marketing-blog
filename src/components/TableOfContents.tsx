@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "./TableOfContents.module.css";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface TocItem {
     id: string;
@@ -12,6 +13,7 @@ interface TocItem {
 export default function TableOfContents() {
     const [headings, setHeadings] = useState<TocItem[]>([]);
     const [activeId, setActiveId] = useState<string>("");
+    const { lang } = useLanguage();
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -59,15 +61,15 @@ export default function TableOfContents() {
                     observer.unobserve(element);
                 });
             };
-        }, 500); // 500ms delay to ensure content is rendered
+        }, 300);
 
         return () => clearTimeout(timer);
-    }, []);
+    }, [lang]);
 
     const handleClick = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
-            const yOffset = -20; // Small padding for top of screen
+            const yOffset = -20;
             const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
             window.scrollTo({ top: y, behavior: "smooth" });
         }
@@ -78,7 +80,7 @@ export default function TableOfContents() {
     return (
         <nav className={styles.toc}>
             <div className={styles.tocHeader}>
-                <h4>Content</h4>
+                <h4>{lang === "tr" ? "İçindekiler" : "Content"}</h4>
             </div>
             <ul className={styles.tocList}>
                 {headings.map((heading) => (

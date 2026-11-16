@@ -3,11 +3,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import ScrollToTop from "@/components/ScrollToTop";
-import TableOfContents from "@/components/TableOfContents";
-import ShareButtons from "@/components/ShareButtons";
-import PostContent from "@/components/PostContent";
-import AudioReader from "@/components/AudioReader";
+import DeconstructionDetailClient from "@/components/DeconstructionDetailClient";
 
 interface Props {
     params: { slug: string };
@@ -64,17 +60,11 @@ export default async function BlogPost({ params }: Props) {
     const { slug } = await params;
     const post = posts.find((p) => p.slug === slug);
 
-    const deconstructionPosts = posts.filter(p => p.tags.includes("Deconstruction"));
-    const currentIndex = deconstructionPosts.findIndex((p) => p.slug === slug);
-    const nextPost = currentIndex > 0 ? deconstructionPosts[currentIndex - 1] : null;
-    const prevPost = currentIndex < deconstructionPosts.length - 1 ? deconstructionPosts[currentIndex + 1] : null;
-
     if (!post || !post.tags.includes("Deconstruction")) {
         notFound();
     }
 
     const shareUrl = `https://olguuysal.com/deconstruction/${post.slug}`;
-    const shareText = `"${post.title}" by Olgu Uysal`;
     const isoDate = new Date(`${post.date} UTC`).toISOString().split("T")[0];
 
     const articleSchema = {
@@ -121,93 +111,7 @@ export default async function BlogPost({ params }: Props) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
             />
-            <Link href="/deconstructions" className={styles.backToIndex}>
-                ← Back to Deconstructions
-            </Link>
-
-            <header className={styles.header}>
-                <div className={styles.metaTop}>
-                    <span className={styles.date}>{post.date}</span>
-                </div>
-                <h1 className={styles.title}>{post.title}</h1>
-                <p className={styles.lead}>{post.excerpt}</p>
-                <div className={styles.metaBottom}>
-                    {post.tags.map(tag => (
-                        <Link key={tag} href={`/deconstructions?industry=${encodeURIComponent(post.industry || "")}`} className={styles.tag}>
-                            {tag}
-                        </Link>
-                    ))}
-                </div>
-                <div className={styles.divider}></div>
-            </header>
-
-            <div className={styles.layout}>
-                <div className={styles.tocColumn}>
-                    <TableOfContents />
-
-                    <div className={styles.shareSidebar}>
-                        <h4>Share Perspectives</h4>
-                        <ShareButtons shareUrl={shareUrl} shareText={shareText} />
-                    </div>
-                </div>
-
-                <div className={styles.contentColumn} data-content="true">
-                    <AudioReader content={post.content} title={post.title} />
-                    <PostContent content={post.content} />
-                </div>
-            </div>
-
-            <nav className={styles.navigation}>
-                {prevPost ? (
-                    <Link href={`/deconstruction/${prevPost.slug}`} className={styles.navLinkPrev}>
-                        <span className={styles.navLabel}>&larr; Previous</span>
-                        <span className={styles.navTitle}>{prevPost.title}</span>
-                    </Link>
-                ) : <div></div>}
-
-                {nextPost ? (
-                    <Link href={`/deconstruction/${nextPost.slug}`} className={styles.navLinkNext}>
-                        <span className={styles.navLabel}>Next &rarr;</span>
-                        <span className={styles.navTitle}>{nextPost.title}</span>
-                    </Link>
-                ) : <div></div>}
-            </nav>
-
-            <section className={styles.relatedSection}>
-                <div className={styles.relatedHeader}>
-                    <h3>Related Case Studies</h3>
-                    <div className={styles.relatedDivider}></div>
-                </div>
-                <div className={styles.relatedGrid}>
-                    {posts
-                        .filter(p => p.slug !== post.slug && p.tags.includes("Deconstruction"))
-                        .map(p => ({
-                            post: p,
-                            score: p.industry === post.industry ? 2 : 0
-                        }))
-                        .sort((a, b) => b.score - a.score)
-                        .slice(0, 3)
-                        .map(({ post: relPost }) => (
-                            <article key={relPost.slug} className={styles.relatedCard}>
-                                <div className={styles.relatedCardTop}>
-                                    <span className={styles.relatedCardTag}>{relPost.industry || relPost.tags[0]}</span>
-                                    <span className={styles.relatedCardDate}>{relPost.date}</span>
-                                </div>
-                                <h4 className={styles.relatedCardTitle}>
-                                    <Link href={`/deconstruction/${relPost.slug}`}>{relPost.title}</Link>
-                                </h4>
-                                <p className={styles.relatedCardExcerpt}>{relPost.excerpt}</p>
-                            </article>
-                        ))
-                    }
-                </div>
-            </section>
-
-            <footer className={styles.footer}>
-                <Link href="/deconstructions" className={styles.backLink}>&larr; Return to Deconstructions</Link>
-            </footer>
-
-            <ScrollToTop />
+            <DeconstructionDetailClient slug={slug} />
         </article>
     );
 }

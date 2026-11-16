@@ -3,6 +3,8 @@
 import { useMemo } from "react";
 import Link from "next/link";
 import { posts, allIndustries } from "@/lib/posts";
+import { getLocalizedPost } from "@/lib/posts-tr";
+import { useLanguage, translateIndustry } from "@/context/LanguageContext";
 import styles from "../articles/page.module.css";
 import { useSearchParams, useRouter } from "next/navigation";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -12,12 +14,10 @@ const ITEMS_PER_PAGE = 5;
 export default function DeconstructionsContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
+    const { lang } = useLanguage();
     const currentIndustries = searchParams.get("industry")?.split(",").filter(Boolean) || [];
 
-    // Get page from URL, default to 1
     const currentPage = Number(searchParams.get("page")) || 1;
-
-    // Filter only posts that have the "Deconstruction" tag
     const allBestPractices = posts.filter(post => post.tags.includes("Deconstruction"));
 
     const filteredPosts = useMemo(() => {
@@ -29,11 +29,9 @@ export default function DeconstructionsContent() {
 
     const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);
 
-    // Slice posts for current page
-    const paginatedPosts = filteredPosts.slice(
-        (currentPage - 1) * ITEMS_PER_PAGE,
-        currentPage * ITEMS_PER_PAGE
-    );
+    const paginatedPosts = filteredPosts
+        .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+        .map(p => getLocalizedPost(p, lang));
 
     const updateParams = (newParams: URLSearchParams) => {
         router.push(newParams.toString() ? `/deconstructions?${newParams.toString()}` : "/deconstructions");
@@ -52,9 +50,7 @@ export default function DeconstructionsContent() {
             params.set("industry", newIndustries.join(","));
         }
 
-        // Reset to page 1 when filtering
         params.set("page", "1");
-
         updateParams(params);
     };
 
@@ -69,14 +65,14 @@ export default function DeconstructionsContent() {
         <div className={styles.container}>
             <aside className={styles.sidebar}>
                 <div className={styles.sidebarHeader}>
-                    <h3>Industries</h3>
+                    <h3>{lang === "tr" ? "Sektörler" : "Industries"}</h3>
                     <button
                         onClick={() => router.push("/deconstructions")}
                         className={styles.clearBtn}
                         disabled={currentIndustries.length === 0}
-                        aria-label="Clear all active industry filters"
+                        aria-label={lang === "tr" ? "Sektör filtrelerini temizle" : "Clear all active industry filters"}
                     >
-                        Reset
+                        {lang === "tr" ? "Sıfırla" : "Reset"}
                     </button>
                 </div>
                 <ul className={styles.tagList}>
@@ -87,31 +83,35 @@ export default function DeconstructionsContent() {
                                 className={`${styles.tagBtn} ${currentIndustries.includes(industry) ? styles.activeTag : ""}`}
                                 aria-pressed={currentIndustries.includes(industry)}
                             >
-                                {industry}
+                                {translateIndustry(industry, lang)}
                             </button>
                         </li>
                     ))}
                 </ul>
                 <div className={styles.sidebarFooter}>
-                    <p aria-hidden="true">Foundation Archive / Deconstructions</p>
+                    <p aria-hidden="true">{lang === "tr" ? "Arşiv / Vaka Analizleri" : "Foundation Archive / Deconstructions"}</p>
                 </div>
             </aside>
 
             <main className={styles.main}>
                 <header className={styles.resultsHeader}>
-                    <h1 className={styles.pageTitle}>Deconstructions</h1>
+                    <h1 className={styles.pageTitle}>{lang === "tr" ? "Vaka Analizleri" : "Deconstructions"}</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
-                        Breakdowns of how large brands structure their products, pricing tiers, and local operations to grow without losing trust.
+                        {lang === "tr"
+                            ? "Küresel markaların güven kaybetmeden büyümek için ürünlerini, fiyat katmanlarını ve yerel operasyonlarını nasıl kurguladığının analizi."
+                            : "Breakdowns of how large brands structure their products, pricing tiers, and local operations to grow without losing trust."}
                     </p>
                     <div className={styles.resultsMeta} aria-live="polite">
                         {currentIndustries.length > 0 ? (
-                            <span>Selected Industries: {currentIndustries.map(i => <span key={i} className="highlight" style={{ marginRight: '0.5rem' }}>{i}</span>)} / {filteredPosts.length} Deconstructions</span>
+                            <span>
+                                {lang === "tr" ? "Seçili Sektörler" : "Selected Industries"}: {currentIndustries.map(i => <span key={i} className="highlight" style={{ marginRight: '0.5rem' }}>{translateIndustry(i, lang)}</span>)} / {filteredPosts.length} {lang === "tr" ? "Vaka Analizi" : "Deconstructions"}
+                            </span>
                         ) : (
-                            <span>All Deconstructions ({allBestPractices.length})</span>
+                            <span>{lang === "tr" ? `Tüm Vaka Analizleri (${allBestPractices.length})` : `All Deconstructions (${allBestPractices.length})`}</span>
                         )}
                         {totalPages > 1 && (
                             <span style={{ marginLeft: '1rem', opacity: 0.6 }}>
-                                &bull; Page {currentPage} of {totalPages}
+                                &bull; {lang === "tr" ? `Sayfa ${currentPage} / ${totalPages}` : `Page ${currentPage} of ${totalPages}`}
                             </span>
                         )}
                     </div>
@@ -122,14 +122,16 @@ export default function DeconstructionsContent() {
                         <article key={post.slug} className={styles.item}>
                             <div className={styles.itemMeta}>
                                 <span className={styles.itemDate}>{post.date}</span>
-                                <span className={styles.itemTag}>{post.industry || "General"}</span>
+                                <span className={styles.itemTag}>{translateIndustry(post.industry, lang)}</span>
                             </div>
                             <div className={styles.itemBody}>
                                 <h2 className={styles.itemTitle}>
                                     <Link href={`/deconstruction/${post.slug}`}>{post.title}</Link>
                                 </h2>
                                 <p className={styles.itemExcerpt}>{post.excerpt}</p>
-                                <Link href={`/deconstruction/${post.slug}`} className={styles.readMore}>Read Article &rarr;</Link>
+                                <Link href={`/deconstruction/${post.slug}`} className={styles.readMore}>
+                                    {lang === "tr" ? "İncelemeyi Oku →" : "Read Article →"}
+                                </Link>
                             </div>
                         </article>
                     ))}
@@ -137,7 +139,7 @@ export default function DeconstructionsContent() {
 
                 {filteredPosts.length === 0 && (
                     <div className={styles.noResults}>
-                        <p>No deconstructions found for the selected industries.</p>
+                        <p>{lang === "tr" ? "Seçilen sektör için vaka analizi bulunamadı." : "No deconstructions found for the selected industries."}</p>
                     </div>
                 )}
 
@@ -147,7 +149,7 @@ export default function DeconstructionsContent() {
                             disabled={currentPage === 1}
                             onClick={() => handlePageChange(currentPage - 1)}
                             className={styles.navBtn}
-                            aria-label="Previous Page"
+                            aria-label={lang === "tr" ? "Önceki Sayfa" : "Previous Page"}
                         >
                             &larr;
                         </button>
@@ -169,7 +171,7 @@ export default function DeconstructionsContent() {
                             disabled={currentPage === totalPages}
                             onClick={() => handlePageChange(currentPage + 1)}
                             className={styles.navBtn}
-                            aria-label="Next Page"
+                            aria-label={lang === "tr" ? "Sonraki Sayfa" : "Next Page"}
                         >
                             &rarr;
                         </button>

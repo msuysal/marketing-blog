@@ -3,6 +3,8 @@
 import { useMemo } from "react";
 import Link from "next/link";
 import { posts, allTags } from "@/lib/posts";
+import { getLocalizedPost } from "@/lib/posts-tr";
+import { useLanguage, translateTag } from "@/context/LanguageContext";
 import styles from "./page.module.css";
 import { useSearchParams, useRouter } from "next/navigation";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -12,33 +14,28 @@ const ITEMS_PER_PAGE = 5;
 export default function ArticlesPageContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
+    const { lang } = useLanguage();
 
     const currentTags = (searchParams.get("tag")?.split(",").filter(Boolean) || [])
         .filter(tag => tag !== "Deconstruction");
     const searchQuery = searchParams.get("search") || "";
-    // Get page from URL, default to 1
     const currentPage = Number(searchParams.get("page")) || 1;
 
-    // Filter out posts that are Deconstructions
     const articlePosts = posts.filter(post => !post.tags.includes("Deconstruction"));
-
-    // Filter out the 'Deconstruction' tag itself from the sidebar index
     const articleTags = allTags.filter(tag => tag !== "Deconstruction");
 
-    // Combined filtering: tags + search
     const filteredPosts = useMemo(() => {
         let results = articlePosts;
 
-        // Apply tag filter
         if (currentTags.length > 0) {
             results = results.filter((post) => currentTags.some(tag => post.tags.includes(tag)));
         }
 
-        // Apply search filter
         if (searchQuery.trim()) {
             const query = searchQuery.toLowerCase();
             results = results.filter((post) => {
-                const searchableContent = `${post.title} ${post.excerpt} ${post.content}`.toLowerCase();
+                const trPost = getLocalizedPost(post, "tr");
+                const searchableContent = `${post.title} ${post.excerpt} ${post.content} ${trPost.title} ${trPost.excerpt} ${trPost.content}`.toLowerCase();
                 return searchableContent.includes(query);
             });
         }
@@ -48,11 +45,9 @@ export default function ArticlesPageContent() {
 
     const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);
 
-    // Slice posts for current page
-    const paginatedPosts = filteredPosts.slice(
-        (currentPage - 1) * ITEMS_PER_PAGE,
-        currentPage * ITEMS_PER_PAGE
-    );
+    const paginatedPosts = filteredPosts
+        .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+        .map(p => getLocalizedPost(p, lang));
 
     const updateParams = (newParams: URLSearchParams) => {
         router.push(newParams.toString() ? `/articles?${newParams.toString()}` : "/articles");
@@ -73,7 +68,6 @@ export default function ArticlesPageContent() {
         if (searchQuery) {
             params.set("search", searchQuery);
         }
-        // Reset to page 1 when filtering
         params.set("page", "1");
 
         updateParams(params);
@@ -94,14 +88,14 @@ export default function ArticlesPageContent() {
         <div className={styles.container}>
             <aside className={styles.sidebar}>
                 <div className={styles.sidebarHeader}>
-                    <h3>The Index</h3>
+                    <h3>{lang === "tr" ? "Kategoriler" : "The Index"}</h3>
                     <button
                         onClick={handleClearAll}
                         className={styles.clearBtn}
                         disabled={currentTags.length === 0 && !searchQuery}
-                        aria-label="Clear all active filters"
+                        aria-label={lang === "tr" ? "Filtreleri temizle" : "Clear all active filters"}
                     >
-                        Reset
+                        {lang === "tr" ? "Sıfırla" : "Reset"}
                     </button>
                 </div>
                 <ul className={styles.tagList}>
@@ -112,40 +106,42 @@ export default function ArticlesPageContent() {
                                 className={`${styles.tagBtn} ${currentTags.includes(tag) ? styles.activeTag : ""}`}
                                 aria-pressed={currentTags.includes(tag)}
                             >
-                                {tag}
+                                {translateTag(tag, lang)}
                             </button>
                         </li>
                     ))}
                 </ul>
                 <div className={styles.sidebarFooter}>
-                    <p aria-hidden="true">Foundation Archive / Articles</p>
+                    <p aria-hidden="true">{lang === "tr" ? "Arşiv / Makaleler" : "Foundation Archive / Articles"}</p>
                 </div>
             </aside>
 
             <main className={styles.main}>
                 <header className={styles.resultsHeader}>
-                    <h1 className={styles.pageTitle}>Articles</h1>
+                    <h1 className={styles.pageTitle}>{lang === "tr" ? "Makaleler" : "Articles"}</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
-                        Notes on how incentives, measurement, and network structure shape what works in marketing.
+                        {lang === "tr"
+                            ? "Teşvik yapıları, ölçümleme ve ağ yapısının pazarlamada neyin çalışıp neyin çalışmadığını nasıl belirlediği üzerine notlar."
+                            : "Notes on how incentives, measurement, and network structure shape what works in marketing."}
                     </p>
 
                     <div className={styles.resultsMeta} aria-live="polite">
                         {currentTags.length > 0 || searchQuery ? (
                             <span>
                                 {currentTags.length > 0 && (
-                                    <>Filters: {currentTags.map(t => <span key={t} className="highlight" style={{ marginRight: '0.5rem' }}>{t}</span>)}</>
+                                    <>{lang === "tr" ? "Filtreler" : "Filters"}: {currentTags.map(t => <span key={t} className="highlight" style={{ marginRight: '0.5rem' }}>{translateTag(t, lang)}</span>)}</>
                                 )}
                                 {searchQuery && (
-                                    <> {currentTags.length > 0 && '+'} Search: "{searchQuery}"</>
+                                    <> {currentTags.length > 0 && '+'} {lang === "tr" ? "Arama" : "Search"}: "{searchQuery}"</>
                                 )}
-                                {' '}/ {filteredPosts.length} {filteredPosts.length === 1 ? 'Article' : 'Articles'}
+                                {' '}/ {filteredPosts.length} {lang === "tr" ? "Makale" : (filteredPosts.length === 1 ? 'Article' : 'Articles')}
                             </span>
                         ) : (
-                            <span>All Articles ({articlePosts.length})</span>
+                            <span>{lang === "tr" ? `Tüm Makaleler (${articlePosts.length})` : `All Articles (${articlePosts.length})`}</span>
                         )}
                         {totalPages > 1 && (
                             <span style={{ marginLeft: '1rem', opacity: 0.6 }}>
-                                &bull; Page {currentPage} of {totalPages}
+                                &bull; {lang === "tr" ? `Sayfa ${currentPage} / ${totalPages}` : `Page ${currentPage} of ${totalPages}`}
                             </span>
                         )}
                     </div>
@@ -156,14 +152,16 @@ export default function ArticlesPageContent() {
                         <article key={post.slug} className={styles.item}>
                             <div className={styles.itemMeta}>
                                 <span className={styles.itemDate}>{post.date}</span>
-                                <span className={styles.itemTag}>{post.tags[0]}</span>
+                                <span className={styles.itemTag}>{translateTag(post.tags[0], lang)}</span>
                             </div>
                             <div className={styles.itemBody}>
                                 <h2 className={styles.itemTitle}>
                                     <Link href={`/article/${post.slug}`}>{post.title}</Link>
                                 </h2>
                                 <p className={styles.itemExcerpt}>{post.excerpt}</p>
-                                <Link href={`/article/${post.slug}`} className={styles.readMore}>Read Article &rarr;</Link>
+                                <Link href={`/article/${post.slug}`} className={styles.readMore}>
+                                    {lang === "tr" ? "Makaleyi Oku →" : "Read Article →"}
+                                </Link>
                             </div>
                         </article>
                     ))}
@@ -171,9 +169,9 @@ export default function ArticlesPageContent() {
 
                 {filteredPosts.length === 0 && (
                     <div className={styles.noResults}>
-                        <p>No foundational records found.</p>
+                        <p>{lang === "tr" ? "Eşleşen makale bulunamadı." : "No matching articles found."}</p>
                         <button onClick={handleClearAll} className={styles.resetButton}>
-                            Clear Filters
+                            {lang === "tr" ? "Filtreleri Temizle" : "Clear Filters"}
                         </button>
                     </div>
                 )}
@@ -184,7 +182,7 @@ export default function ArticlesPageContent() {
                             disabled={currentPage === 1}
                             onClick={() => handlePageChange(currentPage - 1)}
                             className={styles.navBtn}
-                            aria-label="Previous Page"
+                            aria-label={lang === "tr" ? "Önceki Sayfa" : "Previous Page"}
                         >
                             &larr;
                         </button>
@@ -206,7 +204,7 @@ export default function ArticlesPageContent() {
                             disabled={currentPage === totalPages}
                             onClick={() => handlePageChange(currentPage + 1)}
                             className={styles.navBtn}
-                            aria-label="Next Page"
+                            aria-label={lang === "tr" ? "Sonraki Sayfa" : "Next Page"}
                         >
                             &rarr;
                         </button>
