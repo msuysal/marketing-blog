@@ -10,6 +10,47 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    slug: "death-of-classical-advertising-cross-brand",
+    title: "The Death of Classical Ad Targeting",
+    excerpt: "Amazon's old 'people who bought this also bought that' rule is dead. The next shift in personalization connects what people buy with where they go.",
+    date: "Apr 21, 2026",
+    tags: ["Behavioral Logic", "Data Signals", "Brand Resonance"],
+    content: `
+      <p>Buy one espresso machine online today and every banner ad you see for the next three weeks will try to sell you five more espresso machines. You already bought the machine. You do not need a second one in your kitchen.</p>
+
+      <p>Classical advertising relied on interruption. First-wave digital marketing replaced interruption with "customers who bought X also bought Y." That was the first revolution.</p>
+
+      <p>Now that first wave is hitting a wall.</p>
+
+      <h2>The second shift in personalization</h2>
+
+      <p>Look at how two people sitting on the same couch experience the internet tonight. They watch different video cuts, read different feeds, and get completely different answers from AI tools tailored to their past prompts. Mass broadcast commercials cannot survive when every screen adapts to a single person in real time.</p>
+
+      <p>Yet most brand targeting still thinks inside a single product category. If I buy a pair of running shoes, a legacy ad engine shows me more running shoes or discounted socks.</p>
+
+      <p>What actually works now is mapping where that buyer goes next. The person who bought a specific trail shoe on Tuesday booked a flight to Lisbon on Thursday, reserved a table at a natural wine bar on Friday, and checked into a boutique hotel on Saturday. "People who bought this product went to this place" beats "people who bought this also bought that" every single time.</p>
+
+      <h2>Why cross-brand partnerships own the next decade</h2>
+
+      <p>A single brand only sees one slice of a customer's week. Your airline knows where you fly, your credit card knows where you eat, your fitness app knows when you wake up, and your luggage brand only knows what suitcase you bought three years ago.</p>
+
+      <p>When two non-competing brands share the same buyer and build a joint experience, they stop guessing and meet the customer inside their real routine.</p>
+
+      <blockquote>"Stop pitching a second toaster to someone who just bought a toaster. Partner with the coffee roaster and the weekend hotel they visit next."</blockquote>
+
+      <h2>Four ways I structure cross-brand deals</h2>
+
+      <p>Instead of pouring more money into lookalike ad auctions, I tell clients to build partnerships around shared customer movement:</p>
+
+      <ul>
+        <li><strong>Map the 48 hours around your product:</strong> Ask ten loyal buyers what they did in the two hours before and the two days after using your product, and write down the exact venues, apps, and brands they touched.</li>
+        <li><strong>Pair a physical product with a destination:</strong> If you sell swimwear, activewear, or skincare, partner directly with the beach clubs, boutique hotels, or studios where your buyers actually pack your product.</li>
+        <li><strong>Trade verified access instead of logos:</strong> Slapping two logos on an Instagram giveaway does nothing. Give your top 1,000 buyers automatic table reservations, lounge access, or private check-in at your partner's location.</li>
+        <li><strong>Share context signals with consent:</strong> Build joint loyalty perks across travel, dining, and retail so the customer gets a tailored weekend itinerary instead of ten separate promo emails.</li>
+      </ul>
+    `
+  },
+  {
     slug: "lifelog-facebook-and-voluntary-tracking",
     title: "How Surveillance Became a Consumer Product",
     excerpt: "DARPA shut down LifeLog on February 4, 2004, the exact day Facebook launched. How reality TV and smartphones made behavioral tracking voluntary.",
