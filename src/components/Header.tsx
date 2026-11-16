@@ -49,10 +49,12 @@ const Header = () => {
                     <div className={styles.logo}>
                         <Link href="/" className={styles.logoLink}>
                             <div className={styles.logoMasthead}>
-                                <span className={styles.logoMain}>Marketing System Design</span>
+                                <span className={styles.logoMain}>
+                                    {lang === "tr" ? "Pazarlama Tasarımı" : "Marketing System Design"}
+                                </span>
                                 <span className={styles.logoSubtitle}>
                                     {lang === "tr"
-                                        ? "Pazarlama stratejisi, teşvik yapıları ve büyüme üzerine yazılar"
+                                        ? "Marka stratejisi, büyüme ve tüketici davranışı üzerine notlar"
                                         : "Essays on marketing strategy, incentives, and growth"}
                                 </span>
                             </div>

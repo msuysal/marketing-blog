@@ -121,7 +121,7 @@ export default function ArticlesPageContent() {
                     <h1 className={styles.pageTitle}>{lang === "tr" ? "Makaleler" : "Articles"}</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
                         {lang === "tr"
-                            ? "Teşvik yapıları, ölçümleme ve ağ yapısının pazarlamada neyin çalışıp neyin çalışmadığını nasıl belirlediği üzerine notlar."
+                            ? "Pazarlamada neyin gerçekten çalıştığı, neyin sadece raporda güzel durduğu üzerine yazılar."
                             : "Notes on how incentives, measurement, and network structure shape what works in marketing."}
                     </p>
 

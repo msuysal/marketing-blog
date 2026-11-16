@@ -12,70 +12,70 @@ export default function PerspectiveClient() {
         return (
             <main className={styles.container}>
                 <div className={styles.content}>
-                    <span className={styles.label}>Amaç ve Yöntem</span>
-                    <h1 className={styles.title}>Perspektif</h1>
+                    <span className={styles.label}>Yaklaşım</span>
+                    <h1 className={styles.title}>Nasıl Bakıyorum?</h1>
 
                     <div className={styles.lead}>
                         <p>
-                            Başarısız kampanya değerlendirmelerinin çoğu reklam metnini veya kanalı suçlar. Oysa sonucu genellikle daha ilk reklam yayına girmeden önce kampanyanın arkasındaki kurgu belirlemiştir.
+                            Kampanya beklentiyi karşılamadığında genelde ilk iş kreatif ya da medya planı suçlanır. Oysa çoğu zaman sonucu, daha ilk reklam çıkmadan önce arkadaki kurgu belirlemiştir.
                         </p>
                     </div>
 
                     <section className={styles.section}>
                         <p>
-                            Ben pazarlamaya bir teşvik ve kısıtlar sistemi olarak bakıyorum.
+                            Pazarlamaya tek tek kampanyalar olarak değil, birbiriyle çalışan bir yapı olarak bakıyorum.
                         </p>
                         <p>
-                            Dikkat dağıtılır, seçenekler çerçevelenir ve insanların gerçekte ne yapacağını ortadaki ödül yapısı belirler. Veri yalnızca geçmişi raporlamaz. Ekiplerin gelecek çeyrekte nasıl davranacağını değiştirir. Otomasyon bu geri bildirim döngülerini hızlandırır ve küçük ürün varsayılanları hangi davranışların yaşayacağına, hangilerinin ise sönüp gideceğine sessizce karar verir.
+                            İnsanların neye zaman ayıracağı, seçeneklerin nasıl sunulduğu ve sonunda ne kazandıkları davranışı belirler. Veri sadece geçmişi göstermez; ekibin bir sonraki çeyrekte neye odaklanacağını da seçer. Otomasyon bu döngüyü hızlandırır, ürün içindeki küçük tercihler ise hangi alışkanlığın kalıcı olacağını sessizce tayin eder.
                         </p>
                         <p>
-                            Bozuk bir kurguyu reklam metnini değiştirerek düzeltemezsiniz.
+                            Kurgu bozuksa reklam metnini değiştirmek işe yaramaz.
                         </p>
                     </section>
 
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>01. Dikkat Tuzağı</h2>
                         <p>
-                            On yıl boyunca dijital pazarlamanın ana sorusu dikkati nasıl satın alırız veya kazanırız oldu. Platformlar erişimi ve sıklığı ödüllendirdi. Haftalık raporda daha fazla gösterim ve daha fazla tıklama ilerleme gibi göründü.
+                            Uzun süre dijital pazarlamanın tek derdi dikkat çekmekti. Platformlar erişimi ve frekansı ödüllendirdi. Haftalık tabloda gösterim ve tıklama arttıkça işler yolunda sanıldı.
                         </p>
                         <p>
-                            Yalnızca dikkat çekmek için kurulan sistemler, bitiş çizgisi olmayan kesintisiz bir uyarılma üretir. Algoritmalar hedefleme kararlarını devraldıkça bu durum daha da ağırlaşıyor. İnsanlar daha fazla kaydırıyor ve daha az hatırlıyor. Tamamlanmış hissettiren ve geri dönmeye değer bir ürün ya da marka giderek nadirleşiyor.
-                        </p>
-                    </section>
-
-                    <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>02. Birbirine Bağlı Katmanlar</h2>
-                        <p>
-                            Modern pazarlama birbirine bağlı katmanlar üzerinden çalışır: ürün varsayılanları, öneri kuralları, veri akışları ve geri bildirim döngüleri. Her katman bir sonrakini besler.
-                        </p>
-                        <p>
-                            Raporlama katmanında seçilen yanlış bir metrik, kreatif ekibin altı ay sonra ne üreteceğini değiştirir. Müşteri tutundurma (retention) düştüğünde, asıl sebep üç katman derine gömülmüş olur.
+                            Sadece dikkat çekmeye ayarlı işler insanları yorar ama tatmin etmez. Algoritmalar devreye girdikçe bu daha da hızlandı. İnsanlar saatlerce ekran kaydırıyor ama günün sonunda akıllarında hiçbir şey kalmıyor. Başladığı işi temizce bitiren, insana "değdi" dedirten markalar artık çok az.
                         </p>
                     </section>
 
                     <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>03. Davranış ve Ölçümleme</h2>
+                        <h2 className={styles.sectionTitle}>02. Birbirini Etkileyen Halkalar</h2>
                         <p>
-                            Bu sitedeki yazıları o katmanları tek tek incelemek için yazdım.
+                            Bugün pazarlama tek bir kanaldan ibaret değil: ürün ekranları, öneri algoritmaları, veri akışı ve müşteri deneyimi birbirine bağlı. Biri aksadığında diğerleri de bozuluyor.
                         </p>
                         <p>
-                            Davranış önemlidir çünkü insanlar sloganlara değil, bağlama ve maliyete tepki verir. Veri önemlidir çünkü bir şirket neyi saymayı seçerse, ekipleri yalnızca onu inşa eder.
+                            Raporlama ekranında yanlış bir hedef seçtiğinizde, altı ay sonra kreatif ekibin ürettiği iş de bozulur. Müşteri kaybı (churn) başladığında ise sorunun kaynağı çoktan unutulmuş olur.
                         </p>
                     </section>
 
                     <section className={styles.section}>
-                        <h2 className={styles.sectionTitle}>04. Kurguyu Tasarlamak</h2>
+                        <h2 className={styles.sectionTitle}>03. İnsan Davranışı ve Ölçüm</h2>
                         <p>
-                            İyi pazarlama kurguları sınırları, yanlış teşvikleri ve kitle yorgunluğunu daha lansmandan önce hesaba katar.
+                            Bu sitedeki yazıları bu halkaları tek tek açmak için yazdım.
                         </p>
                         <p>
-                            Kullanıcıyı yormadan doğru aksiyonu kolaylaştırırlar. Hızın güveni zedelediği yerde süreci yavaşlatır, iş bittiğinde ise etkileşimin temizce kapanmasına izin verirler.
+                            İnsan davranışı önemli, çünkü kimse süslü sloganlara bakıp karar vermiyor; herkes kendi maliyetine ve kazancına bakıyor. Ölçümleme önemli, çünkü şirket neyi karne notu olarak koyarsa ekipler sadece o rakamı şişirmek için çalışıyor.
+                        </p>
+                    </section>
+
+                    <section className={styles.section}>
+                        <h2 className={styles.sectionTitle}>04. Yönetmek Değil, Baştan Kurmak</h2>
+                        <p>
+                            İyi bir pazarlama yapısı sınırları, yanlış hedefleri ve müşteri yorgunluğunu daha işe başlamadan hesaba katar.
+                        </p>
+                        <p>
+                            Müşteriyi boğmadan doğru adımı kolaylaştırır. Hızın güven kaybettirdiği yerde frene basar, iş bittiğinde ise kullanıcının yakasını bırakmayı bilir.
                         </p>
                     </section>
 
                     <div className={styles.footer}>
                         <p>
-                            "Kampanyalar dikkat çeker. Arkalarındaki sistem ise içeride kimsenin kalıp kalmayacağına karar verir."
+                            "Kampanya müşteriyi kapıya getirir. İçeride kalıp kalmayacağına ise kurduğunuz sistem karar verir."
                         </p>
                         <p className={styles.signature}>Olgu Uysal</p>
                     </div>

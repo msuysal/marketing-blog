@@ -10,8 +10,8 @@ export interface PostTranslation {
 
 export const postsTr: Record<string, PostTranslation> = {
   "death-of-classical-advertising-cross-brand": {
-    title: "Klasik Reklam Hedeflemesinin Sonu",
-    excerpt: "Amazon'un eski 'bunu alan bunu da aldı' kuralı bitti. Kişiselleştirmedeki yeni kırılma, insanların ne aldığıyla nereye gittiğini birleştiriyor.",
+    title: "Klasik Hedefleme Bitti",
+    excerpt: "'Bu ürünü alan bunu da aldı' devri kapandı. Yeni dönemde asıl farkı, müşterinin ne aldığıyla nereye gittiğini birleştiren markalar yaratıyor.",
     date: "21 Nis 2026",
     content: `
       <p>Bugün internetten bir espresso makinesi satın alın; önümüzdeki üç hafta boyunca gördüğünüz her banner reklam size beş espresso makinesi daha satmaya çalışacak. Makineyi zaten aldınız. Mutfağınızda ikinci bir makineye ihtiyacınız yok.</p>
@@ -53,8 +53,8 @@ export const postsTr: Record<string, PostTranslation> = {
     `
   },
   "lifelog-facebook-and-voluntary-tracking": {
-    title: "Gözetim Nasıl Tüketici Ürününe Dönüştü?",
-    excerpt: "DARPA, LifeLog projesini 4 Şubat 2004'te, Facebook'un açıldığı gün kapattı. Reality TV ve akıllı telefonlar davranış takibini nasıl gönüllü hale getirdi?",
+    title: "Veri Takibi Nasıl Gönüllü Hale Geldi?",
+    excerpt: "Pentagon LifeLog projesini 4 Şubat 2004'te, tam Facebook'un açıldığı gün kapattı. Devletin kuramadığı veri tabanına milyarlarca insan neden gönüllü oldu?",
     date: "20 Nis 2026",
     content: `
       <p>4 Şubat 2004 günü Pentagon, LifeLog adlı araştırma projesini resmen kapattı. Aynı gün öğleden sonra Mark Zuckerberg, Harvard'daki yurt odasından TheFacebook'u yayına aldı.</p>
@@ -103,7 +103,7 @@ export const postsTr: Record<string, PostTranslation> = {
   },
   "why-orkut-died-and-facebook-won": {
     title: "Orkut Neden Battı, Facebook Nasıl Kazandı?",
-    excerpt: "2000 yılında Orkut Büyükkökten Stanford'da inCircle'ı kurdu. Statik rehberler canlı aktivite akışlarına neden yenildi ve bu bugün retention için ne anlatıyor?",
+    excerpt: "Orkut Büyükkökten 2000'de Stanford'da inCircle'ı kurdu. Sabit profil rehberleri canlı akışlara neden yenildi ve markalar bugün aynı hatayı nerede yapıyor?",
     date: "18 Nis 2026",
     content: `
       <p>2000 yılında, daha Friendster açılmadan iki yıl önce, Stanford Üniversitesi'nde Türk bilgisayar bilimi araştırmacısı Orkut Büyükkökten kampüs içi ilişkileri haritalamak için inCircle adında bir ağ geliştirdi. Dört yıl sonra Google bünyesinde Orkut'u kurdu. Birkaç ay içinde Orkut, Brezilya ve Türkiye'de sosyal medyayı tek başına domine etmeye başladı.</p>
@@ -146,8 +146,8 @@ export const postsTr: Record<string, PostTranslation> = {
     `
   },
   "influencer-measurement-ghost-successes": {
-    title: "Influencer Seçiminde Skor Kartı Nasıl Kullanılır?",
-    excerpt: "Kampanya sonu raporları milyonlarca izlenme gösterirken satışlar yerinde sayabilir. Sözleşme imzalamadan önce bu 5 maddelik tabloyu kullanın.",
+    title: "Kağıt Üstünde Başarılı Influencer Kampanyaları",
+    excerpt: "Sunumda milyonlarca izlenme görünürken satışlar kıpırdamıyorsa yanlış şeyi ölçüyorsunuzdur. Sözleşme imzalamadan önce bakmanız gereken 5 kriter.",
     date: "21 Mar 2026",
     content: `
       <p>Geçen ay katıldığım bir kampanya sonu değerlendirme toplantısında ajans 4 milyon izlenmeyi kutluyordu. Satışlar tek bir adet bile kıpırdamamıştı.</p>

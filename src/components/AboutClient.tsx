@@ -10,10 +10,10 @@ export default function AboutClient() {
         return (
             <div className={styles.container}>
                 <header className={styles.header}>
-                    <div className={styles.meta}>Profil</div>
+                    <div className={styles.meta}>Hakkımda</div>
                     <h1 className={styles.title}>Olgu Uysal</h1>
                     <p className={styles.lead}>
-                        Avrupa, ABD ve Orta Doğu pazarlarında büyüme, ölçümleme (atribüsyon) ve içerik üreticisi programları yönetmiş, 15+ yıl deneyimli bir marka ve pazarlama stratejistiyim. Önce ekonomi eğitimi aldım, ardından pazarlama için veri bilimi üzerine lisansüstü çalışmamı tamamladım.
+                        15 yılı aşkın süredir Avrupa, ABD ve Orta Doğu pazarlarında marka stratejisi, büyüme ve influencer programları yönetiyorum. Ekonomi eğitiminin ardından pazarlama veri bilimi üzerine yüksek lisans yaptım; fikirlerin nasıl kalıcı işe dönüştüğüyle ilgileniyorum.
                     </p>
                 </header>
 
@@ -23,15 +23,15 @@ export default function AboutClient() {
                         <ul className={styles.list}>
                             <li>
                                 <span className={styles.label}>Ekonomi</span>
-                                <p>Ekonomi eğitimi bana her şeyden önce teşviklere (incentives) bakmayı öğretti. Bir kampanya veya satış hunisi beklenen sonucu vermediğinde, önce sistemin müşteriyi ve ekibi gerçekte ne için ödüllendirdiğini kontrol ederim.</p>
+                                <p>Ekonomi bana insanların ne dediğine değil, neye tepki verdiğine bakmayı öğretti. Bir kampanya ya da satış akışı çalışmadığında önce ortadaki kazanç-maliyet dengesine bakarım.</p>
                             </li>
                             <li>
                                 <span className={styles.label}>Veri Bilimi</span>
-                                <p>Lisansüstü çalışmam pazarlama ölçümlemesi ve atribüsyon modelleri üzerineydi. Ekiplerin gerçek ciro artışını şişirilmiş platform panellerinden ayırmasına yardımcı oluyorum.</p>
+                                <p>Yüksek lisansımı pazarlama verisi ve ölçümleme üzerine yaptım. Markaların şişirilmiş ajans raporlarıyla gerçek satış etkisi arasındaki farkı görmesini sağlıyorum.</p>
                             </li>
                             <li>
                                 <span className={styles.label}>Uluslararası Deneyim</span>
-                                <p>ABD, Avrupa ve Orta Doğu'da tüketici, perakende ve teknoloji markalarıyla çalıştım. Şu anda zamanımı İstanbul ve Lizbon arasında bölüyorum.</p>
+                                <p>ABD, Avrupa ve Orta Doğu'da teknoloji, perakende ve tüketici markalarıyla çalıştım. Şu sıralar İstanbul ile Lizbon arasında yaşıyorum.</p>
                             </li>
                         </ul>
                     </div>
@@ -40,16 +40,16 @@ export default function AboutClient() {
                         <h2 className={styles.sectionTitle}>Nasıl Çalışıyorum?</h2>
                         <div className={styles.principles}>
                             <div className={styles.principle}>
-                                <h3>Marka ve Büyümede 15+ Yıl</h3>
-                                <p>Geleneksel marka stratejisinden gelip, çoğu ekibin A/B testlerini hala deneysel gördüğü dönemde veri odaklı büyümeye geçtim. Şirketlerin çoğu hala yanlış rakamları ölçüyor. Panellerin raporladığı rakamlar ile gerçek kar marjını getiren unsurlar arasındaki boşluğu kapatmak, zamanımın çoğunu harcadığım yer.</p>
+                                <h3>15+ Yıl Deneyim</h3>
+                                <p>İşe klasik marka stratejisiyle başladım; çoğu ekibin A/B testini yeni duyduğu yıllarda veri odaklı büyümeye geçtim. Bugün bile markaların çoğu yanlış rakamları takip ediyor. Benim işim, tabloda güzel görünen rakamlarla kasaya giren para arasındaki kopukluğu gidermek.</p>
                             </div>
                             <div className={styles.principle}>
-                                <h3>Tek seferlik kampanyalar yerine sistemler</h3>
-                                <p>Tek bir kampanya bir haftalık dikkat satın alır. Tekrar satın alma döngüleri, doğru fiyat katmanları ve uzun vadeli marka elçilikleri ise müşteriyi içeride tutar.</p>
+                                <h3>Kampanya değil, kalıcı yapı</h3>
+                                <p>Kampanyalar bir haftalık ses getirir. Müşteriyi içeride tutan şey ise doğru fiyatlama, tekrar satın alma alışkanlığı ve uzun soluklu iş birlikleridir.</p>
                             </div>
                             <div className={styles.principle}>
                                 <h3>Yöntem</h3>
-                                <p>Birim ekonomisi ve müşteri teşvikleriyle başlarım, ölçümleme kurgusunu denetlerim ve medya bütçesini büyütmeden önce hunideki sızıntıları kapatırım.</p>
+                                <p>Önce birim ekonomisine ve müşterinin neden satın aldığına bakarım, ölçümlemeyi düzeltirim; reklam bütçesini ancak hunideki kaçakları kapattıktan sonra büyütürüm.</p>
                             </div>
                         </div>
                     </div>

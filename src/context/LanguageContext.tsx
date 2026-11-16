@@ -44,7 +44,7 @@ export function useLanguage() {
 }
 
 export const TAG_LABELS_TR: Record<string, string> = {
-    "Behavioral Logic": "Davranış ve Teşvik",
+    "Behavioral Logic": "Tüketici Davranışı",
     "Brand Resonance": "Marka Dünyası",
     "Creator Economy": "İçerik Üretici Ekonomisi",
     "Data Signals": "Veri ve Ölçümleme",
@@ -53,8 +53,8 @@ export const TAG_LABELS_TR: Record<string, string> = {
     "Influence & Authority": "Etki ve Güven",
     "Marketing Game Theory": "Oyun Teorisi",
     "Public Economics": "Kamu Ekonomisi",
-    "Systems Design": "Sistem Tasarımı",
-    "Systems Infrastructure": "Pazarlama Sistemleri",
+    "Systems Design": "Pazarlama Tasarımı",
+    "Systems Infrastructure": "Pazarlama Tasarımı",
 };
 
 export const INDUSTRY_LABELS_TR: Record<string, string> = {
