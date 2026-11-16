@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import styles from './AudioReader.module.css';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface AudioReaderProps {
     content: string;
@@ -15,15 +16,14 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
     const [supported, setSupported] = useState(false);
     const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
     const voicesRef = useRef<SpeechSynthesisVoice[]>([]);
+    const { lang } = useLanguage();
 
     const strippedContent = useMemo(() => {
         if (typeof window === 'undefined') return "";
 
-        // Use a more robust stripping method that handles SSR/hydration better
         const div = document.createElement("div");
         div.innerHTML = content;
 
-        // Add full stops after headers and paragraphs to ensure AI voice pauses naturally
         const headers = div.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li');
         headers.forEach(el => {
             if (el.textContent && !el.textContent.trim().endsWith('.') && !el.textContent.trim().endsWith('?') && !el.textContent.trim().endsWith('!')) {
@@ -55,6 +55,14 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
         };
     }, []);
 
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+            setIsPlaying(false);
+            setProgress(0);
+        }
+    }, [lang]);
+
     const handlePlayPause = (startIndex = 0) => {
         if (!supported) return;
 
@@ -73,24 +81,29 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
                     : fullText;
 
                 const utterance = new SpeechSynthesisUtterance(textToSpeak);
-
-                // High-quality English voice selection
                 const voices = voicesRef.current;
-                const enVoices = voices.filter(v => v.lang.startsWith('en'));
 
-                // Sort and find best match (Premium/Enhanced voices first)
-                const preferredVoice =
-                    enVoices.find(v => (v.name.includes('Ava') || v.name.includes('Samantha') || v.name.includes('Allison')) && v.name.includes('Premium')) ||
-                    enVoices.find(v => v.name.includes('Google US English')) ||
-                    enVoices.find(v => v.name.includes('Samantha')) ||
-                    enVoices.find(v => v.name.includes('Daniel')) ||
-                    enVoices.find(v => v.name.includes('Enhanced') || v.name.includes('Premium')) ||
-                    enVoices.find(v => v.lang === 'en-US') ||
-                    enVoices[0] ||
-                    voices[0];
-
-                if (preferredVoice) utterance.voice = preferredVoice;
-                utterance.lang = 'en-US';
+                if (lang === "tr") {
+                    const trVoices = voices.filter(v => v.lang.startsWith('tr'));
+                    const preferredTrVoice =
+                        trVoices.find(v => v.name.includes('Yelda') || v.name.includes('Premium') || v.name.includes('Enhanced')) ||
+                        trVoices[0];
+                    if (preferredTrVoice) utterance.voice = preferredTrVoice;
+                    utterance.lang = 'tr-TR';
+                } else {
+                    const enVoices = voices.filter(v => v.lang.startsWith('en'));
+                    const preferredVoice =
+                        enVoices.find(v => (v.name.includes('Ava') || v.name.includes('Samantha') || v.name.includes('Allison')) && v.name.includes('Premium')) ||
+                        enVoices.find(v => v.name.includes('Google US English')) ||
+                        enVoices.find(v => v.name.includes('Samantha')) ||
+                        enVoices.find(v => v.name.includes('Daniel')) ||
+                        enVoices.find(v => v.name.includes('Enhanced') || v.name.includes('Premium')) ||
+                        enVoices.find(v => v.lang === 'en-US') ||
+                        enVoices[0] ||
+                        voices[0];
+                    if (preferredVoice) utterance.voice = preferredVoice;
+                    utterance.lang = 'en-US';
+                }
 
                 utterance.rate = speed;
                 utterance.pitch = 1;
@@ -104,7 +117,6 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
 
                 utterance.onend = () => {
                     setIsPlaying(false);
-                    // Only reset progress if we actually finished the whole thing
                     if (startIndex + textToSpeak.length >= fullText.length - 10) {
                         setProgress(0);
                     }
@@ -139,7 +151,6 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
         if (isPlaying) {
             window.speechSynthesis.cancel();
             setIsPlaying(false);
-            // Resume with new speed after a tiny delay
             setTimeout(() => handlePlayPause(), 100);
         }
     };
@@ -151,11 +162,11 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
             <div className={styles.playerHeader}>
                 <div className={styles.playerType}>
                     <span className={styles.pulse}></span>
-                    AI Audio Edition
+                    {lang === "tr" ? "Sesli Makale" : "Audio Edition"}
                 </div>
                 <div className={styles.settings}>
                     <button onClick={toggleSpeed} className={styles.speedBtn}>
-                        {speed}x speed
+                        {speed}x {lang === "tr" ? "hız" : "speed"}
                     </button>
                 </div>
             </div>
@@ -164,7 +175,7 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
                 <button
                     onClick={() => handlePlayPause()}
                     className={styles.playBtn}
-                    aria-label={isPlaying ? "Pause audio" : "Play audio"}
+                    aria-label={isPlaying ? (lang === "tr" ? "Duraklat" : "Pause audio") : (lang === "tr" ? "Dinle" : "Play audio")}
                 >
                     {isPlaying ? (
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -180,7 +191,7 @@ const AudioReader: React.FC<AudioReaderProps> = ({ content, title }) => {
                 <div className={styles.meta}>
                     <span className={styles.label}>{title}</span>
                     <span className={styles.time}>
-                        Automated structural reading &bull; ~{readingTime} min
+                        {lang === "tr" ? `Dinleme süresi • ~${readingTime} dk` : `Listen to article • ~${readingTime} min`}
                     </span>
                 </div>
             </div>
