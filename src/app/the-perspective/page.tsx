@@ -93,7 +93,7 @@ export default function ThePerspective() {
                     <p>
                         "Campaigns get attention. The system behind them decides whether anyone stays."
                     </p>
-                    <p className={styles.signature}>Ms. Olgu Uysal</p>
+                    <p className={styles.signature}>Olgu Uysal</p>
                 </div>
 
                 <div className={styles.postFlow}>

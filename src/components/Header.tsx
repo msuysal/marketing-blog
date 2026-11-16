@@ -36,7 +36,7 @@ const Header = () => {
                 <div className={styles.topContainer}>
                     <span className={styles.date}>{currentDate}</span>
                     <div className={styles.topLinks}>
-                        <span className={styles.tagline}>BY MS. OLGU UYSAL &bull; ISTANBUL &bull; LISBON</span>
+                        <span className={styles.tagline}>BY OLGU UYSAL &bull; ISTANBUL &bull; LISBON</span>
                     </div>
                 </div>
             </div>
