@@ -1,7 +1,12 @@
+"use client";
+
 import styles from "./Footer.module.css";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Footer = () => {
+    const { lang } = useLanguage();
+
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
@@ -10,7 +15,9 @@ const Footer = () => {
                         <div className={styles.logoMain}>Olgu Uysal</div>
                     </div>
                     <p className={styles.tagline}>
-                        Essays on incentives, influence, and marketing systems.
+                        {lang === "tr"
+                            ? "Teşvik yapıları, etki ve pazarlama sistemleri üzerine yazılar."
+                            : "Essays on incentives, influence, and marketing systems."}
                     </p>
                     <a href="https://www.linkedin.com/in/olguuysal/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
                         LinkedIn
@@ -19,22 +26,22 @@ const Footer = () => {
 
                 <nav className={styles.nav}>
                     <div className={styles.column}>
-                        <h4 className={styles.heading}>Articles</h4>
+                        <h4 className={styles.heading}>{lang === "tr" ? "Konular" : "Articles"}</h4>
                         <ul className={styles.list}>
-                            <li><Link href="/articles?tag=Behavioral%20Logic">Behavior & Incentives</Link></li>
-                            <li><Link href="/articles?tag=Systems%20Infrastructure">Marketing Systems</Link></li>
-                            <li><Link href="/articles?tag=Influence%20%26%20Authority">Influence & Trust</Link></li>
-                            <li><Link href="/articles?tag=Marketing%20Game%20Theory">Game Theory</Link></li>
+                            <li><Link href="/articles?tag=Behavioral%20Logic">{lang === "tr" ? "Davranış ve Teşvik" : "Behavior & Incentives"}</Link></li>
+                            <li><Link href="/articles?tag=Systems%20Infrastructure">{lang === "tr" ? "Pazarlama Sistemleri" : "Marketing Systems"}</Link></li>
+                            <li><Link href="/articles?tag=Influence%20%26%20Authority">{lang === "tr" ? "Etki ve Güven" : "Influence & Trust"}</Link></li>
+                            <li><Link href="/articles?tag=Marketing%20Game%20Theory">{lang === "tr" ? "Oyun Teorisi" : "Game Theory"}</Link></li>
                         </ul>
                     </div>
 
                     <div className={styles.column}>
-                        <h4 className={styles.heading}>Explorer</h4>
+                        <h4 className={styles.heading}>{lang === "tr" ? "Menü" : "Explorer"}</h4>
                         <ul className={styles.list}>
-                            <li><Link href="/articles">All Articles</Link></li>
-                            <li><Link href="/deconstructions">Deconstructions</Link></li>
-                            <li><Link href="/about">About</Link></li>
-                            <li><Link href="/contact">Contact</Link></li>
+                            <li><Link href="/articles">{lang === "tr" ? "Tüm Makaleler" : "All Articles"}</Link></li>
+                            <li><Link href="/deconstructions">{lang === "tr" ? "Vaka Analizleri" : "Deconstructions"}</Link></li>
+                            <li><Link href="/about">{lang === "tr" ? "Hakkımda" : "About"}</Link></li>
+                            <li><Link href="/contact">{lang === "tr" ? "İletişim" : "Contact"}</Link></li>
                         </ul>
                     </div>
                 </nav>
@@ -42,7 +49,9 @@ const Footer = () => {
 
             <div className={styles.bottom}>
                 <div className={styles.bottomContent}>
-                    <span>&copy; {new Date().getFullYear()} Olgu Uysal. All rights reserved.</span>
+                    <span>
+                        &copy; {new Date().getFullYear()} Olgu Uysal. {lang === "tr" ? "Tüm hakları saklıdır." : "All rights reserved."}
+                    </span>
                 </div>
             </div>
         </footer>

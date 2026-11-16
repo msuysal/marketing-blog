@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "../app/page.module.css";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface SyndicateFormProps {
     formId: string;
@@ -11,6 +12,7 @@ export default function SyndicateForm({ formId }: SyndicateFormProps) {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
     const [message, setMessage] = useState("");
+    const { lang } = useLanguage();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -28,16 +30,16 @@ export default function SyndicateForm({ formId }: SyndicateFormProps) {
 
             if (response.ok) {
                 setStatus("success");
-                setMessage("Entry confirmed. Welcome to the Syndicate.");
+                setMessage(lang === "tr" ? "Kaydınız alındı. Bültene hoş geldiniz." : "Subscription confirmed. Thank you for joining.");
                 setEmail("");
             } else {
                 const data = await response.json();
                 setStatus("error");
-                setMessage(data.error || "Submodular interference detected. Please try again.");
+                setMessage(data.error || (lang === "tr" ? "Bir hata oluştu. Lütfen tekrar deneyin." : "Something went wrong. Please try again."));
             }
-        } catch (error) {
+        } catch {
             setStatus("error");
-            setMessage("Connection failure in the feedback loop. Please try again.");
+            setMessage(lang === "tr" ? "Bağlantı hatası. Lütfen tekrar deneyin." : "Connection error. Please try again.");
         }
     };
 
@@ -61,12 +63,14 @@ export default function SyndicateForm({ formId }: SyndicateFormProps) {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
-            <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+            <label htmlFor="newsletter-email" className="sr-only">
+                {lang === "tr" ? "E-posta adresi" : "Email address"}
+            </label>
             <input
                 id="newsletter-email"
                 type="email"
                 name="email"
-                placeholder="Enter your email address"
+                placeholder={lang === "tr" ? "E-posta adresinizi yazın" : "Enter your email address"}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -74,7 +78,9 @@ export default function SyndicateForm({ formId }: SyndicateFormProps) {
                 aria-required="true"
             />
             <button type="submit" disabled={status === "loading"}>
-                {status === "loading" ? "Processing..." : "Subscribe"}
+                {status === "loading"
+                    ? (lang === "tr" ? "Gönderiliyor..." : "Processing...")
+                    : (lang === "tr" ? "Abone Ol" : "Subscribe")}
             </button>
             {status === "error" && (
                 <p style={{ color: '#d00', fontSize: '0.8rem', marginTop: '0.5rem', fontWeight: 'bold' }}>

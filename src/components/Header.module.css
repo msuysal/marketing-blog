@@ -179,7 +179,45 @@
 .headerActions {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.2rem;
+}
+
+.langSwitch {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    border: 1px solid rgba(253, 253, 251, 0.25);
+    padding: 0.3rem 0.55rem;
+}
+
+.langBtn {
+    background: none;
+    border: none;
+    color: var(--gray-medium);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.langBtn:hover {
+    color: var(--background);
+}
+
+.langActive {
+    color: var(--accent);
+}
+
+.langDivider {
+    color: rgba(253, 253, 251, 0.3);
+    font-size: 0.7rem;
 }
 
 .searchToggle {

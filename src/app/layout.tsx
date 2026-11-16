@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -101,12 +102,14 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${newsreader.variable}`}>
-        <a href="#main-content" className="skip-link">Skip to main content</a>
-        <Header />
-        <main id="main-content" style={{ minHeight: "calc(100vh - 400px)" }}>
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <a href="#main-content" className="skip-link">Skip to main content</a>
+          <Header />
+          <main id="main-content" style={{ minHeight: "calc(100vh - 400px)" }}>
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
