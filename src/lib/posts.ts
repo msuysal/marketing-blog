@@ -34,6 +34,10 @@ export const posts: Post[] = [
 
       <p>A single brand only sees one slice of a customer's week. Your airline knows where you fly, your credit card knows where you eat, your fitness app knows when you wake up, and your luggage brand only knows what suitcase you bought three years ago.</p>
 
+      <p>Look at how the sharpest global brands already act on this. American Express bought the restaurant booking platform Resy and linked Platinum cards directly to Delta airport lounges because their data showed a clear chain: the member who books a flight to New York at 10 a.m. wants a table in SoHo at 8 p.m. Jacquemus stopped treating summer campaigns as studio photo shoots and took over beach clubs at the Monte-Carlo Beach Hotel and the Four Seasons in the Bahamas. Instead of chasing shoppers with handbag banner ads, they put their striped sunbeds and pop-up boutiques on the exact sand their buyers fly to in July.</p>
+
+      <p>Rapha did the same thing for cycling gear. Rather than recommending a second pair of cycling shorts at checkout, they opened physical clubhouses in London, Amsterdam, and Seoul that serve espresso and host Saturday morning group rides. Uber and Marriott Bonvoy linked their accounts so booking a hotel room automatically rewards the car ride from the airport to the front desk.</p>
+
       <p>When two non-competing brands share the same buyer and build a joint experience, they stop guessing and meet the customer inside their real routine.</p>
 
       <blockquote>"Stop pitching a second toaster to someone who just bought a toaster. Partner with the coffee roaster and the weekend hotel they visit next."</blockquote>
