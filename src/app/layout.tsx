@@ -18,7 +18,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://marketing-blog-teal.vercel.app"),
+  metadataBase: new URL("https://olguuysal.com"),
   title: {
     default: "Marketing System Design | Olgu Uysal",
     template: "%s | Olgu Uysal"
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://marketing-blog-teal.vercel.app",
+    url: "https://olguuysal.com",
     siteName: "Marketing System Design",
     title: "Marketing System Design | Olgu Uysal",
     description: "Essays on influence, behavioral logic and marketing systems.",
@@ -79,14 +79,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "https://marketing-blog-teal.vercel.app",
-    languages: {
-      'en-US': 'https://marketing-blog-teal.vercel.app',
-      'en-GB': 'https://marketing-blog-teal.vercel.app',
-      'en': 'https://marketing-blog-teal.vercel.app',
-    },
-  },
   verification: {
     google: "google-site-verification-code",
   },
@@ -111,9 +103,9 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://marketing-blog-teal.vercel.app/#person",
+        "@id": "https://olguuysal.com/#person",
         "name": "Olgu Uysal",
-        "url": "https://marketing-blog-teal.vercel.app",
+        "url": "https://olguuysal.com",
         "sameAs": [
           "https://www.linkedin.com/in/olguuysal/"
         ],
@@ -137,23 +129,23 @@ export default function RootLayout({
       },
       {
         "@type": "WebSite",
-        "@id": "https://marketing-blog-teal.vercel.app/#website",
-        "url": "https://marketing-blog-teal.vercel.app",
+        "@id": "https://olguuysal.com/#website",
+        "url": "https://olguuysal.com",
         "name": "Marketing System Design",
         "description": "Essays on influence, behavioral logic and marketing systems",
         "publisher": {
-          "@id": "https://marketing-blog-teal.vercel.app/#person"
+          "@id": "https://olguuysal.com/#person"
         },
         "inLanguage": "en-US"
       },
       {
         "@type": "Blog",
-        "@id": "https://marketing-blog-teal.vercel.app/#blog",
-        "url": "https://marketing-blog-teal.vercel.app",
+        "@id": "https://olguuysal.com/#blog",
+        "url": "https://olguuysal.com",
         "name": "Marketing System Design",
         "description": "Essays on influence, behavioral logic and marketing systems. Designed at the intersection of Data, Digital Architecture, and Behavioral Economics.",
         "author": {
-          "@id": "https://marketing-blog-teal.vercel.app/#person"
+          "@id": "https://olguuysal.com/#person"
         },
         "inLanguage": "en-US"
       }

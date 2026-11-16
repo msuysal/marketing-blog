@@ -10,7 +10,7 @@ const Footer = () => {
                         <div className={styles.logoMain}>Olgu Uysal</div>
                     </div>
                     <p className={styles.tagline}>
-                        Essays on influence, behavioral logic, and marketing systems.
+                        Essays on incentives, influence, and marketing systems.
                     </p>
                     <a href="https://www.linkedin.com/in/olguuysal/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
                         LinkedIn
@@ -21,9 +21,9 @@ const Footer = () => {
                     <div className={styles.column}>
                         <h4 className={styles.heading}>Articles</h4>
                         <ul className={styles.list}>
-                            <li><Link href="/articles?tag=Behavioral%20Logic">Behavioral Logic</Link></li>
-                            <li><Link href="/articles?tag=Systems%20Infrastructure">Systems Architecture</Link></li>
-                            <li><Link href="/articles?tag=Influence%20%26%20Authority">Influence & Authority</Link></li>
+                            <li><Link href="/articles?tag=Behavioral%20Logic">Behavior & Incentives</Link></li>
+                            <li><Link href="/articles?tag=Systems%20Infrastructure">Marketing Systems</Link></li>
+                            <li><Link href="/articles?tag=Influence%20%26%20Authority">Influence & Trust</Link></li>
                             <li><Link href="/articles?tag=Marketing%20Game%20Theory">Game Theory</Link></li>
                         </ul>
                     </div>
@@ -42,7 +42,7 @@ const Footer = () => {
 
             <div className={styles.bottom}>
                 <div className={styles.bottomContent}>
-                    <span>&copy; {new Date().getFullYear()} Olgu Uysal &mdash; All rights reserved.</span>
+                    <span>&copy; {new Date().getFullYear()} Olgu Uysal. All rights reserved.</span>
                 </div>
             </div>
         </footer>

@@ -8,18 +8,21 @@ import SyndicateForm from "@/components/SyndicateForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Marketing System Design | Olgu Uysal | Influence & Architecture",
-  description: "Advanced frameworks on the intersection of behavioral logic, digital architecture, and marketing systems. Strategic essays by Olgu Uysal on building unassailable authority.",
+  title: "Marketing System Design | Olgu Uysal",
+  description: "Essays on marketing systems, influence, and how incentives shape behavior. By Olgu Uysal, economist, data scientist, and marketer.",
   keywords: [
     "Marketing System Design",
     "Olgu Uysal",
-    "Behavioral Logic",
-    "Marketing Architecture",
-    "Influence Economics",
-    "Data Driven Marketing",
+    "Influence",
+    "Marketing Strategy",
     "Incentive Design",
-    "Growth Strategy"
-  ]
+    "Growth Strategy",
+    "Data Driven Marketing",
+    "Creator Economy"
+  ],
+  alternates: {
+    canonical: "/"
+  }
 };
 
 export default function Home() {
@@ -32,12 +35,12 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
-            Marketing is a system.
-            <span className={styles.dimmed}>Not a function.</span>
+            Marketing runs on incentives.
+            <span className={styles.dimmed}>Most teams only manage campaigns.</span>
           </h1>
           <div className={styles.heroContent}>
             <p className={styles.heroBody}>
-              Exploring the intersection of behavioral logic and systemic architecture. Deconstructing the mechanics of influence to build structures that give ideas meaning and scale.
+              I write about how marketing systems work in practice. How incentives shape behavior, how influence moves through networks, and why most budgets fail in the same places.
             </p>
 
           </div>
@@ -73,8 +76,8 @@ export default function Home() {
 
       <section className={styles.gridSection}>
         <div className={styles.sectionHeader}>
-          <h3>Latest Intelligence</h3>
-          <Link href="/articles" aria-label="Explore all articles in the knowledge base">Explore Articles</Link>
+          <h3>Latest</h3>
+          <Link href="/articles" aria-label="Browse all articles">All Articles</Link>
         </div>
 
         <div className={styles.grid}>

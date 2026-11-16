@@ -2,8 +2,11 @@ import styles from "./page.module.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Olgu Uysal | Marketing System Architect",
-    description: "Learn about Ms. Olgu Uysal, a Brand & Marketing Strategist with over 15 years of experience in behavioral economics and data science for marketing.",
+    title: "About Olgu Uysal | Marketing Strategist",
+    description: "Olgu Uysal is a brand and marketing strategist with 15+ years of experience across economics, data science, and growth. Based between Europe and the Middle East.",
+    alternates: {
+        canonical: "/about"
+    }
 };
 
 export default function About() {
@@ -13,43 +16,43 @@ export default function About() {
                 <div className={styles.meta}>The Profile</div>
                 <h1 className={styles.title}>Olgu Uysal</h1>
                 <p className={styles.lead}>
-                    I am interested in the invisible logic that makes ideas last. With a background in Economics and Data Science for Marketing, I bridge the gap between human behavior and operational systems. I build the machines that turn influence into infrastructure.
+                    I am interested in what makes ideas last. I trained as an economist, then went deep into data science for marketing. I have spent 15 years trying to understand why some campaigns build something durable and most do not.
                 </p>
             </header>
 
             <div className={styles.grid}>
                 <div className={styles.leftColumn}>
-                    <h2 className={styles.sectionTitle}>The Background</h2>
+                    <h2 className={styles.sectionTitle}>Background</h2>
                     <ul className={styles.list}>
                         <li>
                             <span className={styles.label}>Economics</span>
-                            <p>My background in Economics serves as the primary lens through which I analyze market dynamics and human incentives.</p>
+                            <p>I think in terms of incentives first. Economics trained me to ask what people actually respond to, not what they say they respond to.</p>
                         </li>
                         <li>
                             <span className={styles.label}>Data Science</span>
-                            <p>With a postgraduate focus on Data Science for Marketing, I translate fragmented data points into coherent behavioral architectures.</p>
+                            <p>My postgraduate work focused on data science for marketing. I learned how to read signals that most dashboards are built to ignore.</p>
                         </li>
                         <li>
-                            <span className={styles.label}>Global Presence</span>
-                            <p>Living and working across several continents, from the USA to the Middle East, has shaped my understanding of the human constant. I view culture as a variable interface, but I design for the core.</p>
+                            <span className={styles.label}>Global</span>
+                            <p>I have lived and worked across the US, Europe, and the Middle East. Human behavior is consistent. Culture changes the packaging, not the core.</p>
                         </li>
                     </ul>
                 </div>
 
                 <div className={styles.rightColumn}>
-                    <h2 className={styles.sectionTitle}>Marketing Engineering</h2>
+                    <h2 className={styles.sectionTitle}>How I Work</h2>
                     <div className={styles.principles}>
                         <div className={styles.principle}>
-                            <h3>15+ Years of Mastery</h3>
-                            <p>My career is defined by the evolution from traditional strategy to the engineering of self-sustaining marketing engines. I transform complex system and growth challenges into structured operational assets.</p>
+                            <h3>15+ Years</h3>
+                            <p>I started in traditional brand strategy. I moved into data-driven growth when most marketing teams still thought A/B testing was experimental. The gap between what brands measure and what actually drives growth has not closed. That gap is where I work.</p>
                         </div>
                         <div className={styles.principle}>
-                            <h3>Systems &gt; Campaigns</h3>
-                            <p>I believe that while campaigns capture attention, only well-architected systems can hold it.</p>
+                            <h3>Systems over campaigns</h3>
+                            <p>Campaigns get attention. Systems hold it. I care more about the second one.</p>
                         </div>
                         <div className={styles.principle}>
-                            <h3>The Method</h3>
-                            <p>I look at marketing through the lens of incentives and patterns. I use data to map how ideas spread and behavioral logic to understand why.</p>
+                            <h3>The method</h3>
+                            <p>I start with incentives. Then data. Then structure. I am less interested in what a campaign says and more interested in what it rewards.</p>
                         </div>
                     </div>
                 </div>

@@ -4,9 +4,12 @@ import DeconstructionsContent from "./DeconstructionsContent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Deconstructions | Architectural Analysis of Market Leaders",
-    description: "In-depth deconstructions of global marketing systems. Examining the mechanics of market leaders to isolate the principles of structural success.",
-    keywords: ["Case Studies", "Market Analysis", "Strategic Deconstruction", "Business Architecture", "Marketing Systems Case Study"]
+    title: "Deconstructions | Olgu Uysal",
+    description: "Case studies on how Nike, HubSpot, Samsung, and McDonald's built marketing systems that scale.",
+    keywords: ["Case Studies", "Market Analysis", "Brand Strategy", "Growth Loops", "Marketing Systems"],
+    alternates: {
+        canonical: "/deconstructions"
+    }
 };
 
 export default function DeconstructionsPage() {

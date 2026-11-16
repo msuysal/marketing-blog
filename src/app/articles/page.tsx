@@ -4,9 +4,12 @@ import ArticlesPageContent from "./ArticlesContent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "The Index | Foundational Articles on Marketing Systems",
-    description: "A comprehensive repository of essays decrypting the mechanics of influence, behavioral logic, and systemic marketing architecture.",
-    keywords: ["Marketing Essays", "Influence Mechanics", "Behavioral Logic", "Marketing Index", "System Design Archive"]
+    title: "Articles | Olgu Uysal",
+    description: "Essays on marketing systems, incentives, creator partnerships, and measurement.",
+    keywords: ["Marketing Essays", "Incentive Design", "Behavioral Economics", "Marketing Measurement", "Creator Economy"],
+    alternates: {
+        canonical: "/articles"
+    }
 };
 
 export default function ArticlesPage() {

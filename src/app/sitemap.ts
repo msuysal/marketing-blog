@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { posts } from '@/lib/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://marketing-blog-teal.vercel.app';
+    const baseUrl = 'https://olguuysal.com';
 
     // Articles
     const articleEntries = posts

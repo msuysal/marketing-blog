@@ -126,7 +126,7 @@ export default function ArticlesPageContent() {
                 <header className={styles.resultsHeader}>
                     <h1 className={styles.pageTitle}>Articles</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
-                        A repository of foundational frameworks. These essays decrypt the invisible mechanics of influence, behavioral economics, and system design that govern modern markets.
+                        Notes on how incentives, measurement, and network structure shape what works in marketing.
                     </p>
 
                     <div className={styles.resultsMeta} aria-live="polite">
@@ -138,10 +138,10 @@ export default function ArticlesPageContent() {
                                 {searchQuery && (
                                     <> {currentTags.length > 0 && '+'} Search: "{searchQuery}"</>
                                 )}
-                                {' '}&mdash; {filteredPosts.length} {filteredPosts.length === 1 ? 'Article' : 'Articles'}
+                                {' '}/ {filteredPosts.length} {filteredPosts.length === 1 ? 'Article' : 'Articles'}
                             </span>
                         ) : (
-                            <span>All Articles &mdash; {articlePosts.length} Total</span>
+                            <span>All Articles ({articlePosts.length})</span>
                         )}
                         {totalPages > 1 && (
                             <span style={{ marginLeft: '1rem', opacity: 0.6 }}>

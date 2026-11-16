@@ -101,13 +101,13 @@ export default function DeconstructionsContent() {
                 <header className={styles.resultsHeader}>
                     <h1 className={styles.pageTitle}>Deconstructions</h1>
                     <p className={styles.disclaimer} style={{ marginBottom: '2rem', fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', maxWidth: '600px', lineHeight: '1.5' }}>
-                        Architectural analysis of global systems. These deconstructions examine the mechanics of market leaders to isolate the principles of their structural success.
+                        Breakdowns of how large brands structure their products, pricing tiers, and local operations to grow without losing trust.
                     </p>
                     <div className={styles.resultsMeta} aria-live="polite">
                         {currentIndustries.length > 0 ? (
-                            <span>Selected Industries: {currentIndustries.map(i => <span key={i} className="highlight" style={{ marginRight: '0.5rem' }}>{i}</span>)} &mdash; {filteredPosts.length} Deconstructions</span>
+                            <span>Selected Industries: {currentIndustries.map(i => <span key={i} className="highlight" style={{ marginRight: '0.5rem' }}>{i}</span>)} / {filteredPosts.length} Deconstructions</span>
                         ) : (
-                            <span>All Deconstructions &mdash; {allBestPractices.length} Total</span>
+                            <span>All Deconstructions ({allBestPractices.length})</span>
                         )}
                         {totalPages > 1 && (
                             <span style={{ marginLeft: '1rem', opacity: 0.6 }}>

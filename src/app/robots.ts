@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://marketing-blog-teal.vercel.app/sitemap.xml',
+        sitemap: 'https://olguuysal.com/sitemap.xml',
     };
 }

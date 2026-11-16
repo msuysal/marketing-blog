@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  eslint: { ignoreDuringBuilds: true },
+  turbopack: {
+    root: __dirname,
+  },
   typescript: { ignoreBuildErrors: true },
   reactStrictMode: true,
   poweredByHeader: false,
@@ -15,6 +17,17 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'marketing-blog-teal.vercel.app',
+          },
+        ],
+        destination: 'https://olguuysal.com/:path*',
+        permanent: true,
+      },
       {
         source: '/knowledge-base',
         destination: '/articles',

@@ -4,110 +4,83 @@ import ScrollToTop from "@/components/ScrollToTop";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "The Systemic Perspective",
-    description: "The core philosophy of Marketing System Design. Moving from simple persuasion to architectural integrity in digital growth.",
+    title: "The Perspective | Olgu Uysal",
+    description: "What this site is about and how I think about marketing. Moving from isolated tactics to understanding the systems behind them.",
+    alternates: {
+        canonical: "/the-perspective"
+    }
 };
 
 export default function ThePerspective() {
     return (
         <main className={styles.container}>
             <div className={styles.content}>
-                <span className={styles.label}>Purpose & Logic</span>
-                <h1 className={styles.title}>The Systemic Perspective</h1>
+                <span className={styles.label}>Purpose & Method</span>
+                <h1 className={styles.title}>The Perspective</h1>
 
                 <div className={styles.lead}>
                     <p>
-                        Marketing is often described as a set of activities: campaigns, channels, content, tactics.
-                        What actually shapes outcomes is not what is executed, but how the system behind execution is structured.
+                        Most marketing post-mortems blame the creative or the channel. Usually the setup behind the campaign decided the outcome before the first ad ran.
                     </p>
                 </div>
 
                 <section className={styles.section}>
                     <p>
-                        I approach marketing as a system.
+                        I look at marketing as a system of incentives and constraints.
                     </p>
                     <p>
-                        A system where attention is allocated, choices are framed, incentives are distributed, and behavior emerges over time.
-                        A system where data does not merely report the past, but actively participates in decisions.
-                        A system where automation accelerates feedback loops, and design choices quietly determine what becomes possible, visible, or likely.
+                        Attention gets allocated, choices get framed, and payoffs determine what people actually do. Data does not just report the past. It changes how teams behave next quarter. Automation speeds up those feedback loops, and small product defaults quietly decide which actions happen and which ones die out.
                     </p>
                     <p>
-                        Seen this way, marketing is not primarily persuasive. <strong>It is architectural.</strong>
+                        Changing the copy rarely fixes a broken setup.
                     </p>
                 </section>
 
                 <section className={styles.section}>
                     <h2 className={styles.sectionTitle}>01. The Attention Trap</h2>
                     <p>
-                        For a long time, the dominant question in marketing was how to capture attention.
-                        Platforms optimized for reach, frequency, and engagement.
-                        Metrics rewarded activity.
-                        More impressions, more clicks, more interactions were interpreted as progress.
+                        For a decade, the main question in digital marketing was how to buy or earn attention. Platforms rewarded reach and frequency. More impressions and more clicks looked like progress on a weekly report.
                     </p>
                     <p>
-                        But systems optimized for attention alone tend to produce a specific outcome:
-                        continuous stimulation without resolution.
-                        As automation increases and AI mediates more decisions, this dynamic intensifies.
-                        Satisfaction — the sense that something is complete, coherent, or worth returning to — becomes increasingly rare.
+                        Systems built only to capture attention produce continuous stimulation with no finish line. As algorithms take over more targeting decisions, this gets worse. People scroll more and remember less. A product or brand that feels complete and worth returning to becomes rare.
                     </p>
                 </section>
 
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>02. Layered Mechanisms</h2>
+                    <h2 className={styles.sectionTitle}>02. Connected Layers</h2>
                     <p>
-                        Modern marketing operates through layered mechanisms:
-                        behavioral cues, recommendation logic, data pipelines, and feedback loops.
-                        Each layer influences the next.
-                        None of them are neutral.
+                        Modern marketing runs through connected layers: product defaults, recommendation rules, data pipelines, and feedback loops. Each layer feeds the next.
                     </p>
                     <p>
-                        Design decisions made at one layer propagate through the entire system,
-                        shaping outcomes in ways that often remain invisible
-                        until they become irreversible.
-                    </p>
-                    <p>
-                        Because of this, marketing can no longer be treated as a collection of isolated tactics.
-                        Changing a message without understanding the system it enters rarely changes the result.
+                        A bad metric chosen at the reporting layer changes what the creative team makes six months later. By the time retention drops, the cause is buried three layers deep.
                     </p>
                 </section>
 
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>03. The Lens of Structure</h2>
+                    <h2 className={styles.sectionTitle}>03. Behavior and Measurement</h2>
                     <p>
-                        This space exists to examine those systems.
-                        Not to offer shortcuts or growth recipes,
-                        but to slow the conversation down enough
-                        to see structure where we usually see noise.
+                        I wrote the essays on this site to look at those layers one by one.
                     </p>
                     <p>
-                        Behavior matters because systems do not persuade people directly;
-                        they shape the contexts in which decisions are made.
-                        Data matters because measurement frameworks do not merely observe reality;
-                        they actively define what is considered successful, relevant, or worth repeating.
+                        Behavior matters because people respond to context and cost, not slogans. Data matters because whatever a company chooses to count becomes the only thing its teams will build.
                     </p>
                 </section>
 
                 <section className={styles.section}>
-                    <h2 className={styles.sectionTitle}>04. Engineering Meaning</h2>
+                    <h2 className={styles.sectionTitle}>04. Designing the Setup</h2>
                     <p>
-                        Marketing systems must therefore be engineered, not just managed.
-                        Engineering implies understanding constraints, feedback, and unintended consequences.
-                        It implies designing for stability as much as for growth.
+                        Good marketing setups account for limits, bad incentives, and audience fatigue before launch.
                     </p>
                     <p>
-                        Well-designed systems make desired behavior easier
-                        without exhausting attention.
-                        They introduce friction where immediacy erodes meaning,
-                        and remove friction where unnecessary effort obscures value.
-                        They allow for completion, not just continuation.
+                        They make the useful action easy without burning out the user. They slow things down when speed ruins trust, and they let an interaction end cleanly when the job is done.
                     </p>
                 </section>
 
                 <div className={styles.footer}>
                     <p>
-                        "Marketing is an operational sync of decisions and structures. Campaigns capture attention, but systems hold it. And systems always produce the outcomes they were designed for."
+                        "Campaigns get attention. The system behind them decides whether anyone stays."
                     </p>
-                    <p className={styles.signature}>&mdash; Ms. Olgu Uysal</p>
+                    <p className={styles.signature}>Ms. Olgu Uysal</p>
                 </div>
 
                 <div className={styles.postFlow}>

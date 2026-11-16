@@ -3,8 +3,11 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-    title: "Contact | Connect with Olgu Uysal",
-    description: "Get in touch for strategic consulting, speaking engagements, or media inquiries regarding marketing system design and behavioral architecture.",
+    title: "Contact | Olgu Uysal",
+    description: "Get in touch with Olgu Uysal for consulting, speaking engagements, or media inquiries.",
+    alternates: {
+        canonical: "/contact"
+    }
 };
 
 export default function Contact() {

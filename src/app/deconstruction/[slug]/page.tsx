@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = posts.find((p) => p.slug === slug);
     if (!post) return { title: "Not Found" };
 
-    const url = `https://marketing-blog-teal.vercel.app/deconstruction/${post.slug}`;
+    const url = `https://olguuysal.com/deconstruction/${post.slug}`;
 
     return {
         title: post.title,
@@ -66,7 +66,7 @@ export default async function BlogPost({ params }: Props) {
         notFound();
     }
 
-    const shareUrl = `https://marketing-blog-teal.vercel.app/deconstruction/${post.slug}`;
+    const shareUrl = `https://olguuysal.com/deconstruction/${post.slug}`;
     const shareText = `"${post.title}" - Essays on influence, behavioral logic, and marketing systems.`;
 
     const blogPostingSchema = {
@@ -91,7 +91,7 @@ export default async function BlogPost({ params }: Props) {
             "name": "Marketing System Design",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://marketing-blog-teal.vercel.app/og-image.png"
+                "url": "https://olguuysal.com/og-image.png"
             }
         }
     };
