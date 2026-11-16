@@ -2,11 +2,26 @@ import styles from "./page.module.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Olgu Uysal | Marketing Strategist",
-    description: "Olgu Uysal is a brand and marketing strategist with 15+ years of experience across economics, data science, and growth. Based between Europe and the Middle East.",
+    title: {
+        absolute: "About Olgu Uysal | Economist & Marketing Strategist"
+    },
+    description: "Olgu Uysal is a marketing strategist with 15+ years of experience in economics, data science, and brand growth across Europe and the Middle East.",
     alternates: {
-        canonical: "/about"
-    }
+        canonical: "https://olguuysal.com/about"
+    },
+    openGraph: {
+        title: "About Olgu Uysal | Economist & Marketing Strategist",
+        description: "Olgu Uysal is a marketing strategist with 15+ years of experience in economics, data science, and brand growth across Europe and the Middle East.",
+        url: "https://olguuysal.com/about",
+        siteName: "Olgu Uysal",
+        type: "profile",
+        images: [{
+            url: "https://olguuysal.com/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "About Olgu Uysal"
+        }],
+    },
 };
 
 export default function About() {
@@ -16,7 +31,7 @@ export default function About() {
                 <div className={styles.meta}>The Profile</div>
                 <h1 className={styles.title}>Olgu Uysal</h1>
                 <p className={styles.lead}>
-                    I am interested in what makes ideas last. I trained as an economist, then went deep into data science for marketing. I have spent 15 years trying to understand why some campaigns build something durable and most do not.
+                    I am a brand and marketing strategist with 15+ years of experience leading growth, attribution, and creator programs across Europe, the US, and the Middle East. I trained as an economist first, then completed postgraduate work in data science for marketing.
                 </p>
             </header>
 
@@ -26,15 +41,15 @@ export default function About() {
                     <ul className={styles.list}>
                         <li>
                             <span className={styles.label}>Economics</span>
-                            <p>I think in terms of incentives first. Economics trained me to ask what people actually respond to, not what they say they respond to.</p>
+                            <p>Economics trained me to look at incentives first. When a campaign or sales funnel underperforms, I check what the setup actually rewards customers and teams for doing.</p>
                         </li>
                         <li>
                             <span className={styles.label}>Data Science</span>
-                            <p>My postgraduate work focused on data science for marketing. I learned how to read signals that most dashboards are built to ignore.</p>
+                            <p>My postgraduate work focused on marketing measurement and attribution. I help teams separate real revenue lift from inflated platform dashboards.</p>
                         </li>
                         <li>
-                            <span className={styles.label}>Global</span>
-                            <p>I have lived and worked across the US, Europe, and the Middle East. Human behavior is consistent. Culture changes the packaging, not the core.</p>
+                            <span className={styles.label}>International</span>
+                            <p>I have worked with consumer, retail, and technology brands across the US, Europe, and the Middle East, currently splitting my time between Istanbul and Lisbon.</p>
                         </li>
                     </ul>
                 </div>
@@ -43,16 +58,16 @@ export default function About() {
                     <h2 className={styles.sectionTitle}>How I Work</h2>
                     <div className={styles.principles}>
                         <div className={styles.principle}>
-                            <h3>15+ Years</h3>
-                            <p>I started in traditional brand strategy. I moved into data-driven growth when most marketing teams still thought A/B testing was experimental. The gap between what brands measure and what actually drives growth has not closed. That gap is where I work.</p>
+                            <h3>15+ Years in Brand & Growth</h3>
+                            <p>I started in brand strategy and moved into data-driven growth when most teams still treated A/B testing as an experiment. Most companies still measure the wrong numbers. Closing the gap between what dashboards report and what drives margin is where I spend my time.</p>
                         </div>
                         <div className={styles.principle}>
-                            <h3>Systems over campaigns</h3>
-                            <p>Campaigns get attention. Systems hold it. I care more about the second one.</p>
+                            <h3>Systems over one-off campaigns</h3>
+                            <p>A single campaign buys a week of attention. Repeat purchase loops, pricing tiers, and long-term creator partnerships keep customers coming back.</p>
                         </div>
                         <div className={styles.principle}>
                             <h3>The method</h3>
-                            <p>I start with incentives. Then data. Then structure. I am less interested in what a campaign says and more interested in what it rewards.</p>
+                            <p>I start with unit economics and customer incentives, audit the measurement setup, and fix the leaks before scaling media spend.</p>
                         </div>
                     </div>
                 </div>

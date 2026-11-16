@@ -34,9 +34,9 @@ const Header = () => {
         <header className={styles.wrapper}>
             <div className={styles.topBar}>
                 <div className={styles.topContainer}>
-                    <span className={styles.date}>{currentDate || "Loading Intelligence..."}</span>
+                    <span className={styles.date}>{currentDate}</span>
                     <div className={styles.topLinks}>
-                        <span className={styles.tagline}>BY MS. OLGU UYSAL &mdash; ISTANBUL &bull; LISBON</span>
+                        <span className={styles.tagline}>BY MS. OLGU UYSAL &bull; ISTANBUL &bull; LISBON</span>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@ const Header = () => {
                         <Link href="/" className={styles.logoLink}>
                             <div className={styles.logoMasthead}>
                                 <span className={styles.logoMain}>Marketing System Design</span>
-                                <span className={styles.logoSubtitle}>Essays on influence, behavioral logic and marketing systems</span>
+                                <span className={styles.logoSubtitle}>Essays on marketing strategy, incentives, and growth</span>
                             </div>
                         </Link>
                     </div>

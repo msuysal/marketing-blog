@@ -11,8 +11,8 @@ export interface Post {
 export const posts: Post[] = [
   {
     slug: "influencer-measurement-ghost-successes",
-    title: "How to Spot a Ghost Success in Influencer Campaigns",
-    excerpt: "Post-campaign reports can look great while the sales line stays flat. The problem lies in what you measure and when you measure it.",
+    title: "How to Evaluate Influencers With a Scorecard",
+    excerpt: "Post-campaign reports often show high view counts while sales stay flat. Use this five-point rubric to evaluate creators before you sign.",
     date: "Mar 21, 2026",
     tags: ["Influence & Authority", "Data Signals", "Systems Infrastructure"],
     content: `
@@ -55,8 +55,8 @@ export const posts: Post[] = [
   },
   {
     slug: "tragedy-of-attention-commons",
-    title: "What Happens When Every Creator Overgrazes Attention",
-    excerpt: "Every creator who uses rage-bait raises the cost of trust for everyone else. Fixing this requires changing what platforms and brands reward.",
+    title: "How Rage-Bait Creators Burn Buyer Trust",
+    excerpt: "Every creator who uses fake hooks raises the cost of customer attention for everyone else. Here is how to filter for real buyer trust.",
     date: "Jan 23, 2026",
     tags: ["Public Economics", "Creator Economy", "Systems Design"],
     content: `
@@ -96,8 +96,8 @@ export const posts: Post[] = [
   },
   {
     slug: "intellectual-captivity-luxury-dopamine",
-    title: "Feeling Informed Without Doing Anything",
-    excerpt: "Polished strategy decks and clever diagrams often reward the feeling of insight while changing zero behavior on Monday morning.",
+    title: "Why Polished Strategy Decks Rarely Ship",
+    excerpt: "Clever strategy slides often reward the feeling of insight while changing zero behavior on Monday morning. Here is how to make plans actionable.",
     date: "Jan 10, 2026",
     tags: ["Behavioral Logic", "Systems Infrastructure"],
     content: `
@@ -123,8 +123,8 @@ export const posts: Post[] = [
   },
   {
     slug: "paradox-of-precision-local-optima",
-    title: "Why Hyper-Targeting Digs a Hole You Cannot Escape",
-    excerpt: "Targeting only the people guaranteed to buy today starves your pipeline six months from now.",
+    title: "Why Hyper-Targeting Shrinks Future Growth",
+    excerpt: "Targeting only the people guaranteed to buy this week starves your pipeline six months from now. How to balance retargeting and cold reach.",
     date: "Jan 10, 2026",
     tags: ["Data Signals", "Systems Infrastructure", "Behavioral Logic"],
     content: `
@@ -161,8 +161,8 @@ export const posts: Post[] = [
   },
   {
     slug: "influence-coordination-problem",
-    title: "Why 80 Creators Beat 8",
-    excerpt: "Spreading a budget across ten months creates background noise. Putting 80 voices into the same 48-hour window makes a market move.",
+    title: "Why 80 Creators in Two Days Beat 8 a Month",
+    excerpt: "Spreading an influencer budget across ten months creates background noise. Putting 80 voices into a 48-hour window makes a market move.",
     date: "Jan 09, 2026",
     tags: ["Influence & Authority", "Marketing Game Theory", "Behavioral Logic"],
     content: `
@@ -197,8 +197,8 @@ export const posts: Post[] = [
   },
   {
     slug: "clustering-mechanics-growth-loops",
-    title: "Why Dense Clusters Outgrow Broad Audiences",
-    excerpt: "Winning 40% of one small neighborhood or industry group beats winning 0.1% of the general public.",
+    title: "Why Dense Communities Outgrow Broad Reach",
+    excerpt: "Winning 40% of one small neighborhood or industry group beats winning 0.1% of the general public. How word-of-mouth compounds in tight groups.",
     date: "Jan 09, 2026",
     tags: ["Systems Infrastructure", "Marketing Game Theory", "Behavioral Logic"],
     content: `
@@ -229,8 +229,8 @@ export const posts: Post[] = [
   },
   {
     slug: "dopamine-economy-meaning-economy",
-    title: "What Comes After Infinite Scroll",
-    excerpt: "Algorithms have automated anticipation. The rarest feeling on the internet now is finishing something and feeling satisfied.",
+    title: "Why Customer Satisfaction Beats Infinite Scroll",
+    excerpt: "Algorithms automate anticipation, leaving users tired instead of satisfied. How Apple, Duolingo, and LEGO build loyalty with clear finish lines.",
     date: "Jan 11, 2026",
     tags: ["Systems Infrastructure", "Data Signals", "Behavioral Logic"],
     content: `
@@ -270,8 +270,8 @@ export const posts: Post[] = [
   },
   {
     slug: "influencer-marketing-measurement-problem",
-    title: "Why Last-Click Attribution Ruins Creator Budgets",
-    excerpt: "Someone sees a creator use a product in January and buys it via Google in March. Last-click gives Google 100% of the credit and fires the creator.",
+    title: "Why Last-Click Attribution Ruins Creator ROI",
+    excerpt: "Buyers see a creator in January and search Google in March. Last-click gives Google 100% of the credit. How to measure real creator lift.",
     date: "Jan 11, 2026",
     tags: ["Influence & Authority", "Data Signals", "Systems Infrastructure"],
     content: `
@@ -304,8 +304,8 @@ export const posts: Post[] = [
   },
   {
     slug: "reach-is-not-influence",
-    title: "Reach Is Not Influence",
-    excerpt: "A creator with 12,000 readers who trust their judgment will outsell a celebrity with 5 million passive viewers almost every time.",
+    title: "Why Follower Count Does Not Predict Sales",
+    excerpt: "A specialist with 12,000 readers who trust their judgment will outsell a celebrity with 5 million passive viewers almost every time.",
     date: "Jan 11, 2026",
     tags: ["Influence & Authority", "Systems Infrastructure"],
     content: `
@@ -338,7 +338,7 @@ export const posts: Post[] = [
   {
     slug: "designing-payoffs",
     title: "What Every User Calculates Before Clicking",
-    excerpt: "Every time you ask a user for an email address or five minutes of attention, they run a silent cost-benefit check. Most funnels fail because the trade is bad.",
+    excerpt: "Every signup form forces a quick cost-benefit check. Most funnels leak because they ask for too much data before giving anything useful back.",
     date: "Jan 11, 2026",
     tags: ["Marketing Game Theory", "Systems Infrastructure"],
     content: `
@@ -370,8 +370,8 @@ export const posts: Post[] = [
   },
   {
     slug: "nike-resonance",
-    title: "How Nike Scales Emotion Without Diluting It",
-    excerpt: "Nike keeps one strict global rule about what an athlete is while letting local teams in Lagos, London, or Tokyo rewrite everything else.",
+    title: "How Nike Scales Global Brand Campaigns",
+    excerpt: "How Nike keeps one strict global rule about what an athlete is while letting city teams in London, Lagos, and Tokyo localize the execution.",
     date: "Jan 11, 2026",
     tags: ["Deconstruction", "Brand Resonance", "Systems Infrastructure"],
     industry: "Retail",
@@ -405,8 +405,8 @@ export const posts: Post[] = [
   },
   {
     slug: "authority-is-a-system-outcome",
-    title: "How Brands Earn Long-Term Trust Through Consistency",
-    excerpt: "Mavi worked with Serenay Sarıkaya and Kıvanç Tatlıtuğ for years instead of swapping faces every quarter. That consistency is how trust compounds.",
+    title: "How Long-Term Brand Ambassadors Build Trust",
+    excerpt: "Mavi worked with Serenay Sarıkaya and Kıvanç Tatlıtuğ for years instead of swapping faces every quarter. Why multi-year deals win.",
     date: "Jan 11, 2026",
     tags: ["Influence & Authority", "Systems Infrastructure"],
     content: `
@@ -437,8 +437,8 @@ export const posts: Post[] = [
   },
   {
     slug: "engineering-meaning-automated-systems",
-    title: "What Automated Marketing Loses First",
-    excerpt: "I spent two weeks comparing Prague and Paris. Booking.com spammed me with Prague car rentals for a month instead of asking what kind of trip I wanted.",
+    title: "Why Most Marketing Automation Feels Like Spam",
+    excerpt: "I compared Prague and Paris for a weekend. Booking.com sent me Prague car rental spam for a month instead of asking what trip I was planning.",
     date: "Jan 11, 2026",
     tags: ["Behavioral Logic", "Data Signals", "Systems Infrastructure"],
     content: `
@@ -470,7 +470,7 @@ export const posts: Post[] = [
   {
     slug: "ethics-of-influence-system-problem",
     title: "Why Bad KPIs Create Dark Patterns",
-    excerpt: "Nobody wakes up wanting to build a deceptive cancellation flow. A VP sets a quarterly churn target without guardrails, and the team builds a trap to hit their bonus.",
+    excerpt: "When a company ties a product team's bonus to a single churn number without guardrails, they build deceptive cancellation flows to hit the goal.",
     date: "Jan 11, 2026",
     tags: ["Behavioral Logic", "Systems Infrastructure"],
     content: `
@@ -500,8 +500,8 @@ export const posts: Post[] = [
   },
   {
     slug: "prisoner-dilemma-attention",
-    title: "The Race to the Bottom in Automated Attention",
-    excerpt: "When one brand starts sending daily push notifications, competitors copy them within a month. Soon everyone sends seven alerts a week and users mute the whole category.",
+    title: "Why Daily Push Notifications Burn Your List",
+    excerpt: "When one retailer sends daily promo texts, competitors copy them within a month. Soon everyone blasts daily alerts and buyers mute them all.",
     date: "Jan 11, 2026",
     tags: ["Marketing Game Theory", "Systems Infrastructure", "Data Signals"],
     content: `
@@ -529,8 +529,8 @@ export const posts: Post[] = [
   },
   {
     slug: "hubspot-utility",
-    title: "How HubSpot Replaced Ads with a Free Tool",
-    excerpt: "HubSpot's Website Grader scored over 4 million websites for free. It brought in qualified leads at near-zero marginal cost while proving what the company knew.",
+    title: "How HubSpot Acquired Leads With a Free Tool",
+    excerpt: "HubSpot's Website Grader scored over 4 million websites for free, generating qualified B2B software leads at near-zero marginal ad cost.",
     date: "Jan 05, 2026",
     tags: ["Deconstruction", "Growth Loops", "Systems Infrastructure"],
     industry: "Technology",
@@ -563,8 +563,8 @@ export const posts: Post[] = [
   },
   {
     slug: "collapse-of-trust-creator-economies",
-    title: "When Creators Burn Their Own Trust Reserves",
-    excerpt: "When a creator promotes a mattress on Monday, a VPN on Wednesday, and a supplement on Friday, their audience stays for the jokes and ignores every link.",
+    title: "How Creators Lose Their Selling Power",
+    excerpt: "When a creator plugs a mattress on Monday, a VPN on Wednesday, and greens on Friday, viewers stay for the jokes and ignore every link.",
     date: "Jan 04, 2026",
     tags: ["Influence & Authority", "Marketing Game Theory", "Systems Infrastructure"],
     content: `
@@ -594,8 +594,8 @@ export const posts: Post[] = [
   },
   {
     slug: "trust-as-long-game",
-    title: "Trust Compounds Faster Than Capital",
-    excerpt: "Hiding a fee or exaggerating a product claim wins one quarter of sales and taxes every ad you run for the next five years.",
+    title: "How Customer Trust Lowers Acquisition Costs",
+    excerpt: "Hiding a checkout fee or exaggerating a product claim wins one quarter of sales and raises your customer acquisition cost for years.",
     date: "Jan 04, 2026",
     tags: ["Marketing Game Theory", "Systems Infrastructure"],
     content: `
@@ -622,8 +622,8 @@ export const posts: Post[] = [
   },
   {
     slug: "marketing-as-game-of-incentives",
-    title: "Stop Rewriting Copy and Fix the Reward Structure",
-    excerpt: "Dropbox grew by giving both friends 500MB of free storage instead of writing more clever banner ads. Behavior changes when the payoff changes.",
+    title: "Why Referral Incentives Beat Better Ad Copy",
+    excerpt: "Dropbox grew from 100,000 to 4 million users by giving both friends 500MB of free storage instead of rewriting banner ads.",
     date: "Jan 03, 2026",
     tags: ["Marketing Game Theory", "Systems Infrastructure"],
     content: `
@@ -650,8 +650,8 @@ export const posts: Post[] = [
   },
   {
     slug: "samsung-multi-tier",
-    title: "How Samsung Sells $150 Phones and $1,800 Phones Under One Name",
-    excerpt: "Most brands that stretch from budget electronics to luxury foldables ruin their pricing power. Samsung separates its innovation halo from its volume business.",
+    title: "How Samsung Sells Budget and Luxury Phones",
+    excerpt: "Samsung sells $160 budget phones and $1,800 foldables under one name. Here is how they keep cheap models from hurting flagship pricing.",
     date: "Jan 03, 2026",
     tags: ["Deconstruction", "Systems Infrastructure", "Brand Resonance"],
     industry: "Electronics",
@@ -681,8 +681,8 @@ export const posts: Post[] = [
   },
   {
     slug: "why-engagement-metrics-lie",
-    title: "Why Engagement Metrics Lie About Influence",
-    excerpt: "Double-tapping a photo takes half a second and costs nothing. Buying a product takes a credit card. Posts optimized for likes rarely drive sales.",
+    title: "Why Social Media Likes Rarely Drive Sales",
+    excerpt: "Double-tapping a photo takes half a second and costs nothing. Buying takes a credit card. Here are four intent signals to track instead.",
     date: "Jan 02, 2026",
     tags: ["Influence & Authority", "Data Signals"],
     content: `
@@ -710,8 +710,8 @@ export const posts: Post[] = [
   },
   {
     slug: "not-everything-should-be-optimized",
-    title: "Why Not Everything Should Be Optimized",
-    excerpt: "Automating every touchpoint saves pennies and makes your company feel like a vending machine. The small unoptimized details are often what people remember.",
+    title: "Why Over-Automating Hurts Customer Loyalty",
+    excerpt: "Automating every touchpoint saves pennies and makes your brand feel like a vending machine. Small human details are what customers remember.",
     date: "Jan 02, 2026",
     tags: ["Behavioral Logic", "Systems Infrastructure"],
     content: `
@@ -739,7 +739,7 @@ export const posts: Post[] = [
   {
     slug: "attention-optimization-suboptimal",
     title: "How Clickbait Slowly Bankrupts a Brand",
-    excerpt: "Aggressive subject lines and pop-ups lift conversions this Tuesday and show up as dead retention numbers eighteen months later.",
+    excerpt: "Dramatic email subject lines and pop-ups lift clicks this Tuesday and show up as dead retention numbers fourteen months later.",
     date: "Jan 01, 2026",
     tags: ["Systems Infrastructure", "Behavioral Logic", "Data Signals"],
     content: `
@@ -764,8 +764,8 @@ export const posts: Post[] = [
   },
   {
     slug: "mcdonalds-glocalization",
-    title: "How McDonald's Balances Global Rules with Local Menus",
-    excerpt: "McDonald's serves 70 million people a day by locking down kitchen operations and real estate while letting local countries invent the McAloo Tikki and Ebi Burger.",
+    title: "How McDonald's Balances Global and Local Menus",
+    excerpt: "McDonald's serves 70 million people a day by standardizing kitchen operations while letting local teams invent the McAloo Tikki and Ebi Burger.",
     date: "Jan 01, 2026",
     tags: ["Deconstruction", "Systems Infrastructure", "Behavioral Logic"],
     industry: "F&B",
@@ -800,8 +800,8 @@ export const posts: Post[] = [
   },
   {
     slug: "influence-as-a-graph",
-    title: "Stop Ranking Creators by Size and Map Who Reads Them",
-    excerpt: "A writer with 8,000 subscribers that include thirty hospital procurement directors moves more medical budgets than a wellness account with 800,000 followers.",
+    title: "Why Audience Job Titles Beat Follower Size",
+    excerpt: "A newsletter with 6,500 readers that include forty Fortune 500 VPs moves more B2B pipeline than a broad account with 500,000 followers.",
     date: "Dec 31, 2025",
     tags: ["Influence & Authority", "Systems Infrastructure"],
     content: `
@@ -828,8 +828,8 @@ export const posts: Post[] = [
   },
   {
     slug: "signal-vs-noise-influencer-intelligence",
-    title: "How to Spot Fake Reach Before You Pay for It",
-    excerpt: "Bot farms and engagement pods can fake 100,000 views for $200. They cannot fake a thirty-word comment asking a specific question about the product.",
+    title: "How to Spot Fake Influencer Engagement",
+    excerpt: "Bot farms and comment pods can fake 100,000 views for $200. Here are four checks to verify real audience attention before you pay.",
     date: "Dec 30, 2025",
     tags: ["Influence & Authority", "Data Signals"],
     content: `
@@ -856,8 +856,8 @@ export const posts: Post[] = [
   },
   {
     slug: "systems-of-resonance",
-    title: "Why Some Brands Feel Alive",
-    excerpt: "Shakira turns stadium parking lots into day-long cultural parks and Andrea Bocelli builds an amphitheater in Tuscany for two nights a year. Selling the whole world around the product is what makes people want to be there.",
+    title: "How Live Events Build Lasting Brand Worlds",
+    excerpt: "How Shakira and Andrea Bocelli turn concerts into multi-day cultural experiences that sell a whole lifestyle rather than just a two-hour ticket.",
     date: "Dec 30, 2025",
     tags: ["Brand Resonance", "Systems Infrastructure"],
     content: `
@@ -884,8 +884,8 @@ export const posts: Post[] = [
   },
   {
     slug: "from-influencers-to-authorities",
-    title: "What Separates an Industry Reference Point from the Sea of Sameness",
-    excerpt: "Record labels tried for years to clone Britney Spears and got a dozen forgotten pop acts. In the creator market, Rand Fishkin and Gary Vaynerchuk escaped the crowd by building real data and agencies behind their names.",
+    title: "How Creators Build Long-Term Industry Standing",
+    excerpt: "Most influencers fade when the algorithm shifts. How Rand Fishkin and Gary Vaynerchuk built lasting companies and data products behind their names.",
     date: "Dec 29, 2025",
     tags: ["Influence & Authority", "Systems Infrastructure"],
     content: `
@@ -910,8 +910,8 @@ export const posts: Post[] = [
   },
   {
     slug: "repeated-games-trust",
-    title: "Why Treating Repeat Customers Like Strangers Ruins Margins",
-    excerpt: "When acquisition costs $80 and first-order profit is $30, squeezing a customer on order one guarantees you lose $50.",
+    title: "Why Repeat-Purchase Math Rules Paid Growth",
+    excerpt: "When customer acquisition costs $80 and first-order profit is $30, squeezing buyers with hidden upsells on order one guarantees you lose money.",
     date: "Dec 29, 2025",
     tags: ["Marketing Game Theory", "Influence & Authority", "Systems Infrastructure"],
     content: `
@@ -938,8 +938,8 @@ export const posts: Post[] = [
   },
   {
     slug: "predicting-influence-decay",
-    title: "How to Spot a Failing Influencer Deal Before It Launches",
-    excerpt: "Cosmetic brands keep signing the same ubiquitous faces who have zero DNA match with their product. You can predict the flop before the contract is signed.",
+    title: "How to Spot a Bad Brand Partnership Early",
+    excerpt: "Cosmetic brands keep signing the same overexposed faces with zero product fit. Four checks to run before booking your next creator campaign.",
     date: "Dec 28, 2025",
     tags: ["Influence & Authority", "Systems Infrastructure"],
     content: `
@@ -968,8 +968,8 @@ export const posts: Post[] = [
   },
   {
     slug: "satisfaction-as-system-outcome",
-    title: "Why Leaving Users Satisfied Beats Keeping Them on the Page",
-    excerpt: "A support page or shopping tool that solves the problem in two minutes and lets the user close the tab builds more loyalty than one that traps them for twenty.",
+    title: "Why Solving User Tasks Fast Beats Time on Site",
+    excerpt: "A product page that answers the buyer's question in thirty seconds builds more loyalty than a cluttered page that traps them for ten minutes.",
     date: "Dec 27, 2025",
     tags: ["Systems Infrastructure", "Behavioral Logic"],
     content: `
@@ -994,8 +994,8 @@ export const posts: Post[] = [
   },
   {
     slug: "completion-vs-engagement",
-    title: "Why the Best Digital Products Have a Finish Line",
-    excerpt: "The New York Times Crossword and Wordle built massive subscription businesses by telling users 'you are done for today' instead of feeding them an infinite scroll.",
+    title: "Why Great Digital Products Have a Finish Line",
+    excerpt: "Wordle and the NYT Crossword built huge subscription habits by telling players 'you are done for today' instead of feeding an endless scroll.",
     date: "Dec 26, 2025",
     tags: ["Systems Infrastructure", "Behavioral Logic"],
     content: `
@@ -1022,8 +1022,8 @@ export const posts: Post[] = [
   },
   {
     slug: "nash-equilibrium-marketing",
-    title: "How Saturated Markets Get Stuck in Mediocrity",
-    excerpt: "Walk down a supermarket aisle or compare five telecom homepages and you will see identical prices and identical promises. Winning requires changing what the category competes on.",
+    title: "How Brands Break Out of Copycat Categories",
+    excerpt: "Compare four telecom or bank websites and you will see identical prices and promises. Winning requires changing what the category competes on.",
     date: "Dec 25, 2025",
     tags: ["Behavioral Logic", "Systems Infrastructure", "Data Signals"],
     content: `
@@ -1048,8 +1048,8 @@ export const posts: Post[] = [
   },
   {
     slug: "attribution-blueprint",
-    title: "How to Measure Marketing After Third-Party Cookies",
-    excerpt: "Tracking every individual user across twelve devices was always a mirage. Combining holdout tests, post-purchase surveys, and media mix models tells you what actually drives revenue.",
+    title: "How to Measure Marketing Without Cookies",
+    excerpt: "Cross-app pixel tracking broke with iOS 14.5. How to combine geo holdout tests, checkout surveys, and media mix modeling to see what works.",
     date: "Dec 23, 2025",
     tags: ["Data Signals", "Systems Infrastructure"],
     content: `
@@ -1074,8 +1074,8 @@ export const posts: Post[] = [
   },
   {
     slug: "behavioral-architecture",
-    title: "Every Screen Has a Default Choice Built In",
-    excerpt: "Countries with opt-out organ donation hit 90% participation while opt-in countries sit near 15%. Every form and pricing page you publish makes a similar default choice for your users.",
+    title: "How Default Choices Shape Buyer Behavior",
+    excerpt: "Opt-out organ donation hits 90% participation while opt-in sits near 20%. How pricing tiers and form defaults shape what customers choose.",
     date: "Dec 22, 2025",
     tags: ["Behavioral Logic", "Systems Infrastructure"],
     content: `
@@ -1107,8 +1107,8 @@ export const posts: Post[] = [
   },
   {
     slug: "algorithmic-growth",
-    title: "Building a Growth Loop That Feeds Itself",
-    excerpt: "Ad arbitrage loopholes close in six months. A real loop uses every new customer's activity to bring in the next customer.",
+    title: "How Product-Led Growth Loops Beat Ad Hacks",
+    excerpt: "Cheap ad loopholes close in eighteen months. How companies like Calendly and SurveyMonkey use normal product usage to bring in the next user.",
     date: "Dec 21, 2025",
     tags: ["Growth Loops", "Behavioral Logic", "Systems Infrastructure"],
     content: `
@@ -1137,8 +1137,8 @@ export const posts: Post[] = [
   },
   {
     slug: "ethical-layer-persuasion",
-    title: "When Persuasion Is Automated, Transparency Wins",
-    excerpt: "AI can now write ten thousand personalized sales emails in a minute. As buyers learn to filter synthetic outreach, plain honesty becomes the hardest signal to fake.",
+    title: "Why Plain Honesty Beats AI Sales Outreach",
+    excerpt: "AI scripts can send ten thousand personalized cold emails before breakfast. As buyers filter out synthetic flattery, plain honesty wins.",
     date: "Dec 20, 2025",
     tags: ["Behavioral Logic", "Data Signals", "Systems Infrastructure"],
     content: `

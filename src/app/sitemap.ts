@@ -4,22 +4,20 @@ import { posts } from '@/lib/posts';
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://olguuysal.com';
 
-    // Articles
     const articleEntries = posts
         .filter(post => !post.tags.includes('Deconstruction'))
         .map((post) => ({
             url: `${baseUrl}/article/${post.slug}`,
-            lastModified: new Date(),
+            lastModified: new Date(`${post.date} UTC`),
             changeFrequency: 'monthly' as const,
             priority: 0.8,
         }));
 
-    // Deconstructions
     const deconstructionEntries = posts
         .filter(post => post.tags.includes('Deconstruction'))
         .map((post) => ({
             url: `${baseUrl}/deconstruction/${post.slug}`,
-            lastModified: new Date(),
+            lastModified: new Date(`${post.date} UTC`),
             changeFrequency: 'monthly' as const,
             priority: 0.7,
         }));
@@ -28,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: baseUrl,
             lastModified: new Date(),
-            changeFrequency: 'daily' as const,
+            changeFrequency: 'weekly' as const,
             priority: 1,
         },
         {
@@ -40,19 +38,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: `${baseUrl}/deconstructions`,
             lastModified: new Date(),
-            changeFrequency: 'weekly' as const,
-            priority: 0.9,
+            changeFrequency: 'monthly' as const,
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/the-perspective`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
         },
         {
             url: `${baseUrl}/about`,
             lastModified: new Date(),
             changeFrequency: 'monthly' as const,
-            priority: 0.5,
+            priority: 0.7,
         },
         {
             url: `${baseUrl}/contact`,
             lastModified: new Date(),
-            changeFrequency: 'monthly' as const,
+            changeFrequency: 'yearly' as const,
             priority: 0.5,
         },
         ...articleEntries,

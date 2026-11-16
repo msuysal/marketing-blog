@@ -4,18 +4,30 @@ import ArticlesPageContent from "./ArticlesContent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Articles | Olgu Uysal",
-    description: "Essays on marketing systems, incentives, creator partnerships, and measurement.",
-    keywords: ["Marketing Essays", "Incentive Design", "Behavioral Economics", "Marketing Measurement", "Creator Economy"],
+    title: "Marketing Strategy & Attribution Articles",
+    description: "Practical articles on influencer marketing measurement, attribution models, customer retention, and pricing strategy by Olgu Uysal.",
     alternates: {
-        canonical: "/articles"
-    }
+        canonical: "https://olguuysal.com/articles"
+    },
+    openGraph: {
+        title: "Marketing Strategy & Attribution Articles | Olgu Uysal",
+        description: "Practical articles on influencer marketing measurement, attribution models, customer retention, and pricing strategy by Olgu Uysal.",
+        url: "https://olguuysal.com/articles",
+        siteName: "Olgu Uysal",
+        type: "website",
+        images: [{
+            url: "https://olguuysal.com/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Marketing Strategy & Attribution Articles | Olgu Uysal"
+        }],
+    },
 };
 
 export default function ArticlesPage() {
     return (
         <div className={styles.pageWrapper}>
-            <Suspense fallback={<div className={styles.loading}>Accessing Articles...</div>}>
+            <Suspense fallback={<div className={styles.loading}>Loading articles...</div>}>
                 <ArticlesPageContent />
             </Suspense>
         </div>

@@ -8,21 +8,26 @@ import SyndicateForm from "@/components/SyndicateForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Marketing System Design | Olgu Uysal",
-  description: "Essays on marketing systems, influence, and how incentives shape behavior. By Olgu Uysal, economist, data scientist, and marketer.",
-  keywords: [
-    "Marketing System Design",
-    "Olgu Uysal",
-    "Influence",
-    "Marketing Strategy",
-    "Incentive Design",
-    "Growth Strategy",
-    "Data Driven Marketing",
-    "Creator Economy"
-  ],
+  title: {
+    absolute: "Marketing Strategy & Growth Essays | Olgu Uysal"
+  },
+  description: "Practical essays on marketing strategy, creator partnerships, attribution, and customer retention by economist and marketer Olgu Uysal.",
   alternates: {
-    canonical: "/"
-  }
+    canonical: "https://olguuysal.com"
+  },
+  openGraph: {
+    title: "Marketing Strategy & Growth Essays | Olgu Uysal",
+    description: "Practical essays on marketing strategy, creator partnerships, attribution, and customer retention by economist and marketer Olgu Uysal.",
+    url: "https://olguuysal.com",
+    siteName: "Olgu Uysal",
+    type: "website",
+    images: [{
+      url: "https://olguuysal.com/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Olgu Uysal - Marketing Strategy & Growth Essays"
+    }],
+  },
 };
 
 export default function Home() {
@@ -35,14 +40,13 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroMain}>
           <h1 className={styles.heroTitle}>
-            Marketing runs on incentives.
-            <span className={styles.dimmed}>Most teams only manage campaigns.</span>
+            Marketing is a system.{" "}
+            <span className={styles.dimmed}>Not a function.</span>
           </h1>
           <div className={styles.heroContent}>
             <p className={styles.heroBody}>
-              I write about how marketing systems work in practice. How incentives shape behavior, how influence moves through networks, and why most budgets fail in the same places.
+              I write about how marketing works in practice. How incentives shape buyer behavior, how creator partnerships actually convert, and why most budgets fail in the same places.
             </p>
-
           </div>
           <Link href="/the-perspective" className={styles.heroCta}>EXPLORE THE PERSPECTIVE &rarr;</Link>
         </div>
@@ -86,20 +90,22 @@ export default function Home() {
             if (index === 1) type = 'feedback';
             if (index === 2) type = 'ltv';
 
+            const postHref = post.tags.includes("Deconstruction") ? `/deconstruction/${post.slug}` : `/article/${post.slug}`;
+
             return (
               <article key={post.slug} className={styles.card}>
-                <Link href={post.tags.includes("Deconstruction") ? `/deconstruction/${post.slug}` : `/article/${post.slug}`} className={styles.cardImageLink} aria-hidden="true" tabIndex={-1}>
+                <div className={styles.cardImageLink} aria-hidden="true">
                   <GridIllustration type={type} />
-                </Link>
+                </div>
                 <div className={styles.cardTop}>
                   <span className={styles.cardTag}>{post.tags[0]}</span>
                   <span className={styles.cardDate}>{post.date}</span>
                 </div>
                 <h3 className={styles.cardTitle}>
-                  <Link href={post.tags.includes("Deconstruction") ? `/deconstruction/${post.slug}` : `/article/${post.slug}`}>{post.title}</Link>
+                  <Link href={postHref}>{post.title}</Link>
                 </h3>
                 <p className={styles.cardExcerpt}>{post.excerpt}</p>
-                <Link href={post.tags.includes("Deconstruction") ? `/deconstruction/${post.slug}` : `/article/${post.slug}`} className={styles.cardCta}>Read Article &rarr;</Link>
+                <Link href={postHref} className={styles.cardCta} aria-label={post.title}>Read Article &rarr;</Link>
               </article>
             );
           })}
@@ -111,7 +117,7 @@ export default function Home() {
           <div className={styles.newsletterImage}>
             <Image
               src="/newsletter-illustration.png"
-              alt="Marketing Systems Architecture Illustration"
+              alt="Newsletter illustration"
               width={600}
               height={400}
               style={{ objectFit: 'contain' }}
@@ -124,6 +130,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div >
+    </div>
   );
 }

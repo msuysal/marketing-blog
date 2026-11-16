@@ -27,28 +27,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!post) return { title: "Not Found" };
 
     const url = `https://olguuysal.com/deconstruction/${post.slug}`;
+    const isoDate = new Date(`${post.date} UTC`).toISOString().split("T")[0];
 
     return {
         title: post.title,
         description: post.excerpt,
-        keywords: post.tags,
         alternates: {
             canonical: url,
         },
         openGraph: {
-            title: post.title,
+            title: `${post.title} | Olgu Uysal`,
             description: post.excerpt,
             url: url,
-            siteName: "Marketing System Design",
+            siteName: "Olgu Uysal",
             type: "article",
-            publishedTime: post.date,
+            publishedTime: isoDate,
             authors: ["Olgu Uysal"],
             tags: post.tags,
+            images: [{
+                url: "https://olguuysal.com/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: post.title
+            }],
         },
         twitter: {
             card: "summary_large_image",
-            title: post.title,
+            title: `${post.title} | Olgu Uysal`,
             description: post.excerpt,
+            images: ["https://olguuysal.com/og-image.png"],
         },
     };
 }
@@ -67,32 +74,34 @@ export default async function BlogPost({ params }: Props) {
     }
 
     const shareUrl = `https://olguuysal.com/deconstruction/${post.slug}`;
-    const shareText = `"${post.title}" - Essays on influence, behavioral logic, and marketing systems.`;
+    const shareText = `"${post.title}" by Olgu Uysal`;
+    const isoDate = new Date(`${post.date} UTC`).toISOString().split("T")[0];
 
-    const blogPostingSchema = {
+    const articleSchema = {
         "@context": "https://schema.org",
-        "@type": "BlogPosting",
+        "@type": "Article",
         "headline": post.title,
         "description": post.excerpt,
+        "datePublished": isoDate,
         "author": {
             "@type": "Person",
             "name": "Olgu Uysal",
-            "url": "https://www.linkedin.com/in/olguuysal/"
+            "url": "https://olguuysal.com",
+            "sameAs": [
+                "https://linkedin.com/in/olguuysal",
+                "https://www.linkedin.com/in/olguuysal/"
+            ]
         },
-        "datePublished": post.date,
         "url": shareUrl,
+        "image": "https://olguuysal.com/og-image.png",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": shareUrl
         },
-        "keywords": post.tags.join(", "),
         "publisher": {
-            "@type": "Organization",
-            "name": "Marketing System Design",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://olguuysal.com/og-image.png"
-            }
+            "@type": "Person",
+            "name": "Olgu Uysal",
+            "url": "https://olguuysal.com"
         }
     };
 
@@ -110,7 +119,7 @@ export default async function BlogPost({ params }: Props) {
         <article className={styles.container}>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
             />
             <Link href="/deconstructions" className={styles.backToIndex}>
                 ← Back to Deconstructions
@@ -166,7 +175,7 @@ export default async function BlogPost({ params }: Props) {
 
             <section className={styles.relatedSection}>
                 <div className={styles.relatedHeader}>
-                    <h3>Related Intelligence</h3>
+                    <h3>Related Case Studies</h3>
                     <div className={styles.relatedDivider}></div>
                 </div>
                 <div className={styles.relatedGrid}>

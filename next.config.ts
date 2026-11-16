@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   turbopack: {
     root: __dirname,
   },
@@ -22,23 +21,34 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: 'host',
+            value: 'www.olguuysal.com',
+          },
+        ],
+        destination: 'https://olguuysal.com/:path*',
+        statusCode: 301,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
             value: 'marketing-blog-teal.vercel.app',
           },
         ],
         destination: 'https://olguuysal.com/:path*',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/knowledge-base',
         destination: '/articles',
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: '/blog/:slug',
         destination: '/article/:slug',
-        permanent: true,
+        statusCode: 301,
       },
-    ]
+    ];
   },
 };
 
