@@ -21,10 +21,17 @@ export default function HomeClient() {
             <section className={styles.hero}>
                 <div className={styles.heroMain}>
                     <h1 className={styles.heroTitle}>
-                        {lang === "tr" ? "Pazarlama bir sistem tasarımı." : "Marketing is a system."}{" "}
-                        <span className={styles.dimmed}>
-                            {lang === "tr" ? "Kampanya yönetimi değil." : "Not a function."}
-                        </span>
+                        {lang === "tr" ? (
+                            <>
+                                Pazarlama bir{" "}
+                                <span className={styles.dimmed}>sistem tasarımı.</span>
+                            </>
+                        ) : (
+                            <>
+                                Marketing is{" "}
+                                <span className={styles.dimmed}>system design.</span>
+                            </>
+                        )}
                     </h1>
                     <div className={styles.heroContent}>
                         <p className={styles.heroBody}>
