@@ -21,16 +21,16 @@ export default function HomeClient() {
             <section className={styles.hero}>
                 <div className={styles.heroMain}>
                     <h1 className={styles.heroTitle}>
-                        {lang === "tr" ? "Pazarlama bir sistem işi." : "Marketing is a system."}{" "}
+                        {lang === "tr" ? "Pazarlama bir sistem tasarımı." : "Marketing is a system."}{" "}
                         <span className={styles.dimmed}>
-                            {lang === "tr" ? "Kampanya işi değil." : "Not a function."}
+                            {lang === "tr" ? "Kampanya yönetimi değil." : "Not a function."}
                         </span>
                     </h1>
                     <div className={styles.heroContent}>
                         <p className={styles.heroBody}>
                             {lang === "tr"
-                                ? "Markaların nasıl büyüdüğünü ve bütçelerin nerede yandığını yazıyorum. İnsanların neye ikna olduğunu, hangi iş birliklerinin gerçekten satış getirdiğini ve çoğu kampanyanın neden aynı yerde takıldığını inceliyorum."
-                                : "I write about how marketing works in practice. How incentives shape buyer behavior, how creator partnerships actually convert, and why most budgets fail in the same places."}
+                                ? "Veri bilimi, insan davranışı ve ekonomik modellerin pazarlamayı nasıl şekillendirdiğini yazıyorum. İnsanların neye göre karar verdiğini, kurulan yapıların büyümeyi nasıl yönlendirdiğini ve markaların neden hep aynı yerde takıldığını inceliyorum."
+                                : "I write about how data science, human behavior, and economic models shape marketing. How people actually make decisions, how incentives drive growth, and why most budgets fail in the same places."}
                         </p>
                     </div>
                     <Link href="/the-perspective" className={styles.heroCta}>

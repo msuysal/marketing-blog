@@ -16,8 +16,8 @@ const Footer = () => {
                     </div>
                     <p className={styles.tagline}>
                         {lang === "tr"
-                            ? "Marka stratejisi, büyüme ve tüketici davranışı üzerine notlar."
-                            : "Essays on incentives, influence, and marketing systems."}
+                            ? "Veri bilimi, insan davranışı ve ekonomik modeller ekseninde pazarlama yazıları."
+                            : "Essays on data science, human behavior, and economic models in marketing."}
                     </p>
                     <a href="https://www.linkedin.com/in/olguuysal/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
                         LinkedIn

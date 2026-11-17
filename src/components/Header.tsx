@@ -54,8 +54,8 @@ const Header = () => {
                                 </span>
                                 <span className={styles.logoSubtitle}>
                                     {lang === "tr"
-                                        ? "Marka stratejisi, büyüme ve tüketici davranışı üzerine notlar"
-                                        : "Essays on marketing strategy, incentives, and growth"}
+                                        ? "Veri bilimi, insan davranışı ve ekonomik modeller ekseninde pazarlama"
+                                        : "Essays on data science, human behavior, and economic models in marketing"}
                                 </span>
                             </div>
                         </Link>
